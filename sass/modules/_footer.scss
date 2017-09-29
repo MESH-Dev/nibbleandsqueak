@@ -1,0 +1,48 @@
+footer{
+	background-color:$grey;
+	//padding:0 15px;
+
+	ul{
+		li{
+			a{
+				color:$dark_gray;
+			}
+		}
+	}
+
+	.nav-title{
+		font-size:1.2em;
+		text-transform:uppercase;
+		color:$title_black;
+		@include brandon-black;
+	}
+
+	.footer-navs,
+	.tagline{
+		padding:0 15px;
+	}
+
+	.tagline{
+		background-color:$periwinkle;
+
+		.signature{
+			text-align:right;
+
+		}
+
+		@media only screen and ($bp-smaller-than-tablet){
+			.signature,
+			.info{
+				text-align:center;
+			}
+		}
+	}
+
+}
+
+.sub-title{
+	font-size:1.2em;
+	text-transform:uppercase;
+	color:$title_black;
+	@include brandon-black;
+}

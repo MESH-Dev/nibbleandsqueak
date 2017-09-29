@@ -1,0 +1,211 @@
+//__ General
+
+img{
+  max-width:100%;
+  height:auto;
+}
+
+.banner{
+	height:400px;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position: center center;
+  position:relative;
+  .wrap{
+    display:table;
+    height:100%;
+    width:100%;
+    text-align:center;
+    .content{
+      display:table-cell;
+      vertical-align:middle;
+    }
+  }
+
+  .banner-subtitle{
+    color:$white;
+    @include brandon-black;
+    font-size:1.6em;
+  }
+  .gateway{
+    background-color:$white;
+    width:75%;
+    margin:0 auto;
+  }
+}
+
+.is_rounded{
+  border-radius:10px;
+  img{
+    border-radius:10px;
+  }
+}
+
+.is_clipped{
+
+}
+
+.has_border{
+  border-bottom-width:5px;
+  border-bottom-style:solid;
+  &.periwinkle{
+    border-bottom-color:$periwinkle;
+  }
+}
+
+//__ Homepage
+
+$bubble_size: 70px;
+$bubble_size2x: $bubble_size * 2;
+
+.cta-bubble{
+  position:absolute;
+  background-color:$periwinkle;
+  top:0;
+  right:2em;
+  border-radius: 0 0 $bubble_size2x $bubble_size2x;
+  height:$bubble_size;
+  width:$bubble_size2x;
+  .bubble{
+    text-align: center;
+    width:95%;
+    margin:0 auto;
+    padding-top:1em;
+  }
+}
+
+.amenity-icon{
+  width:60%;
+  margin:0 auto;
+  border-radius:50%;
+  //at center value should be 50% of width
+  clip-path: circle(30% at center);
+}
+
+.featured-article{
+  padding-right:15px;
+  margin-bottom:2rem;
+  position:relative;
+    @media onlly screen and ($bp-smaller-than-tablet){
+      padding:0;
+      width:95%;
+      margin:0 auto;
+    }
+    .content{
+      position:absolute;
+      bottom:0;
+      width:100%;
+
+    }
+  
+}
+
+.featured-article,
+.map-callout{
+  height:400px;
+}
+
+.nibble-featured{
+  .featured-article{
+
+  }
+}
+
+.amenities{
+  ul{
+    li{
+      display:inline-block;
+      float:left;
+      list-style-type:none;
+      text-align:center;
+      //width:100px;
+      width:12%;
+    }
+  }
+}
+
+// .nibble-featured{
+//   .article{
+
+//   }
+// }
+
+//__ Map Page
+
+#map{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	width: 150%;
+	z-index: 0;
+	transition: width 0.4s ease-in-out;
+}
+
+//__Accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+//__WordPress Core
+
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+p img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+p img.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+p img.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+p img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
