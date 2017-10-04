@@ -1,4 +1,8 @@
 header{
+	background-color:$white;
+	padding:0 15px;
+	position:relative;
+	z-index:10;
 	.logo,
 	.funnel,
 	nav{
@@ -6,11 +10,39 @@ header{
 		float:left;
 	}
 
+	.funnel,
+	.main-navigation{
+		display:table;
+		width:30%;
+		.wrap{
+			display:table-cell;
+			vertical-align: middle;
+		}
+		@media only screen and ($bp-smaller-than-tablet){
+			width:50%;
+		}
+	}
+
 	.logo{
-		max-width:50px;
+		width:40%;
+		text-align:center;
+		@media only screen and ($bp-smaller-than-tablet){
+			position:absolute;
+		}
+		.site-title{
+			max-width:120px;
+			display: inline-block;
+			transition:all .4s ease-in-out;
+		}
+		
+
 	}
 
 	.main-navigation{
+		text-align:right;
+	ul{
+		display:inline-block;
+
 		li{
 			display:inline-block;
 			float:left;
@@ -26,6 +58,36 @@ header{
 				&:active{
 					text-decoration:underline;
 				}
+			}
+		}
+
+		&.social-nav{
+			li{
+				margin-left:1em;
+			}
+		}
+	}
+	}
+
+	.city-dropdown{
+		
+		list-style-type: none;
+		li{
+			position:relative;
+			list-style-type:none;
+			.sub-menu{
+				position:absolute;
+				left:-99999px;
+				border:1px solid $periwinkle
+			}
+
+			&:hover,
+			&:active,
+			&:focus{
+				.sub-menu{
+					left:0;
+				}
+				
 			}
 		}
 	}

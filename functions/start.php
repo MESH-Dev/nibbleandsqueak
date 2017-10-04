@@ -7,6 +7,7 @@
 //enqueue scripts and styles *use production assets. Dev assets are located in  /css and /js
 function loadup_scripts() {
 	wp_enqueue_script( 'theme-js', get_template_directory_uri().'/js/mesh.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'geolocation-js', get_template_directory_uri().'/js/geolocation.js', array('jquery'), '1.0.0', true );
     if(is_page_template("templates/template-map.php")){
         wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCbX_dvIvIBOUlSTYKA5lYPUHUkBAN-lb4', array('jquery'), '1.0.0', true );
         wp_enqueue_script( 'cluster', '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array('jquery'), '1.0.0', true );
@@ -60,9 +61,50 @@ if( function_exists('acf_add_options_page') ) {
     
 }
 
+function get_split_nav($menu_name=null, $raw=false){
+//Get our menu object
+$menu_name = 'events_nav';
+
+     //Check to see if our menu object exists and is set
+     if(($locations = get_nav_menu_locations()) && isset($locations[$menu_name])){
+          $menu = wp_get_nav_menu_object($locations[$menu_name]);
+          //$count = count($menu);
+          //var_dump($count);
+          $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+          //Create a new array with just the top level objects
+          $newMenu = array();
+          //$cnt=0;
+          foreach($menu_items as $item){
+               if($item->menu_item_parent != 0) continue;
+               //$cnt++;
+               array_push($newMenu, $item);
+          }
+
+          //Split menu array in half
+          $len = count($newMenu);
+          
+          if($len > 8){
+              $firsthalf = array_slice($newMenu, 0, $len / 2);
+              $secondhalf = array_slice($newMenu, $len / 2);
+
+              //Create left menu
+              echo '<div id="eventMenuLeft"><ul>';
+              foreach($firsthalf as $item){
+                   echo "<li><a href='".$item->url."'>".$item->title."</a></li>";
+              }
+              echo '</ul></div>'; ?>
 
 
-
+              <?php //Create right menu
+              echo '<div id="eventMenuRight"><ul>';
+              foreach($secondhalf as $item){
+                   echo "<li><a href='".$item->url."'>".$item->title."</a></li>";
+              }
+              echo '</ul></div>';
+          }
+    }
+}
 
 
 ?>

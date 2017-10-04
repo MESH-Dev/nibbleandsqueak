@@ -5,11 +5,113 @@ img{
   height:auto;
 }
 
+.is_rounded{
+  border-radius:15px;
+  img{
+    border-radius:15px;
+  }
+}
+
+.left_rounded{
+  border-radius:15px 0 0 15px;
+  img{
+    border-radius:15px 0 0 15px;
+  }
+}
+.right_rounded{
+  border-radius:0 15px 15px 0;
+  img{
+    border-radius:0 15px 15px 0;
+  }
+}
+
+.is_clipped{
+
+}
+
+.border-wrap{
+  position:relative;
+  overflow: hidden;
+  img{
+    display:block;
+  }
+}
+
+.border{
+  height: 10px;
+  position: absolute;
+  right:0;
+  bottom: 0;
+  width: 100%;
+  z-index: 5;
+  background-color:$periwinkle;
+}
+
+.has_gradient{
+  background: rgba(187,203,255,1);
+  background: -moz-linear-gradient(left, rgba(187,203,255,1) 0%, rgba(234,240,255,1) 60%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(187,203,255,1)), color-stop(60%, rgba(234,240,255,1)), color-stop(100%, rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(left, rgba(187,203,255,1) 0%, rgba(234,240,255,1) 60%, rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(left, rgba(187,203,255,1) 0%, rgba(234,240,255,1) 60%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(left, rgba(187,203,255,1) 0%, rgba(234,240,255,1) 60%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to right, rgba(187,203,255,1) 0%, rgba(234,240,255,1) 60%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbcbff', endColorstr='#ffffff', GradientType=1 );
+}
+
+.fixed{
+  position:fixed;
+  top:0;
+  z-index: 100;
+  width:100%;
+}
+
+.has_border{
+  border-bottom-width:5px;
+  border-bottom-style:solid;
+  &.periwinkle{
+    border-bottom-color:$periwinkle;
+  }
+}
+
+.separator{
+
+  padding:4em 15px 4em 0 ;
+  margin:0 15px 0 0;
+  background-repeat-y:no-repeat;
+  background-repeat-x:repeat;
+  height:50px;
+  background-position:center center;
+  background-image:url('img/separator.svg');
+  @media only screen and ($bp-smaller-than-mobile){
+    width:95%;
+    margin:0 auto;
+  }
+  :after{
+    content:'';
+  }
+}
+
+// .row{
+//   margin-bottom:2em;
+//   &.tagline,
+//   &.amenities,
+//   &.head{
+//     margin:0 0 0 0;
+//   }
+// }
+
+.post-title,
+.post-subtitle{
+  margin:0;
+}
+
+//__ Homepage/City Specific Landing page
+
 .banner{
-	height:400px;
-	background-repeat:no-repeat;
-	background-size:cover;
-	background-position: center center;
+  height:400px;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position: center center;
   position:relative;
   .wrap{
     display:table;
@@ -29,31 +131,12 @@ img{
   }
   .gateway{
     background-color:$white;
-    width:75%;
+    width:60%;
     margin:0 auto;
-  }
-}
-
-.is_rounded{
-  border-radius:10px;
-  img{
+    padding:1em 0;
     border-radius:10px;
   }
 }
-
-.is_clipped{
-
-}
-
-.has_border{
-  border-bottom-width:5px;
-  border-bottom-style:solid;
-  &.periwinkle{
-    border-bottom-color:$periwinkle;
-  }
-}
-
-//__ Homepage
 
 $bubble_size: 70px;
 $bubble_size2x: $bubble_size * 2;
@@ -74,70 +157,300 @@ $bubble_size2x: $bubble_size * 2;
   }
 }
 
-.amenity-icon{
-  width:60%;
-  margin:0 auto;
-  border-radius:50%;
-  //at center value should be 50% of width
-  clip-path: circle(30% at center);
+.city{
+  @include brandon-black;
+  font-size:1.2em;
+  text-transform:uppercase;
+  color:$periwinkle;
 }
 
 .featured-article{
-  padding-right:15px;
-  margin-bottom:2rem;
+  //padding-right:15px;
+  //padding:1em;
+  //margin-bottom:2rem;
   position:relative;
+
+  &.featured{
+    padding:1em;
+
+    .post-title,
+    .post-subtitle{
+      color:$white;
+      margin:0;
+      //margin-bottom:10px;
+    }
+
+    .city{
+      //color:$white;
+    }
+  }
     @media onlly screen and ($bp-smaller-than-tablet){
       padding:0;
       width:95%;
       margin:0 auto;
     }
+
+    .post-title{
+      font-size:3.4rem;
+      //color:$white;
+      text-transform:uppercase;
+      @include brandon-black;
+    }
+
+    .post-subtitle{
+      font-size:1.6rem;
+      //color:$white;
+      text-transform:uppercase;
+      @include brandon-black;
+    }
     .content{
       position:absolute;
-      bottom:0;
+      bottom:1.5em;
       width:100%;
 
     }
   
 }
 
-.featured-article,
+.featured-article.featured,
 .map-callout{
   height:400px;
 }
 
-.nibble-featured{
-  .featured-article{
+.map-callout{
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:15px center;
 
-  }
 }
 
-.amenities{
-  ul{
-    li{
-      display:inline-block;
-      float:left;
-      list-style-type:none;
-      text-align:center;
-      //width:100px;
-      width:12%;
+.nibble-featured{
+  .featured-article{
+    .border-wrap{
+      margin-bottom:1em;
+    }
+    .post-title{
+      font-size:2.4rem;
+      @include brandon-black;
+      text-transform:uppercase;
     }
   }
 }
 
-// .nibble-featured{
-//   .article{
+.reviews{
+  .restaurant-review{
+    //position:relative;
+    cursor:pointer;
 
-//   }
-// }
+    img{
+      display: block;
+    }
+
+    .review-hover{
+      position:relative;
+      overflow: hidden;
+      margin-bottom:10px;
+      .wrap{
+        display:table;
+        width:100%;
+        height:100%;
+        text-align:center;
+        .content{
+          display:table-cell;
+          vertical-align: middle;
+          height:100%;
+
+          span{
+            @include brandon-black;
+            font-size:1.6em;
+            text-transform: uppercase;
+          }
+        }
+      }
+      &:hover,
+      &:focus,
+      &:active{
+      .hover{
+        display:block;
+      }
+      
+      }
+    }
+    
+    .hover{
+      display:none;
+      position:absolute;
+      top:0;
+      width:100%;
+      height:100%;
+      background-color:rgba(80,227,194, .6);
+    }
+    .post-title{
+      font-size:2.4rem;
+      @include brandon-black;
+      text-transform:uppercase;
+    }
+  }
+}
+
+.amenities{
+  width:95%;
+  //margin:0 auto;
+  text-align:center;
+  margin:2em auto;
+
+  .amenity-icon{
+    width:30%;
+    margin:0 auto;
+    border-radius:50%;
+    cursor:pointer;
+    svg{
+      margin-bottom:.5em;
+      .oval{
+        transition:all .2s ease-in-out;
+      }
+    }
+    
+    //at center value should be 50% of width
+    //clip-path: circle(30% at center);
+    &:hover,
+    &:active,
+    &:focus{
+      //background-color:red;
+      svg {
+
+        .oval{
+          fill:$white;
+        }
+      }
+    }
+  }
+  ul{
+    li{
+      display:inline-block;
+      list-style-type:none;
+      text-align:center;
+      //8 count width:
+      //width:12%;
+      //7 count width:
+      width:14%;
+      margin-bottom:0;
+      @media only screen and ($bp-smaller-than-tablet){
+        width:30%;
+      }
+       @media only screen and ($bp-smaller-than-mobile){
+        width:49%;
+      }
+    }
+  }
+  h2{
+    margin-bottom:0;
+     @media only screen and ($bp-smaller-than-mobile){
+        font-size:1.6em;
+        margin-bottom:1em;
+      }
+  }
+}
+
+.landscape{
+  padding:1em;
+  h2{
+    text-transform:uppercase;
+    @include brandon-black;
+    font-size:2.4em; 
+    margin:0;
+  }
+  h2,.content{
+    display:inline-block;
+    width:48%;
+    float:left;
+
+    @media only screen and ($bp-smaller-than-tablet){
+      width:95%;
+      margin:0 auto;
+    }
+  }
+}
+
+.event-button{
+  width:95%;
+  margin:0 auto;
+  border:1px solid $periwinkle;
+  a{
+    padding:5px 10px;
+  }
+}
+
+.email-signup{
+  input{
+    border:none;
+    border-bottom:1px solid $title_black;
+  }
+
+  input,
+  button{
+    display:inline-block;
+  }
+}
 
 //__ Map Page
+
+main.map-page{
+  min-height:100vh;
+}
+
+.locations{
+  height:100vh;
+  overflow:auto;
+  background:$white;
+  position:absolute;
+  z-index:6;
+  padding:0 15px;
+
+  .map-listing{
+    height:200px; 
+    width:95%; 
+    margin:1em auto;
+
+     .map-listing-content,
+     .listing-image{
+      display:inline-block; 
+      float:left; 
+    }
+
+    .map-listing-content{
+      padding:15px 10px; 
+      width:60%; 
+      height:100%; 
+      background-color:$grey; 
+      display:inline-block; 
+      float:left;
+    }
+
+    .listing-image{
+      height:100%; 
+      display:inline-block; 
+      float:left; 
+      height:100%; 
+      width:40%; 
+      background-repeat:no-repeat; 
+      background-size:cover;
+      background-position:center center;
+      //background-image:url('<?php bloginfo('template_directory'); ?>/img/featured-image.png;
+    }
+  }
+
+}
+
+
 
 #map{
 	position: absolute;
 	left: 0;
 	top: 0;
 	height: 100vh;
-	width: 150%;
+	//width: 150%;
+  width:100%;
 	z-index: 0;
 	transition: width 0.4s ease-in-out;
 }

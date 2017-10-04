@@ -42,45 +42,67 @@
 <body <?php body_class(); ?>>
  
 	<header>
-		<div class="container">
-			<div class="row">
+		<div class=""><!-- container -->
+			<div class="row head">
 				<div class="funnel">
-					<input type="text" placeholder="Cities">
-					<input type="search"> 
+					<div class="wrap">
+					<!-- <input type="text" placeholder="Cities" id="city"> -->
+						<ul class="city-dropdown">
+							<li ><span id="city"></span>
+								<ul class="sub-menu">
+									<?php 
+										$cities = get_the_terms('city'); 
+										foreach($cities as $city){
+											?>
+											<li><?php echo $city->name; ?></li>
+										<?php } ?>
+								</ul>
+							</li>
+						</ul>
+						<div class="search-form">
+							<?php get_template_part('partials/searchform') ?>
+						</div>
+					</div>
 				</div>
 				<!-- <div class="columns-12"> -->
-					<div class="logo">
-						<h1 class="site-title">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<img src="<?php bloginfo('template_directory'); ?>/img/logo.svg">
-							</a>
-						</h1>
+				<div class="logo">
+					<h1 class="site-title">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<img src="<?php bloginfo('template_directory'); ?>/img/logo.png">
+						</a>
+					</h1>
+				</div>
+				<nav class="main-navigation">
+					<div class="wrap">
+					<?php if(has_nav_menu('main_nav')){
+								$defaults = array(
+									'theme_location'  => 'main_nav',
+									'menu'            => 'main_nav',
+									'container'       => false,
+									'container_class' => '',
+									'container_id'    => '',
+									'menu_class'      => 'menu',
+									'menu_id'         => '',
+									'echo'            => true,
+									'fallback_cb'     => 'wp_page_menu',
+									'before'          => '',
+									'after'           => '',
+									'link_before'     => '',
+									'link_after'      => '',
+									'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									'depth'           => 0,
+									'walker'          => ''
+								); wp_nav_menu( $defaults );
+							}else{
+								echo "<p><em>main_nav</em> doesn't exist! Create it and it'll render here.</p>";
+							} ?>
+					<ul class="social-nav">
+						<li><a href="#"><i class="fa fa-fw fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-fw fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-fw fa-instagram"></i></a></li>
+					</ul>
 					</div>
-					<nav class="main-navigation">
-						<?php if(has_nav_menu('main_nav')){
-									$defaults = array(
-										'theme_location'  => 'main_nav',
-										'menu'            => 'main_nav',
-										'container'       => false,
-										'container_class' => '',
-										'container_id'    => '',
-										'menu_class'      => 'menu',
-										'menu_id'         => '',
-										'echo'            => true,
-										'fallback_cb'     => 'wp_page_menu',
-										'before'          => '',
-										'after'           => '',
-										'link_before'     => '',
-										'link_after'      => '',
-										'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-										'depth'           => 0,
-										'walker'          => ''
-									); wp_nav_menu( $defaults );
-								}else{
-									echo "<p><em>main_nav</em> doesn't exist! Create it and it'll render here.</p>";
-								} ?>
-					</nav>
-				<!-- </div> -->
+				</nav>
 			</div>
 		</div>
 	</header>

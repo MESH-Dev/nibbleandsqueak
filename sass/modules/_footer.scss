@@ -1,11 +1,16 @@
 footer{
 	background-color:$grey;
+	
 	//padding:0 15px;
 
 	ul{
+		list-style-type: none;
 		li{
+			list-style-type: none;
 			a{
 				color:$dark_gray;
+				font-size:1.2em;
+				text-transform:uppercase;
 			}
 		}
 	}
@@ -15,15 +20,24 @@ footer{
 		text-transform:uppercase;
 		color:$title_black;
 		@include brandon-black;
+		margin:0;
+		margin-bottom:1em;
 	}
 
-	.footer-navs,
-	.tagline{
-		padding:0 15px;
+	.footer-navs{
+		padding:2em 1.5em;
 	}
 
 	.tagline{
 		background-color:$periwinkle;
+		padding:1em 1.5em;
+
+		p{
+			padding:0;
+			margin:0;
+			@include brandon-black;
+			text-transform:uppercase;
+		}
 
 		.signature{
 			text-align:right;
@@ -37,7 +51,11 @@ footer{
 			}
 		}
 	}
-
+	#eventMenuLeft,
+	#eventMenuRight{
+		display:inline-block;
+		margin-right:4em;
+	}
 }
 
 .sub-title{

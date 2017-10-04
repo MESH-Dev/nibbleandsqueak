@@ -22,7 +22,9 @@ $max-width: 1200px;
 .container{
 	max-width: $max-width;
 	margin:  0 auto;
- 
+ 	@media only screen and ($bp-smaller-than-tablet){
+ 		width:95%
+ 	}
 }
 
 .row {
@@ -70,14 +72,14 @@ $max-width: 1200px;
 	float: left;
 	padding-right: $pad;
 
-	.row &:last-of-type {
+	.row:not(.fix_pad) &:last-of-type {
 		padding-right: 0;
 	}
 
 	@media($bp-smaller-than-tablet) {
 	    width: 100%;
 	    padding: 0;
-	  
+	  	padding-bottom:1.5em;
 	}
  
 }
