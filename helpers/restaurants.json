@@ -1,0 +1,62 @@
+[
+    {
+        "location_id": "4be442ac7e2a76b0aaab1c9b",
+        "title": "Pies &#038; Pints",
+        "response": false
+    },
+    {
+        "location_id": "",
+        "title": "Restaurant 1",
+        "response": false
+    },
+    {
+        "location_id": "",
+        "title": "Restaurant 10",
+        "response": false
+    },
+    {
+        "location_id": "",
+        "title": "Restaurant 2",
+        "response": false
+    },
+    {
+        "location_id": "",
+        "title": "Restaurant 3",
+        "response": false
+    },
+    {
+        "location_id": "",
+        "title": "Restaurant 4",
+        "response": false
+    },
+    {
+        "location_id": "",
+        "title": "Restaurant 5",
+        "response": false
+    },
+    {
+        "location_id": "",
+        "title": "Restaurant 6",
+        "response": false
+    },
+    {
+        "location_id": "",
+        "title": "Restaurant 7",
+        "response": false
+    },
+    {
+        "location_id": null,
+        "title": "Restaurant 8",
+        "response": false
+    },
+    {
+        "location_id": null,
+        "title": "Restaurant 9",
+        "response": false
+    },
+    {
+        "location_id": "4b50add8f964a520102d27e3",
+        "title": "Taylor Books",
+        "response": false
+    }
+]

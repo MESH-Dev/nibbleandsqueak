@@ -219,7 +219,7 @@ add_action( 'init', 'neighborhood_tax', 0 );
 add_action('init', 'amenity_register_meta');
         function amenity_register_meta(){
             //register_meta('term', 'icon','' );
-            register_meta('term', 'meta-image');
+            register_meta('term', 'meta-image', '');
         }
 
 add_action( 'amenity_add_form_fields', 'amenity_new_term_field' ); 
