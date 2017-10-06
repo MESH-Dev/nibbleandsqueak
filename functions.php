@@ -27,45 +27,45 @@ function pluginname_ajaxurl() {
     }
 
 // Updates the map with new or updated listings on listing post-type update
-function update_restaurant_map( $post_id, $r_response ) {
+function update_restaurant_map( $post_id ) {
 
     $post_type = get_post_type($post_id);
+    $r_id = get_field('location_id', $post_id);
+    $data = get4S_data($r_id); 
 
     if("restaurant" != $post_type){ return; }
     else{
         $arr = array();
 
-        $args = array(
-          'post_type' => 'restaurant',
-          'posts_per_page'=> -1,
-          'post_status' => 'publish',
-          'orderby' => 'title',
-          'order' => 'asc'
-        );
+        // $args = array(
+        //   'post_type' => 'restaurant',
+        //   'posts_per_page'=> -1,
+        //   'post_status' => 'publish',
+        //   'orderby' => 'title',
+        //   'order' => 'asc'
+        // );
 
-        query_posts( $args );
+        //query_posts( $args );
 
-        while (have_posts()) { the_post();
+        //while (have_posts()) { the_post();
           //Save the post ID to a variable
-          $p_id = get_the_ID();
-
-
-
-          //Get post info to save to our json file
-          $title = get_the_title();
-          GLOBAL $post;
-          $slug = $post->post_name;
-          $r_id = get_field('location_id', $p_id);
-          $address = get_field('street_address',$p_id);
-          $city = get_field('city',$p_id);
-          $phone = get_field('phone_number',$p_id);
-          $website = get_field('web_address',$p_id);
-          $zip = get_field('zip',$p_id);
+          // $post_id = get_the_ID();
+          // $the_id = (string)$p_id;
+          // //Get post info to save to our json file
+          // $title = get_the_title();
+          // GLOBAL $post;
+          // $slug = $post->post_name;
+          
+          // $address = get_field('street_address',$p_id);
+          // $city = get_field('city',$p_id);
+          // $phone = get_field('phone_number',$p_id);
+          // $website = get_field('web_address',$p_id);
+          // $zip = get_field('zip',$p_id);
           //$primary_section = get_the_terms($p_id, 'primary_section'); 
           //$color = get_term_meta($primary_section[0]->term_id, 'color');
           //__Get the categories for the post, we'll break it up below
-          $listing_cats = get_the_category($p_id); 
-          return $r_id;
+          //$listing_cats = get_the_category($p_id); 
+          //return $r_id;
           //----
         
           //get one category by splitting the value from above
@@ -85,7 +85,7 @@ function update_restaurant_map( $post_id, $r_response ) {
           // }
           
 
-          $description = get_the_content();
+          //$description = get_the_content();
 
           //Save the address, city, & zip to a variable to use in the getCoordinates function
          
@@ -94,71 +94,166 @@ function update_restaurant_map( $post_id, $r_response ) {
           //Check to see if the latitude and longitude overides on the listing posttype are being used
           //If so, use those values to retrieve our location information for our map
           //If not, run the getCoordinates function to dynamically retrieve the lat and lng  
-           if (get_field('latitude',$p_id) && get_field('longitude',$p_id)) {
-             $lat = get_field('latitude');
-             $long = get_field('longitude');
-             $coordinates = array((float)$lat, (float)$long);
-           }else{
-            $f = $address . ' ' . $city . ' ' . $zip;
-            $coordinates = getCoordinates($f);
-            //If we got a good response from Google, update post_meta 
-            //For latitude and longitude to help save some time when new entries are created
-            update_post_meta($post->ID, 'latitude', $coordinates[0]);
-            update_post_meta($post->ID, 'longitude' , $coordinates[1]);
-          }
+          //  if (get_field('latitude',$p_id) && get_field('longitude',$p_id)) {
+          //    $lat = get_field('latitude');
+          //    $long = get_field('longitude');
+          //    $coordinates = array((float)$lat, (float)$long);
+          //  }else{
+          //   $f = $address . ' ' . $city . ' ' . $zip;
+          //   $coordinates = getCoordinates($f);
+          //   //If we got a good response from Google, update post_meta 
+          //   //For latitude and longitude to help save some time when new entries are created
+          //   update_post_meta($post->ID, 'latitude', $coordinates[0]);
+          //   update_post_meta($post->ID, 'longitude' , $coordinates[1]);
+          // }
 
-          	$tok = 'PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
-			var_dump($tok);
-			$_date = date("Ymd");
-			// var_dump($_date);
-			//$r_url = 'https://api.foursquare.com/v2/venues/'.$r_id.'?v='.$_date.'&oauth_token='.$tok;
-			$r_url = 'https://api.foursquare.com/v2/venues/4be442ac7e2a76b0aaab1c9b?v=20131016&oauth_token=PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
-			$r_response = file_get_contents($r_url);
-			var_dump($r_response);
+          	// This should really be it's own function...keep plugging on that
+
+   //        	$tok = 'PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
+			// //var_dump($tok);
+			// $_date = date("Ymd");
+			// // var_dump($_date);
+			// $r_url = 'https://api.foursquare.com/v2/venues/'.$r_id.'?v='.$_date.'&oauth_token='.$tok;
+			// //$r_url = 'https://api.foursquare.com/v2/venues/4be442ac7e2a76b0aaab1c9b?v=20131016&oauth_token=PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
+			// $r_response = file_get_contents($r_url);
+			// $r_json = json_decode($r_response,true);
+			//var_dump($r_response);
 			// var_dump($r_url);
 
-          //$data = get4S_data($r_response);
+			//---------------------------------------------
+
+          //Call in our function to obtain Foursquare API result 
+          //& save to $data variable to parse
+          //$data = get4S_data($r_id);
+          
+          //Pull Data from Foursquare API
+          $phone = $data['response']['venue']['contact']['formattedPhone'];
+          $lat = $data['response']['venue']['location']['lat'];
+          $long = $data['response']['venue']['location']['lng'];
+          $address_full = $data['response']['venue']['location']['formattedAddress'];
+          $street = $data['response']['venue']['location']['address'];
+          $city = $data['response']['venue']['location']['city'];
+          $state = $data['response']['venue']['location']['state'];
+          $zip = $data['response']['venue']['location']['postalCode'];
+          $hours = $data['response']['venue']['hours'];
+          $website = $data['response']['venue']['url'];
+          $cuisine = $data['response']['venue']['categories'][0]['shortName'];
+          // $facebook = $data['response']['venue']['page']['user']['contact']['facebook'];
+          $contact = $data['response']['venue']['contact'];
+          
+          // $facebook = 
+          $price = $data['response']['venue']['attributes']['groups'][0]['items'];
+          $menu = $data['response']['venue']['menu']['url'];
+          //May need a separate ACF for this one
+          $mobileMenu = $data['response']['venue']['menu']['mobileUrl'];
+          
+          //Update ACF with information from Foursquare API
+          update_post_meta($post_id, 'phone', $phone);
+          update_post_meta($post_id, 'street_address', $street);
+          update_post_meta($post_id, 'city_address', $city);
+          update_post_meta($post_id, 'state_address', $state);
+          update_post_meta($post_id, 'zip_code', $zip);
+          update_post_meta($post_id, 'location_website', $website);
+          update_post_meta($post_id, 'price_point', $price[0]['displayValue']);
+          update_post_meta($post_id, 'menu_link', $menu);
+          update_post_meta($post_id, 'mobile_menu_link', $mobileMenu); 
+          //update_post_meta($post_id, 'gmd_link', 'https://www.google.com/maps?saddr=My+location&daddr='.$lat.','.$long);
+          update_post_meta($post_id, 'gmd_link', 'https://www.google.com/maps?saddr=My+location&daddr='.$street.' '.$city.' '.$state);
+          //update_post_meta($post_id, 'cuisine', $cuisine);
+          //update_metadata('post', $post_id, 'cuisine', $cuisine);
+          //add_metadata('post', $post_id, 'cuisine', $cuisine);
+          //add_post_meta('post', $post_id, 'cuisine', $cuisine);
+          wp_set_post_terms($post_id, $cuisine, 'cuisine', true);
+          //Did the location provide Facebook info in their Foursquare data? We need that
+          if($contact['facebookUsername'] != '' || $contact['facebookUsername'] != null ){
+            update_post_meta($post_id, 'location_facebook_link', 'https://facebook.com/'.$contact['facebookUsername']);
+          }elseif($contact['facebookUsername'] == '' && ($contact['facebook'] != '' || $contact['facebook'] != null )){
+            update_post_meta($post_id, 'location_facebook_link', 'https://facebook.com/'.$contact['facebook']);
+          }
+
+          //Did the location provide Twitter info in their Foursquare data? We need that, too
+          if($contact['twitter'] != '' || $contact['twitter'] != null ){
+            update_post_meta($post_id, 'location_facebook_link', 'https://twitter.com/'.$contact['twitter']);
+          }
+
+          //Break down hours and add it to the hours_of_operation field
+
+          if($hours['timeframes'] != ''){
+            $open = $hours['timeframes'];
+            //var_dump($open);
+            $output = '';
+            foreach ($open as $is_open){
+              //update_post_meta($post_id, 'hours_of_operation')
+              //var_dump($is_open);
+              $output .= '<span class="h_op"><span class="day">'.$is_open['days'].'</span> <span class="time">'.$is_open['open'][0]['renderedTime'].'</span></span></br>';
+              
+
+            }
+
+            update_post_meta($post_id, 'hours_of_operation', $output);
+          }
+
+
+
           //var_dump($data);
   
             //Add all of the listing 'parts' to an array
-            $a = [
-              "location_id" => $r_id,
-              "title" => $title,
-              "response" => $r_response,
-              // "slug"=> $slug,
-              // "address" => $address,
-              // "city" => $city,
-              // "phone" => $phone,
-              // "website" => $website,
-              // "zip" => $zip,
-              // "coordinates" => $coordinates,
-              // "listing_category" => $listing_category,
-              // "listing_name"=>$listing_name,
-              // "primary_section" => $primary_sec,
-              // "description" => $description,
-              // "color" => $color
-            ];
+            // $a = [
+            //   'id' => $the_id,
+            //   "location_id" => $r_id,
+            //   "url" => (string)$website,
+            //   "title" => $title,
+            //   //"response" => $data,
+            //   'street' => $street,
+            //   'city' => $city,
+            //   'state' => $state,
+            //   'full_address' => $address_full,
+            //   'latitude' => $lat,
+            //   'longitude' => $long,
+            //   "phone" => $phone,
+            //   "hours" => $hours,
+            //   "website" => $website,
+            //   "cuisine" => $cuisine,
+            //   "price_point" => $price,
+            //   "contact" => $contact,
+            //   "menu" => $menu,
+            //   "mobile_menu" => $mobileMenu,
+            //   // "phone" => $data[]
+            //   // "slug"=> $slug,
+            //   // "address" => $address,
+            //   // "city" => $city,
+            //   // "phone" => $phone,
+            //   // "website" => $website,
+            //   // "zip" => $zip,
+            //   // "coordinates" => $coordinates,
+            //   // "listing_category" => $listing_category,
+            //   // "listing_name"=>$listing_name,
+            //   // "primary_section" => $primary_sec,
+            //   // "description" => $description,
+            //   // "color" => $color
+            // ];
 
-            array_push($arr, $a);
+            //$arr[$the_id] = $a;
+            //array_push($arr, $a);
 
-        }
+        //}
 
         
 
         //Reset the query in-between loops
-        wp_reset_query();
+        // wp_reset_query();
 
-        // JSON-encode the response
-       	var_dump($arr);
-        $json = json_encode($arr, JSON_PRETTY_PRINT);
+        // // JSON-encode the response
+       	// //var_dump($arr);
+        // $json = json_encode($arr, JSON_PRETTY_PRINT);
 
-        //The file location for the json file we're creating
-        $directory = get_template_directory().'/helpers/restaurants.json';
+        // //The file location for the json file we're creating
+        // $directory = get_template_directory().'/helpers/restaurants.json';
 
-        //Write to our file
-        $myfile = fopen(''.$directory.'', "w") or die("Unable to open file!");
-        fwrite($myfile, $json);
-        fclose($myfile);  
+        // //Write to our file
+        // $myfile = fopen(''.$directory.'', "w") or die("Unable to open file!");
+        // fwrite($myfile, $json);
+        // fclose($myfile);  
     }
 
 }
@@ -167,14 +262,15 @@ add_action('save_post', 'update_restaurant_map', 10, 3);
 
 function get4S_data($r_id){
 	$tok = 'PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
-	var_dump($tok);
+	//var_dump($tok);
 	$_date = date("Ymd");
 
 	$r_url = 'https://api.foursquare.com/v2/venues/'.$r_id.'?v='.$_date.'&oauth_token='.$tok;
-	var_dump($r_url);
+	//var_dump($r_url);
 	$r_response = file_get_contents($r_url);
-	var_dump($r_response);
-	return $r_response;
+	$r_json = json_decode($r_response,true); 
+	//var_dump($r_response);
+	return $r_json;
 }
 
 //add_action('edit_post', 'get4S_data', 10, 3);

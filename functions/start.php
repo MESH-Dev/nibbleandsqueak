@@ -14,6 +14,10 @@ function loadup_scripts() {
         wp_enqueue_script( 'map-js', get_template_directory_uri().'/js/map.js', array('jquery'), '1.0.0', true );
         //wp_enqueue_script( 'main-js', get_template_directory_uri().'/js/main.js', array('jquery'), '1.0.0', true );
    }
+   if(is_singular('restaurant')){
+        wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCbX_dvIvIBOUlSTYKA5lYPUHUkBAN-lb4', array('jquery'), '1.0.0', true );
+        wp_enqueue_script( 'singlemap-js', get_template_directory_uri().'/js/single-map.js', array('jquery'), '1.0.0', true );
+   }
    wp_enqueue_style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', true );
 }
 add_action( 'wp_enqueue_scripts', 'loadup_scripts' );

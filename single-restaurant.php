@@ -1,5 +1,14 @@
 <?php get_header(); ?>
 
+<?php 
+	$latitude = get_field('latitude');
+	$longitude = get_field('longitude');
+?>
+<script>
+	$_lat= <?php echo $latitude; ?>;
+	$_long = <?php echo $longitude; ?>;
+</script>
+
 <main id="content">
 	<div class="container">
 		<div class="row">
@@ -16,7 +25,15 @@
 		</div>
 
 		<div class="columns-3">
-			<h1>Extra Stuff</h1>
+			<div class="restaurant-info">
+				<div id="single-map" style="height:200px;"></div>
+					
+				<?php $h_oop = get_field('hours_of_operation');
+				?>
+				<div class="hours">
+					<?php echo $h_oop; ?>
+				</div>
+			</div>
 		</div>
 		
 		<?php //comments_template( '', true ); ?>

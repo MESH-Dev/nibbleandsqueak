@@ -38,9 +38,9 @@
 	<?php wp_head(); ?>
 
 </head>
-
+<script>var $dir = '<?php echo get_template_directory_uri(); ?>';  </script>
 <body <?php body_class(); ?>>
- 
+ 	
 	<header>
 		<div class=""><!-- container -->
 			<div class="row head">
