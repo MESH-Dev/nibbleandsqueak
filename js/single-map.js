@@ -13,6 +13,15 @@
 
   //    var infoWindow = new google.maps.InfoWindow(), marker, i;
 
+  var icon = '/img/mapmarker.png';
+  var $marker = $dir+icon;
+  console.log($dir);
+  console.log($_lat);
+  console.log($_long);
+  console.log($marker);
+  var map; 
+
+
   var mapStyles = [
     {
         "featureType": "all",
@@ -271,6 +280,16 @@
         rotateControl: false,
         fullscreenControl: false,
         styles:mapStyles      });
+
+    marker = new google.maps.Marker({
+            //This is just the title of the blog post
+            //title: title,
+            position: new google.maps.LatLng($_lat, $_long),
+            map: map,
+            //Create the custom icon
+            icon:$dir + icon,
+            
+          });
     
     //Create variable needed for Spider marker clustering
     // var oms = new OverlappingMarkerSpiderfier(map, { 

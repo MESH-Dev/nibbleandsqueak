@@ -29,12 +29,42 @@ img{
 
 }
 
+.cta-link{
+  @include brandon-black;
+  text-transform:uppercase;
+  font-size:1.2em;
+  color:$periwinkle;
+  // padding-right:20px;
+  // background-image:url('img/arrow.svg');
+  // background-repeat:no-repeat;
+  // background-position:center 95%;
+  &:hover,
+  &:active,
+  &:focus{
+    color:$mint;
+    text-decoration:underline;
+  }
+}
 .border-wrap{
   position:relative;
   overflow: hidden;
   img{
     display:block;
   }
+}
+
+.gradient-line{
+  height:15px;
+  position:absolute;
+  bottom:-15px;
+  z-index: 100;
+  width:100%;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#50e3c2+0,ffffff+100&1+0,0+100 */
+    background: -moz-linear-gradient(top, rgba(80,227,194,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(80,227,194,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(80,227,194,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#50e3c2', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
 }
 
 .border{
@@ -91,18 +121,20 @@ img{
   }
 }
 
-// .row{
-//   margin-bottom:2em;
-//   &.tagline,
-//   &.amenities,
-//   &.head{
-//     margin:0 0 0 0;
-//   }
-// }
+.page-intro{
+  font-family:$asap;
+  font-size:2.4em;
+  color:$periwinkle;
+  margin:20px 0;
+}
 
 .post-title,
 .post-subtitle{
   margin:0;
+}
+
+main.inner-content{
+  margin-top:5em;
 }
 
 //__ Homepage/City Specific Landing page
@@ -141,6 +173,11 @@ img{
 $bubble_size: 70px;
 $bubble_size2x: $bubble_size * 2;
 
+.bubble-wrap{
+  //Tee hee
+  position:relative;
+}
+
 .cta-bubble{
   position:absolute;
   background-color:$periwinkle;
@@ -149,6 +186,7 @@ $bubble_size2x: $bubble_size * 2;
   border-radius: 0 0 $bubble_size2x $bubble_size2x;
   height:$bubble_size;
   width:$bubble_size2x;
+  z-index: 105;
   .bubble{
     text-align: center;
     width:95%;
@@ -164,7 +202,8 @@ $bubble_size2x: $bubble_size * 2;
   color:$periwinkle;
 }
 
-.featured-article{
+.featured-article,
+.search-article{
   //padding-right:15px;
   //padding:1em;
   //margin-bottom:2rem;
@@ -211,6 +250,49 @@ $bubble_size2x: $bubble_size * 2;
     }
   
 }
+//-------------------------------------------
+
+// General Text Pages
+
+.the-content{
+  img{
+    border-radius:15px;
+  }
+}
+
+.related-articles{
+  margin-bottom:2em;
+}
+
+//-------------------------------------------
+
+// Search page 
+.search-article{
+  margin-bottom:2em;
+  .post-title{
+    @include brandon-black;
+    font-size:2.4em;
+    text-transform:uppercase;
+  }
+  .border-wrap{
+      margin-bottom:1em; 
+      height:300px; 
+      background-position:center center; 
+      background-size:cover;
+  }
+  .loc-amenities{
+      margin:1em 0;
+      li{
+        width:35px; 
+        list-style-type:none; 
+        float:left; 
+        display:inline-block; 
+        margin-right:1em;
+      }
+    }
+}
+
+//-------------------------------------------
 
 .featured-article.featured,
 .map-callout{
@@ -224,10 +306,12 @@ $bubble_size2x: $bubble_size * 2;
 
 }
 
-.nibble-featured{
+.nibble-featured,
+.related-article{
   .featured-article{
     .border-wrap{
       margin-bottom:1em;
+      height:300px;
     }
     .post-title{
       font-size:2.4rem;
@@ -236,6 +320,8 @@ $bubble_size2x: $bubble_size * 2;
     }
   }
 }
+
+
 
 .reviews{
   .restaurant-review{
@@ -405,12 +491,18 @@ main.map-page{
   background:$white;
   position:absolute;
   z-index:6;
-  padding:0 15px;
+  padding:0 15px 600px 15px;
+  padding-bottom:600px;
+  @media only screen and ($bp-smaller-than-tablet){
+    padding:0 15px 0 15px;
+  }
 
   .map-listing{
     height:200px; 
     width:95%; 
-    margin:1em auto;
+    margin:1.5em auto;
+    position:relative;
+    overflow: hidden;
 
      .map-listing-content,
      .listing-image{
@@ -438,11 +530,27 @@ main.map-page{
       background-position:center center;
       //background-image:url('<?php bloginfo('template_directory'); ?>/img/featured-image.png;
     }
+
+    .loc-tags{
+      @include brandon-black;
+      font-size:1.6em;
+      text-transform:uppercase;
+      color:$dark_gray;
+    }
+
+    .loc-amenities{
+      margin:1em 0;
+      li{
+        width:35px; 
+        list-style-type:none; 
+        float:left; 
+        display:inline-block; 
+        margin-right:1em;
+      }
+    }
   }
 
 }
-
-
 
 #map{
 	position: absolute;
@@ -450,10 +558,108 @@ main.map-page{
 	top: 0;
 	height: 100vh;
 	//width: 150%;
-  width:100%;
+  width:66.66667%;
+  margin-left:33.33333%;
 	z-index: 0;
 	transition: width 0.4s ease-in-out;
 }
+
+.gm-style{
+  // border-radius:15px;
+  // overflow:hidden;
+  // position:relative;
+  .gm-style-iw{
+    width:350px !important;
+    //height:100px !important;
+    @include brandon-black;
+    background-color:$white;
+    position:absolute;
+    top: 15px !important;
+    left: 0px !important;
+    border-radius:15px;
+    padding:1em;
+    .list-title{
+      @include brandon-black;
+      font-size:2.4em;
+      margin:0;
+    }
+  }
+}
+
+#iw-container {
+  margin-bottom: 10px;
+}
+
+//-------------------------------------------
+
+
+//Single Restaurant posts
+
+#single-map{
+  height:200px;
+}
+
+.restaurant-data{
+  background-color:$grey;
+  font-size:1.8em;
+  @include brandon-black;
+  margin-bottom:10px;
+  padding:20px 10px;
+}
+
+.loc-button{
+  border-radius:10px;
+  border:2px solid $periwinkle;
+  width:100%;
+  margin-bottom:10px;
+  text-align:left;
+  @include brandon-black;
+  font-size:1.8em;
+  color:$periwinkle;
+
+  .desktop{
+    @media only screen and ($bp-smaller-than-mobile){
+      display:none;
+    }
+  }
+
+  .mobile{
+    display:none;
+    @media only screen and ($bp-smaller-than-mobile){
+      display:block;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus{
+    background-color:$periwinkle;
+
+    a{
+      color:$white;
+      text-decoration: none;
+    }
+  }
+
+  a{
+    padding:10px 20px;
+    color:$periwinkle;
+    text-transform: uppercase;
+  }
+}
+
+.loc-amenities{
+      margin:1em 0;
+      li{
+        width:35px; 
+        list-style-type:none; 
+        float:left; 
+        display:inline-block; 
+        margin-right:1em;
+      }
+    }
+
+//-------------------------------------------
 
 //__Accessibility
 .sr-only {

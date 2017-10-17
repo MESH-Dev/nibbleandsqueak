@@ -1,13 +1,32 @@
 header{
-	background-color:$white;
-	padding:0 15px;
 	position:relative;
-	z-index:10;
+	.header-wrap{
+		background-color:$white;
+		padding:0 15px;
+		//position:relative;
+		z-index:10;
+		display:table;
+		height:100%;
+		width:100%;
+		//overflow:hidden;
+
+		.head{
+			// display:table-cell;
+			// height:100%;
+			// vertical-align: middle;
+		}
+	}
 	.logo,
 	.funnel,
 	nav{
 		display:inline-block;
 		float:left;
+		height:113px;
+		vertical-align: middle;
+	}
+
+	.funnel{
+		color:$periwinkle;
 	}
 
 	.funnel,
@@ -26,13 +45,19 @@ header{
 	.logo{
 		width:40%;
 		text-align:center;
+		overflow: hidden;
 		@media only screen and ($bp-smaller-than-tablet){
 			position:absolute;
 		}
 		.site-title{
 			max-width:120px;
 			display: inline-block;
-			transition:all .4s ease-in-out;
+			transition:all .2s ease-in-out;
+			margin:0;
+			padding:0;
+			img{
+				display:block;
+			}
 		}
 		
 
@@ -42,11 +67,13 @@ header{
 		text-align:right;
 	ul{
 		display:inline-block;
+		margin:0;
 
 		li{
 			display:inline-block;
 			float:left;
 			margin-left:2em;
+			margin-bottom:0;
 
 			a{
 				color:$dark_gray;
@@ -69,16 +96,37 @@ header{
 	}
 	}
 
+	.city-dropdown,
+	.search-form{
+		display:inline-block;
+		float:left;
+	} 	
+
 	.city-dropdown{
-		
+		width:10%;
 		list-style-type: none;
+		.city-wrap{
+			width:49%;
+			float:left;
+			display:inline-block;
+		}
+		span{
+			display:block;
+			padding-bottom:2em;
+		}
 		li{
 			position:relative;
 			list-style-type:none;
 			.sub-menu{
+				margin:0;
+				padding:1em;
+				//padding-top:2em;
+				width:250px;
+				background:white;
 				position:absolute;
+				z-index: 120;
 				left:-99999px;
-				border:1px solid $periwinkle
+				border:2px solid $periwinkle;
 			}
 
 			&:hover,
@@ -89,6 +137,28 @@ header{
 				}
 				
 			}
+		}
+	}
+
+	.search-form{
+		width:70%;
+		input{
+			width:70%;
+			border:none;
+			box-shadow:none;
+			border-bottom:2px solid $periwinkle;
+		}
+		button{
+			width:15%;
+			border:none;
+			box-shadow:none;
+			border-bottom:2px solid $periwinkle;
+			padding:0;
+		}
+		input,
+		button{
+			display:inline-block;
+			float:left;
 		}
 	}
 }

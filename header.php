@@ -39,10 +39,49 @@
 
 </head>
 <script>var $dir = '<?php echo get_template_directory_uri(); ?>';  </script>
+<script>
+	<?php 
+		$amenities = get_terms(array('taxonomy'=>'amenity', 'hide_empty'=>false));
+		//var_dump($amenities);
+		$cuisines = get_terms(array('taxonomy'=>'cuisine', 'hide_empty'=>false));
+		//var_dump($cuisines);
+		$neighborhoods = get_terms(array('taxonomy'=>'neighborhood', 'hide_empty'=>false));
+		//var_dump($neighborhoods);
+		$cities = get_terms(array('taxonomy'=>'city', 'hide_empty'=>false));
+		//var_dump($cities);
+
+		$amenity_name='';
+		$separator = ', ';
+		foreach ($amenities as $amenity){
+			//var_dump($amenity);
+			$amenity_name .= '"'.$amenity->name.'"'.$separator;
+		}
+
+		$cuisine_name = '';
+		foreach ($cuisines as $cuisine_single){
+			$cuisine_name .= '"'.$cuisine_single->name.'"'.$separator;
+		} 
+
+		$neighborhood_name = '';
+		foreach($neighborhoods as $neighborhood){
+			$neighborhood_name .= '"'.$neighborhood->name.'"'.$separator;
+		}
+
+		$city_name = '';
+		foreach($cities as $city){
+			$city_name .= '"'.$city->name.'"'.$separator;
+		}
+		$city_trim = rtrim($city_name, ', ');
+	?>
+
+		var da_choices= [];
+		da_choices.push(<?php echo $amenity_name.$cuisine_name.$neighborhood_name.$city_trim; ?>);
+		console.log(da_choices);
+</script>
 <body <?php body_class(); ?>>
  	
 	<header>
-		<div class=""><!-- container -->
+		<div class="header-wrap"><!-- container -->
 			<div class="row head">
 				<div class="funnel">
 					<div class="wrap">
@@ -50,11 +89,28 @@
 						<ul class="city-dropdown">
 							<li ><span id="city"></span>
 								<ul class="sub-menu">
+									<div class="city-wrap">
 									<?php 
-										$cities = get_the_terms('city'); 
+										//$cities = get_the_terms('city'); 
+										//var_dump($cities);
+									$c_cnt=0;
+									$city_cnt = count($cities);
 										foreach($cities as $city){
+											//$city_cnt = count($city);
+											$c_cnt++;
+											$half_count = $city_cnt/2;
+											$half_round = round($half_count);
+
+											if($c_cnt == $half_round+1){
+												?>
+											</div><div class="city-wrap">
+											<?php }
 											?>
 											<li><?php echo $city->name; ?></li>
+										<?php } 
+											if($city_cnt - $c_cnt == 0){
+										?>
+										</div>
 										<?php } ?>
 								</ul>
 							</li>
@@ -68,7 +124,8 @@
 				<div class="logo">
 					<h1 class="site-title">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<img src="<?php bloginfo('template_directory'); ?>/img/logo.png">
+							<img class="logomark" src="<?php bloginfo('template_directory'); ?>/img/logo_mark.png">
+							<img class="logotext" src="<?php bloginfo('template_directory'); ?>/img/logo_text.png">
 						</a>
 					</h1>
 				</div>
@@ -105,4 +162,6 @@
 				</nav>
 			</div>
 		</div>
+		<div class="gradient-line"></div>
 	</header>
+	

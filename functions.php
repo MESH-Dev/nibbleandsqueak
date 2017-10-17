@@ -50,9 +50,16 @@ function update_restaurant_map( $post_id ) {
         //while (have_posts()) { the_post();
           //Save the post ID to a variable
           // $post_id = get_the_ID();
-          // $the_id = (string)$p_id;
+
+         //__--__!!  We only need this for testing the return value
+          //          remove or comment this out prior to production
+
+        $p_id = get_the_ID();
+           $the_id = (string)$p_id;
           // //Get post info to save to our json file
-          // $title = get_the_title();
+           $title = get_the_title();
+
+           //-------------------------------------------------------------------
           // GLOBAL $post;
           // $slug = $post->post_name;
           
@@ -153,6 +160,8 @@ function update_restaurant_map( $post_id ) {
           update_post_meta($post_id, 'city_address', $city);
           update_post_meta($post_id, 'state_address', $state);
           update_post_meta($post_id, 'zip_code', $zip);
+          update_post_meta($post_id, 'latitude', $lat);
+          update_post_meta($post_id, 'longitude', $long);
           update_post_meta($post_id, 'location_website', $website);
           update_post_meta($post_id, 'price_point', $price[0]['displayValue']);
           update_post_meta($post_id, 'menu_link', $menu);
@@ -193,70 +202,115 @@ function update_restaurant_map( $post_id ) {
             update_post_meta($post_id, 'hours_of_operation', $output);
           }
 
+          //__--__!!  We only need this if we find that we CAN get neighborhood
+          //          from the Foursquare API.  If not, remove or comment this out
+          //          prior to production
 
+          // Use this to add a term as a taxonomy value based on the API return 
+          // 1) Check to see if the term currently exists
 
-          //var_dump($data);
-  
+          if( !term_exists( $city, 'city' ) ) {
+            // 2) If it doesn't, "!term_exists", let's add it
+            //    ** Note:
+            //       -Here, we can add a term by just using the term name, this is not the case 
+            //        when we want to set the term, if we are using a heirarchical term, which is
+            //        most often the case
+            //       -Note the commented out "array" information, this works like the 'manual' version
+            //        of creating a taxonomy term.  If we wanted to add a description, or override the slug,
+            //        we could do that here.  This is being left on purpose.
+             wp_insert_term(
+                 $city,
+                 'city'
+                 // array(
+                 //   'description' => 'This is an example category created with wp_insert_term.',
+                 //   'slug'        => 'example-category'
+                 //)
+             );
+         }
+         
+         //Since we're going to try to set this on the post being updated, we 
+         //need to tease out some information from the term.
+
+         // Here, we're getting the term by "name", this is easier than trying to turn the 
+         // return value into the slug
+
+         $term = get_term_by('name', $city, 'city');
+
+         // Since we're working with a heirarchical term, we cannot use the character value of the 
+         // term, so we're gonna need the ID
+         $t_id = $term->term_id;
+         // Using the post ID, term id ($t_id), taxonomy ('cuisine'), set the term for the post we're saving
+         // The last value, 'true', appends the value, which just means to set the value on the post
+         $st = wp_set_post_terms($post_id, $t_id, 'city', true);
+
+         //-------------------------------------------------------------------
+          
+          //__--__!!  We only need this for testing the return value
+          //          remove or comment this out prior to production
+
             //Add all of the listing 'parts' to an array
-            // $a = [
-            //   'id' => $the_id,
-            //   "location_id" => $r_id,
-            //   "url" => (string)$website,
-            //   "title" => $title,
-            //   //"response" => $data,
-            //   'street' => $street,
-            //   'city' => $city,
-            //   'state' => $state,
-            //   'full_address' => $address_full,
-            //   'latitude' => $lat,
-            //   'longitude' => $long,
-            //   "phone" => $phone,
-            //   "hours" => $hours,
-            //   "website" => $website,
-            //   "cuisine" => $cuisine,
-            //   "price_point" => $price,
-            //   "contact" => $contact,
-            //   "menu" => $menu,
-            //   "mobile_menu" => $mobileMenu,
-            //   // "phone" => $data[]
-            //   // "slug"=> $slug,
-            //   // "address" => $address,
-            //   // "city" => $city,
-            //   // "phone" => $phone,
-            //   // "website" => $website,
-            //   // "zip" => $zip,
-            //   // "coordinates" => $coordinates,
-            //   // "listing_category" => $listing_category,
-            //   // "listing_name"=>$listing_name,
-            //   // "primary_section" => $primary_sec,
-            //   // "description" => $description,
-            //   // "color" => $color
-            // ];
+            $a = [
+              'id' => $the_id,
+              "location_id" => $r_id,
+              "url" => (string)$website,
+              "title" => $title,
+              //"response" => $data,
+              'street' => $street,
+              'city' => $city,
+              'state' => $state,
+              'full_address' => $address_full,
+              'latitude' => $lat,
+              'longitude' => $long,
+              "phone" => $phone,
+              "hours" => $hours,
+              "website" => $website,
+              "cuisine" => $cuisine,
+              "price_point" => $price,
+              "contact" => $contact,
+              "menu" => $menu,
+              "mobile_menu" => $mobileMenu,
+              // "phone" => $data[]
+              // "slug"=> $slug,
+              // "address" => $address,
+              // "city" => $city,
+              // "phone" => $phone,
+              // "website" => $website,
+              // "zip" => $zip,
+              // "coordinates" => $coordinates,
+              // "listing_category" => $listing_category,
+              // "listing_name"=>$listing_name,
+              // "primary_section" => $primary_sec,
+              // "description" => $description,
+              // "color" => $color
+            ];
 
-            //$arr[$the_id] = $a;
-            //array_push($arr, $a);
+            $arr[$the_id] = $a;
+            array_push($arr, $a);
 
-        //}
+        }
+
+        //Reset the query in-between loops
+        //wp_reset_query();
+
 
         
 
-        //Reset the query in-between loops
-        // wp_reset_query();
+        // JSON-encode the response
+       	//var_dump($arr);
+        $json = json_encode($arr, JSON_PRETTY_PRINT);
 
-        // // JSON-encode the response
-       	// //var_dump($arr);
-        // $json = json_encode($arr, JSON_PRETTY_PRINT);
+        //The file location for the json file we're creating
+        $directory = get_template_directory().'/helpers/restaurants.json';
 
-        // //The file location for the json file we're creating
-        // $directory = get_template_directory().'/helpers/restaurants.json';
+        //Write to our file
+        $myfile = fopen(''.$directory.'', "w") or die("Unable to open file!");
+        fwrite($myfile, $json);
+        fclose($myfile);
 
-        // //Write to our file
-        // $myfile = fopen(''.$directory.'', "w") or die("Unable to open file!");
-        // fwrite($myfile, $json);
-        // fclose($myfile);  
+        // --------------------------------------------------------  
     }
 
-}
+//}
 
 add_action('save_post', 'update_restaurant_map', 10, 3);
 
