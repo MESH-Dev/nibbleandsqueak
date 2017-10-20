@@ -334,4 +334,91 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
 
         }
 
+    add_action('init', 'city_register_meta');
+        function city_register_meta(){
+            register_meta('term', 'latitude','' );
+            register_meta('term', 'longitude', '');
+        }
+
+	add_action( 'city_add_form_fields', 'city_new_term_field' ); 
+        function city_new_term_field() { 
+            wp_nonce_field( basename( __FILE__ ), 'latitude_term_nonce' ); 
+            wp_nonce_field( basename( __FILE__ ), 'longitude_term_nonce' );
+            ?> 
+            <div class="form-field latitude-term-wrap"> 
+            	<label for="city-term-latitude"><?php _e( 'Latitude', 'city' ); ?></label> 
+                <input type="text" name="city_term_latitude" id="city-term-latitude" value="" class="latitude-term-field" />
+            </div>
+             <div class="form-field longitude-term-wrap"> 
+                <label for="city-term-longitude"><?php _e( 'Longitude', 'city' ); ?></label> 
+                <input type="text" name="city_term_longitude" id="city-term-longitude" value="" class="longitude-term-field" /> 
+            </div>  
+                <?php }
+
+ add_action( 'city_edit_form_fields', 'city_edit_term_field' );
+
+            function city_edit_term_field( $term ) {
+
+                //$default = '#ffffff';
+                //$location_term = location_get_term( $term->term_id, true );
+
+                //$color = get_term_meta( $term->term_id, 'color', true );
+                $latitude = get_term_meta( $term->term_id, 'latitude', true );
+                //var_dump($latitude);
+                $longitude = get_term_meta( $term->term_id, 'longitude', true );
+                //var_dump($longitude);
+
+               //if ( ! $location_term )
+                    //$color = $default; ?>
+
+                <tr class="form-field city-term-wrap">
+                    <th scope="row"><label for="city-term-latitude"><?php _e( 'Latitude', 'city' ); ?></label></th>
+                    <td>
+                        <?php wp_nonce_field( basename( __FILE__ ), 'latitude_term_nonce' ); ?>
+                        <input type="text" name="city_term_latitude" id="city-term-latitude" value="<?php echo esc_attr( $latitude ); ?>" class="latitude-field" />
+                    </td>
+                </tr>
+                <tr class="form-field city-term-wrap">
+                    <th scope="row"><label for="city-term-longitude"><?php _e( 'Longitude', 'city' ); ?></label></th>
+                    <td>
+                        <?php wp_nonce_field( basename( __FILE__ ), 'longitude_term_nonce' ); ?>
+                        <input type="text" name="city_term_longitude" id="city-term-longitude" value="<?php echo esc_attr( $longitude ); ?>" class="longitude-field" />
+                    </td>
+                </tr>
+                <?php }
+
+    	add_action( 'edit_city',   'city_save_term' );
+        add_action( 'create_city', 'city_save_term' );
+
+        function city_save_term($term_id) {
+
+            if ( ! isset( $_POST['latitude_term_nonce'] ) || ! wp_verify_nonce( $_POST['latitude_term_nonce'], basename( __FILE__ ) ) || ! isset( $_POST['longitude_term_nonce'] ) || ! wp_verify_nonce( $_POST['longitude_term_nonce'], basename( __FILE__ ) ))
+                return;
+
+            $old_latitude = get_term_meta( $term_id, 'latitude', true );
+            $new_latitude = $_POST['city_term_latitude'];
+            //var_dump($new_latitude);
+            $old_longitude = get_term_meta( $term_id, 'longitude', true );
+            $new_longitude = $_POST['city_term_longitude'];
+            //var_dump($new_longitude);
+
+            if ( $old_latitude && '' === $new_latitude )
+                delete_term_meta( $term_id, 'latitude' );
+
+            else if ( $old_latitude !== $new_latitude )
+                update_term_meta( $term_id, 'latitude', $new_latitude );
+
+            if ( $old_longitude && '' === $new_longitude )
+                delete_term_meta( $term_id, 'longitude' );
+
+            else if ( $old_longitude !== $new_longitude )
+                update_term_meta( $term_id, 'longitude', $new_longitude );
+
+            // if ( $old_term && '' === $new_term )
+            //     delete_term_meta( $term_id, 'address' );
+
+            // else if ( $old_term !== $new_term )
+            //     update_term_meta( $term_id, 'address', $new_term );
+        }
+
 ?>

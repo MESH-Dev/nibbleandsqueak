@@ -26,16 +26,16 @@ function pluginname_ajaxurl() {
     <?php
     }
 
-// Updates the map with new or updated listings on listing post-type update
+// Updates the map with new or updated listings on restaurant post-type update
 function update_restaurant_map( $post_id ) {
 
     $post_type = get_post_type($post_id);
     $r_id = get_field('location_id', $post_id);
     $data = get4S_data($r_id); 
 
-    if("restaurant" != $post_type){ return; }
-    else{
-        $arr = array();
+    // if("restaurant" != $post_type){ return; }
+    // else{
+    //     $arr = array();
 
         // $args = array(
         //   'post_type' => 'restaurant',
@@ -249,45 +249,45 @@ function update_restaurant_map( $post_id ) {
           //          remove or comment this out prior to production
 
             //Add all of the listing 'parts' to an array
-            $a = [
-              'id' => $the_id,
-              "location_id" => $r_id,
-              "url" => (string)$website,
-              "title" => $title,
-              //"response" => $data,
-              'street' => $street,
-              'city' => $city,
-              'state' => $state,
-              'full_address' => $address_full,
-              'latitude' => $lat,
-              'longitude' => $long,
-              "phone" => $phone,
-              "hours" => $hours,
-              "website" => $website,
-              "cuisine" => $cuisine,
-              "price_point" => $price,
-              "contact" => $contact,
-              "menu" => $menu,
-              "mobile_menu" => $mobileMenu,
-              // "phone" => $data[]
-              // "slug"=> $slug,
-              // "address" => $address,
-              // "city" => $city,
-              // "phone" => $phone,
-              // "website" => $website,
-              // "zip" => $zip,
-              // "coordinates" => $coordinates,
-              // "listing_category" => $listing_category,
-              // "listing_name"=>$listing_name,
-              // "primary_section" => $primary_sec,
-              // "description" => $description,
-              // "color" => $color
-            ];
+        //     $a = [
+        //       'id' => $the_id,
+        //       "location_id" => $r_id,
+        //       "url" => (string)$website,
+        //       "title" => $title,
+        //       //"response" => $data,
+        //       'street' => $street,
+        //       'city' => $city,
+        //       'state' => $state,
+        //       'full_address' => $address_full,
+        //       'latitude' => $lat,
+        //       'longitude' => $long,
+        //       "phone" => $phone,
+        //       "hours" => $hours,
+        //       "website" => $website,
+        //       "cuisine" => $cuisine,
+        //       "price_point" => $price,
+        //       "contact" => $contact,
+        //       "menu" => $menu,
+        //       "mobile_menu" => $mobileMenu,
+        //       // "phone" => $data[]
+        //       // "slug"=> $slug,
+        //       // "address" => $address,
+        //       // "city" => $city,
+        //       // "phone" => $phone,
+        //       // "website" => $website,
+        //       // "zip" => $zip,
+        //       // "coordinates" => $coordinates,
+        //       // "listing_category" => $listing_category,
+        //       // "listing_name"=>$listing_name,
+        //       // "primary_section" => $primary_sec,
+        //       // "description" => $description,
+        //       // "color" => $color
+        //     ];
 
-            $arr[$the_id] = $a;
-            array_push($arr, $a);
+        //     $arr[$the_id] = $a;
+        //     array_push($arr, $a);
 
-        }
+        // }
 
         //Reset the query in-between loops
         //wp_reset_query();
@@ -297,15 +297,15 @@ function update_restaurant_map( $post_id ) {
 
         // JSON-encode the response
        	//var_dump($arr);
-        $json = json_encode($arr, JSON_PRETTY_PRINT);
+        // $json = json_encode($arr, JSON_PRETTY_PRINT);
 
-        //The file location for the json file we're creating
-        $directory = get_template_directory().'/helpers/restaurants.json';
+        // //The file location for the json file we're creating
+        // $directory = get_template_directory().'/helpers/restaurants.json';
 
-        //Write to our file
-        $myfile = fopen(''.$directory.'', "w") or die("Unable to open file!");
-        fwrite($myfile, $json);
-        fclose($myfile);
+        // //Write to our file
+        // $myfile = fopen(''.$directory.'', "w") or die("Unable to open file!");
+        // fwrite($myfile, $json);
+        // fclose($myfile);
 
         // --------------------------------------------------------  
     }
@@ -354,5 +354,26 @@ function getCoordinates($address){
 
           return array($lat, $lng);      
 }
+
+function search_filter($query){
+ if ( !is_admin() && $query->is_main_query() ) {
+    if ($query->is_search) {
+      $city = $_GET["city"];
+     
+
+      $city_query = array(
+        array(
+            'taxonomy' => 'city',
+            'field'    => 'slug',
+            'terms'    => $city,
+        )
+    );
+       $query->set('tax_query', $city_query);
+    //}
+  }
+}
+}
+
+add_action('pre_get_posts','search_filter');
 
 ?>

@@ -1,5 +1,6 @@
 header{
 	position:relative;
+	z-index:100;
 	.header-wrap{
 		background-color:$white;
 		padding:0 15px;
@@ -99,11 +100,12 @@ header{
 	.city-dropdown,
 	.search-form{
 		display:inline-block;
-		float:left;
+		vertical-align: top;
+		//float:left;
 	} 	
 
 	.city-dropdown{
-		width:10%;
+		width:30%;
 		list-style-type: none;
 		.city-wrap{
 			width:49%;
@@ -111,8 +113,18 @@ header{
 			display:inline-block;
 		}
 		span{
-			display:block;
-			padding-bottom:2em;
+			display:inline-block;
+			padding:10px 0;
+			font-size:1.2em;
+			@include brandon-black;
+			text-transform:uppercase;
+			&.arrow{
+				svg{
+					transform:rotate(90deg);
+					width:12px;
+					height:12px;
+				}
+			}
 		}
 		li{
 			position:relative;
@@ -127,6 +139,12 @@ header{
 				z-index: 120;
 				left:-99999px;
 				border:2px solid $periwinkle;
+				
+				li{
+					font-size:1.2em;
+					text-transform:uppercase;
+					@include brandon-black;
+				}
 			}
 
 			&:hover,
@@ -141,12 +159,17 @@ header{
 	}
 
 	.search-form{
-		width:70%;
+		width:65%;
+		font-size:1.2em;
+		text-transform:uppercase;
 		input{
 			width:70%;
 			border:none;
 			box-shadow:none;
 			border-bottom:2px solid $periwinkle;
+			padding:0 10px;
+			height:30px;
+			line-height:normal;
 		}
 		button{
 			width:15%;
@@ -154,11 +177,45 @@ header{
 			box-shadow:none;
 			border-bottom:2px solid $periwinkle;
 			padding:0;
+			height:30px;
+			 svg{
+		          height:15px;
+		          width:15px;
+		        }
 		}
 		input,
 		button{
 			display:inline-block;
 			float:left;
+		}
+		input::-webkit-input-placeholder {
+		@include brandon-black;
+	    color:$periwinkle;
+	    text-transform:uppercase;
+		}
+
+		input::-moz-placeholder {
+		    @include brandon-black;
+		    color:$periwinkle;
+		    text-transform:uppercase;
+		}
+
+		 input:-ms-input-placeholder {
+		    @include brandon-black;
+		    color:$periwinkle;
+		    text-transform:uppercase;
+		}
+
+		 input:-moz-placeholder {
+		    @include brandon-black;
+		    color:$periwinkle;
+		    text-transform:uppercase;
+		}
+
+		 input::webkit-input-placeholder {
+		    @include brandon-black;
+		    color:$periwinkle;
+		    text-transform:uppercase;
 		}
 	}
 }

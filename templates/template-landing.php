@@ -19,11 +19,11 @@ get_header(); ?>
 					}
 				?>
 				<div class="banner" style="background-image:url('<?php echo $bg_URL; ?>');">
-					<a class="cta-bubble"href="<?php echo $cta_link; ?>" <?php echo $cta_link; ?>>
+					<!-- <a class="cta-bubble"href="<?php echo $cta_link; ?>" <?php echo $cta_link; ?>>
 						<div class="bubble">
 							<?php echo $cta_text; ?>
 						</div>
-					</a>
+					</a> -->
 					<div class="wrap">
 						<div class="content">
 							<p class="banner-subtitle">
@@ -31,10 +31,57 @@ get_header(); ?>
 							</p>
 							<div class="gateway">
 								<?php //get_template_part('/partials/searchform'); ?>
-								Search
-								<input placeholder="Place">
-								for
-								<input placeholder="Cuisine, restaurant, etc...">
+								<div class="gateway-item citysearch">
+									<span style="display:inline-block;">Search</span>
+									<ul style="display:inline-block;">
+										<li>
+											<input placeholder="Place" class="city-input">
+										<ul class="sub-menu">
+										<div class="city-wrap">
+										<?php 
+											//$cities = get_the_terms('city'); 
+											//var_dump($cities);
+										$cities = get_terms(array('taxonomy'=>'city', 'hide_empty'=>false));
+										$c_cnt2=0;
+										$city_cnt = count($cities);
+										//var_dump($city_cnt);
+											foreach($cities as $city){
+												//$city_cnt = count($city);
+												$c_cnt2++;
+												$half_count = $city_cnt/2;
+												$half_round = round($half_count);
+
+												if($c_cnt2 == $half_round+1){
+													?>
+												</div><div class="city-wrap">
+												<?php }
+												//Give 'no city' a value of "all cities"
+												?>
+
+
+												<li><a href="#" data-name="<?php echo $city->name; ?>" data-slug="<?php echo $city->slug; ?>"><?php echo $city->name; ?></a></li>
+											<?php } 
+												if($city_cnt - $c_cnt2 == 0){
+											?>
+											</div>
+											<?php } ?>
+									</ul></li></ul>
+								</div>
+								<div class="break">
+									for
+								</div>
+								<div class="gateway-item">
+									<form method="get" id="banner-searchform" action="<?php bloginfo('url'); ?>/">
+										<div class="form input">
+											<label for="searchHeader" class="sr-only">Search the site</label>
+											<input id="searchHeader" class="hide" type="text" placeholder="Cuisine, restaurant, etc..." value="<?php the_search_query(); ?>" name="s" id="s" />
+											<button type="submit" class="form submit search-submit" id="searchsubmit" value="" >
+												<span class="sr-only">Submit search</span>
+												<?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?>	
+											</button>	
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -52,20 +99,23 @@ get_header(); ?>
 										$post_a = $amenity;
 										setup_postdata($post_a);
 										$term_id = $post_a->term_id;
+										$amenity_slug = $post_a->slug;
 										$amenity_icon = get_term_meta($term_id, 'meta-image', true );
 										//var_dump($amenity);
 										// foreach($amenity as $icon)
 										//Trying to get property of non-object
 										?>
 										<li>
-											<div class="amenity-icon" data-svg="<?php echo $amenity_icon; ?>">
-												<?php 
-												//$icon_dir = get_bloginfo('template_directory').'/img/icons/highchairs.svg';
-												//var_dump($icon_dir);
-												echo file_get_contents($amenity_icon); ?>
-												<!-- <img src="<?php //echo $amenity_icon; ?>"> -->
-											</div>
-											<h2 class="sub-title"><?php echo $post_a->name;?></h2>
+											<a data-slug="<?php echo $amenity_slug; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $amenity_slug; ?>">
+												<div class="amenity-icon" data-svg="<?php echo $amenity_icon; ?>">
+													<?php 
+													//$icon_dir = get_bloginfo('template_directory').'/img/icons/highchairs.svg';
+													//var_dump($icon_dir);
+													echo file_get_contents($amenity_icon); ?>
+													<!-- <img src="<?php //echo $amenity_icon; ?>"> -->
+												</div>
+												<h2 class="sub-title"><?php echo $post_a->name;?></h2>
+											</a>
 										</li>
 							<?php wp_reset_postdata(); endwhile; endif; ?>
 							</ul>
@@ -75,6 +125,7 @@ get_header(); ?>
 				<div class="row featured-posts fix_pad">
 					<?php 
 						$featured_post = get_field('featured_post_block');
+						//var_dump($featured_post);
 						$teaser = get_field('fa_lead_text');
 						$city = get_field('city');
 						//var_dump($featured_post->post_content);
@@ -90,20 +141,22 @@ get_header(); ?>
 						$fa_bg_URL = $fa_bg['sizes']['large'];
 						//var_dump($fa_id);
 					?>
-					<div class="columns-8">
-						<div class="border-wrap is_rounded">
-							<div class="featured featured-article is_rounded periwinkle" style="background-image:url('<?php echo $fa_bg_URL; ?>');">
-								<div class="content">
-									<?php foreach($fa_city as $term){ ?>
-										<span class="city"><?php echo $term->name; ?></span>
-									<?php } ?>
-									<h2 class="post-title"><?php echo $featured_post->post_title; ?></h2>
-									<h3 class="post-subtitle"><?php echo $teaser; ?></h3>
+					<a href="<?php echo the_permalink($fa_id);?>">
+						<div class="columns-8">
+							<div class="border-wrap is_rounded">
+								<div class="featured featured-article is_rounded periwinkle" style="background-image:url('<?php echo $fa_bg_URL; ?>');">
+									<div class="content">
+										<?php foreach($fa_city as $term){ ?>
+											<span class="city"><?php echo $term->name; ?></span>
+										<?php } ?>
+										<h2 class="post-title"><?php echo $featured_post->post_title; ?></h2>
+										<h3 class="post-subtitle"><?php echo $teaser; ?></h3>
+									</div>
+									<div class="border" aria-hidden="true"></div>
 								</div>
-								<div class="border" aria-hidden="true"></div>
 							</div>
 						</div>
-					</div>
+					</a>
 					<?php wp_reset_postdata(); ?>
 
 					<?php 
@@ -119,10 +172,16 @@ get_header(); ?>
 							}
 					?>
 					<div class="columns-4">
-						<div class="map-callout" style="background-image:url('<?php echo $mbx_bg_URL; ?>');">
-							<h2><?php echo $mbx_title; ?></h2>
-							<p><?php echo $mbx_subtitle; ?></p>
-						</div>
+						<a href="<?php echo $mbx_link; ?>" <?php echo $mbx_target; ?>>
+							<div class="map-callout" style="background-image:url('<?php echo $mbx_bg_URL; ?>');">
+								<div class="content">
+									<div class="wrap">
+										<h2><?php echo $mbx_title; ?></h2>
+										<p><?php echo $mbx_subtitle; ?></p>
+									</div>
+								</div>
+							</div>
+						</a>
 					</div>
 				</div> <!-- end row.featured-posts -->
  				
@@ -156,9 +215,9 @@ get_header(); ?>
 					?>
 
 					
-
+					<a href="<?php echo the_permalink($nf_id); ?>">
 						<div class="columns-4">
-								<div class="featured-article is_rounded">
+								<div class="featured-article is_rounded">	
 									<div class="border-wrap is_rounded">
 										<img class="periwinkle" src="<?php echo $nf_bg_URL; ?>" >
 										<div class="border" aria-hidden="true"></div>
@@ -170,7 +229,7 @@ get_header(); ?>
 									<h3 class="post-subtitle"><?php echo $nf_subtitle; ?></h3>
 							</div>
 						</div>
-
+					</a>
 					
 				<?php  wp_reset_postdata(); endwhile; ?>
 					</div> <!-- end row.nibble-featured -->
@@ -185,7 +244,9 @@ get_header(); ?>
 
 
 						?>
+						<div class="section">
 							<h2><?php echo $ec_text; ?></h2>
+						</div>
 						<?php if (have_rows('ec_button')):
 								while(have_rows('ec_button')):the_row();
 
@@ -197,17 +258,22 @@ get_header(); ?>
 								$button_target='target="_blank"';
 							}
 								?>
-								<div class="event_button content">
-									<a href="<?php echo $button_link; ?>" <?php echo $button_target; ?>>
-										<?php echo $button_text; ?>
-									</a>
+								<div class="content section">
+									<div class="event-button">
+										<a href="<?php echo $button_link; ?>" <?php echo $button_target; ?>>
+											<?php echo $button_text; ?>
+										</a>
+									</div>
 								</div>
 							<?php endwhile; endif; ?>
 					</div>
 					<div class='columns-6 has_gradient is_rounded landscape' >
-						<h2>Sign up &amp; stay in the loop with our emails</h2>
-						<div class="email-signup content">
+						<div class="section">
+							<h2>Sign up &amp; stay in the loop with our emails</h2>
+						</div>
+						<div class="email-signup content section">
 							<input placeholder="Your Email here">
+							<button><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?>	</button>
 						</div>
 					</div>
 				</div> <!-- end row.lscape -->
@@ -229,25 +295,26 @@ get_header(); ?>
 						$rr_title = $post_rr->post_title;
 						$rr_city = get_the_terms($rr_id, 'city');
 					?>
-
-					<div class="columns-2">
-						<div class="restaurant-review">
-							<div class="review-hover is_rounded">
-								<img src="<?php echo $rr_bg_URL; ?>">
-								<div class="hover">
-									<div class="wrap">
-										<div class="content">
-											<span>Read Our Review ></span>
+					<a href="<?php echo the_permalink($rr_id); ?>">
+						<div class="columns-2">
+							<div class="restaurant-review">
+								<div class="review-hover is_rounded">
+									<img src="<?php echo $rr_bg_URL; ?>">
+									<div class="hover">
+										<div class="wrap">
+											<div class="content">
+												<span>Read Our Review ></span>
+											</div>
 										</div>
 									</div>
 								</div>
+								<?php foreach($rr_city as $rr_term){ ?>
+									<span class="city"><?php echo $rr_term->name; ?></span>
+								<?php } ?>
+								<h2 class="post-title"><?php echo $rr_title; ?></h2>
 							</div>
-							<?php foreach($rr_city as $rr_term){ ?>
-								<span class="city"><?php echo $rr_term->name; ?></span>
-							<?php } ?>
-							<h2 class="post-title"><?php echo $rr_title; ?></h2>
 						</div>
-					</div>
+					</a>
 				<?php endwhile; ?>
 				</div><!-- end reviews -->
 			<?php endif; ?>

@@ -1,6 +1,25 @@
  
 
 <footer class="site-footer">
+			<div class="footer-interaction row" style="background-color:white;">
+				<div class="columns-8 email-signup">
+					Sign up and stay in the loop with our emails:
+					<input placeholder="Your email here">
+					<button>
+						<span class="sr-only">Submit Email</span>
+						<?php echo file_get_contents(get_template_directory().'/img/search.svg')?>
+					</button>
+				</div>
+				<div class="columns-4">
+					#PARENTSWITHPIPSQUEAKS
+					<ul class="social-nav">
+						<li><a href="#"><i class="fa fa-fw fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-fw fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-fw fa-instagram"></i></a></li>
+					</ul>
+				</div>
+
+			</div>
 			<div class="footer-navs row">
 				<div class="columns-6 events">
 					<h2 class="nav-title">Events</h2>

@@ -107,7 +107,7 @@
 
 	 ?>
 
-
+	 <a href="<?php echo the_permalink($rid); ?>">
 	 	<div class="map-listing queried is_rounded" id="<?php echo $slug; ?>">
 			<div class="map-listing-content left_rounded">
 				<span class="city"><?php echo $city_address; ?></span>
@@ -147,6 +147,7 @@
 			</div>
 			<div class="border" aria-hidden="true"></div>
 		</div>
+	</a>
 	<?php 
 			// 6) Pretty up that data so that we can pull that info into javascript
 			//    To do that we're going to use json_encode to generate a json object

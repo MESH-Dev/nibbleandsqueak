@@ -137,6 +137,11 @@ main.inner-content{
   margin-top:5em;
 }
 
+.autocomplete-suggestions{
+  font-size:1.5em;
+  @include brandon-black;
+}
+
 //__ Homepage/City Specific Landing page
 
 .banner{
@@ -167,6 +172,122 @@ main.inner-content{
     margin:0 auto;
     padding:1em 0;
     border-radius:10px;
+    color:$title_black;
+    text-transform:uppercase;
+    font-size:1.6em;
+    @include brandon-black;
+    @media only screen and (max-width:1200px){
+      width:80%;
+    }
+
+    .gateway-item{
+      display:inline-block;
+      width:43%;
+      vertical-align: middle;
+    }
+
+    .citysearch{
+      ul{
+        margin-bottom:0;
+          li{
+            position:relative;
+            list-style-type: none;
+            margin-bottom:0;
+          }
+      }
+      .sub-menu{
+        width:95%;
+        list-style-type: none;
+        position:absolute;
+        left:-999999px;
+        margin:0;
+        padding:1em;
+        //padding-top:2em;
+        width:250px;
+        background:white;
+        position:absolute;
+        z-index: 120;
+        border:2px solid $periwinkle;
+        .city-wrap{
+          display:inline-block;
+          vertical-align: top;
+
+          width:45%;
+          margin-right:1%;
+        }
+      }
+
+      &:hover,
+      &:active,
+      &:focus{
+        .sub-menu{
+          left:0;
+        }
+      }
+    }
+
+    .break{
+      width:10%;
+      text-align: center;
+      display:inline-block;
+    }
+
+    #banner-searchform{
+      input,
+      button{
+        display:inline-block;
+        float:left;
+      }
+      button{
+      width:9%;
+      border:none;
+      box-shadow:none;
+      padding:0;
+      height:20px;
+        svg{
+          height:20px;
+          width:20px;
+        }
+      }
+    }
+
+    input{
+      border:0;
+      border-bottom:2px solid $title_black;
+      line-height:normal;
+      padding:0 10px;
+      //width:80%;
+      height:initial;
+    }
+    input::-webkit-input-placeholder {
+    @include brandon-black;
+      color:$title_black;
+      text-transform:uppercase;
+    }
+
+    input::-moz-placeholder {
+        @include brandon-black;
+        color:$title_black;
+        text-transform:uppercase;
+    }
+
+     input:-ms-input-placeholder {
+        @include brandon-black;
+        color:$title_black;
+        text-transform:uppercase;
+    }
+
+     input:-moz-placeholder {
+        @include brandon-black;
+        color:$title_black;
+        text-transform:uppercase;
+    }
+
+     input::webkit-input-placeholder {
+        @include brandon-black;
+        color:$title_black;
+        text-transform:uppercase;
+    }
   }
 }
 
@@ -208,6 +329,25 @@ $bubble_size2x: $bubble_size * 2;
   //padding:1em;
   //margin-bottom:2rem;
   position:relative;
+  cursor:pointer;
+
+  &:hover,
+  &:focus,
+  &:active{
+    .border{
+      background-color:$mint;
+    }
+    .post-title{
+      color:$mint;
+      text-decoration:underline;
+    }
+    .post-subtitle{
+      //color:$mint;
+    }
+    .city{
+      color:$mint;
+    }
+  }
 
   &.featured{
     padding:1em;
@@ -219,8 +359,21 @@ $bubble_size2x: $bubble_size * 2;
       //margin-bottom:10px;
     }
 
-    .city{
-      //color:$white;
+    &:hover,
+    &:focus,
+    &:active{
+      .border{
+        background-color:$mint;
+      }
+      .post-title{
+        color:$mint;
+      }
+      .post-subtitle{
+        //color:$mint;
+      }
+      .city{
+        color:$mint;
+      }
     }
   }
     @media onlly screen and ($bp-smaller-than-tablet){
@@ -234,13 +387,16 @@ $bubble_size2x: $bubble_size * 2;
       //color:$white;
       text-transform:uppercase;
       @include brandon-black;
+      margin-bottom:10px; 
+      color:$title_black;
     }
 
     .post-subtitle{
       font-size:1.6rem;
       //color:$white;
-      text-transform:uppercase;
+      text-transform:initial;
       @include brandon-black;
+      color:$title_black;
     }
     .content{
       position:absolute;
@@ -300,10 +456,31 @@ $bubble_size2x: $bubble_size * 2;
 }
 
 .map-callout{
+  display: table;
   background-repeat:no-repeat;
-  background-size:contain;
+  background-size:cover;
   background-position:15px center;
 
+  color:$title-black;
+  &:hover,
+  &:active,
+  &:focus{
+    color:$mint;
+    text-decoration:none;
+  }
+  @media only screen and ($bp-smaller-than-tablet){
+    background-size:cover;
+    background-position:center center;
+  }
+  .content{
+      display:table-cell;
+      vertical-align: middle;
+      height:100%;
+      .wrap{
+        width:60%;
+        margin:0 auto;
+      }
+    }
 }
 
 .nibble-featured,
@@ -321,7 +498,7 @@ $bubble_size2x: $bubble_size * 2;
   }
 }
 
-
+// .nibble
 
 .reviews{
   .restaurant-review{
@@ -358,6 +535,7 @@ $bubble_size2x: $bubble_size * 2;
       &:active{
       .hover{
         display:block;
+        color:$title_black;
       }
       
       }
@@ -370,11 +548,13 @@ $bubble_size2x: $bubble_size * 2;
       width:100%;
       height:100%;
       background-color:rgba(80,227,194, .6);
+      color:$title_black;
     }
     .post-title{
       font-size:2.4rem;
       @include brandon-black;
       text-transform:uppercase;
+      color:$title_black;
     }
   }
 }
@@ -440,43 +620,130 @@ $bubble_size2x: $bubble_size * 2;
 
 .landscape{
   padding:1em;
+  @media only screen and ($bp-smaller-than-mobile){
+    margin-bottom:40px;
+  }
+  .section{
+    display:inline-block;
+    vertical-align: middle;
+    width:48%;
+  }
   h2{
     text-transform:uppercase;
     @include brandon-black;
     font-size:2.4em; 
     margin:0;
   }
-  h2,.content{
-    display:inline-block;
-    width:48%;
-    float:left;
+  // h2,.content{
+  //   display:inline-block;
+  //   width:48%;
+  //   float:left;
 
-    @media only screen and ($bp-smaller-than-tablet){
-      width:95%;
-      margin:0 auto;
-    }
-  }
+  //   @media only screen and ($bp-smaller-than-tablet){
+  //     width:95%;
+  //     margin:0 auto;
+  //   }
+  // }
 }
 
 .event-button{
-  width:95%;
+  width:60%;
   margin:0 auto;
   border:1px solid $periwinkle;
+  border-radius:5px;
+  padding:10px;
+
+  &:active,
+  &:hover,
+  &:focus{
+    border:1px solid $mint;
+    background-color:$mint;
+    a{
+      color:$white;
+      text-decoration:none;
+    }
+  }
   a{
-    padding:5px 10px;
+    color:$periwinkle;
+    font-size:1.6em;
+    @include brandon-black;
+    text-transform:uppercase;
   }
 }
 
 .email-signup{
   input{
     border:none;
+    background-color:transparent;
+    width:70%;
     border-bottom:1px solid $title_black;
+    font-size:1.6em;
+    @include brandon-black;
+    text-transform:uppercase;
+  }
+  button{
+    width:5%;
+    border:none;
+    border-bottom:1px solid $title_black;
+    padding:0 0;
+    line-height:normal;
+    height:26px;
+
+    &:hover,
+    &:focus,
+    &:active{
+      svg{
+        .icon{
+          fill:$mint;
+        }
+
+        .triangle{
+          stroke:$mint;
+        }
+
+      }
+    }
+
+    svg{
+      width:15px;
+    }
   }
 
   input,
   button{
     display:inline-block;
+    float:left;
   }
+
+  input::-webkit-input-placeholder {
+    @include brandon-black;
+      color:$title_black;
+      text-transform:uppercase;
+    }
+
+    input::-moz-placeholder {
+        @include brandon-black;
+        color:$title_black;
+        text-transform:uppercase;
+    }
+
+     input:-ms-input-placeholder {
+        @include brandon-black;
+        color:$title_black;
+        text-transform:uppercase;
+    }
+
+     input:-moz-placeholder {
+        @include brandon-black;
+        color:$title_black;
+        text-transform:uppercase;
+    }
+
+     input::webkit-input-placeholder {
+        @include brandon-black;
+        color:$title_black;
+        text-transform:uppercase;
+    }
 }
 
 //__ Map Page
@@ -491,10 +758,10 @@ main.map-page{
   background:$white;
   position:absolute;
   z-index:6;
-  padding:0 15px 600px 15px;
-  padding-bottom:600px;
+  padding:40px 15px 600px 15px;
+  //padding-bottom:600px;
   @media only screen and ($bp-smaller-than-tablet){
-    padding:0 15px 0 15px;
+    padding:40px 15px 0 15px;
   }
 
   .map-listing{
@@ -504,11 +771,27 @@ main.map-page{
     position:relative;
     overflow: hidden;
 
+    &.location-active{
+      .border{
+        background-color:$mint;
+      }
+      .city,
+      .post-title{
+        color:$mint;
+      }
+
+      .post-title{
+        text-decoration:underline;
+      }
+    }
+
      .map-listing-content,
      .listing-image{
       display:inline-block; 
       float:left; 
     }
+
+
 
     .map-listing-content{
       padding:15px 10px; 
@@ -597,25 +880,57 @@ main.map-page{
 
 #single-map{
   height:200px;
+  border-radius:10px 10px 0 0;
 }
 
 .restaurant-data{
   background-color:$grey;
-  font-size:1.8em;
+  //font-size:1.8em;
   @include brandon-black;
   margin-bottom:10px;
   padding:20px 10px;
+  .loc-address{
+    font-size:1.8em;
+    margin-bottom:20px;
+  }
+  .hours, 
+  .phone,
+  .facebook,
+  .twitter,
+  .website{
+    font-size:1.6em;
+    margin-bottom:10px;
+    color:$periwinkle;
+
+     .desktop{
+    @media only screen and ($bp-smaller-than-mobile){
+      display:none;
+    }
+  }
+
+  .mobile{
+    display:none;
+    @media only screen and ($bp-smaller-than-mobile){
+      display:block;
+    }
+  }
+  }
 }
 
 .loc-button{
   border-radius:10px;
   border:2px solid $periwinkle;
   width:100%;
+  padding:5px 10px;
   margin-bottom:10px;
   text-align:left;
   @include brandon-black;
-  font-size:1.8em;
+  font-size:1.6em;
   color:$periwinkle;
+
+  svg{
+    width:14px;
+  }
 
   .desktop{
     @media only screen and ($bp-smaller-than-mobile){
@@ -634,6 +949,12 @@ main.map-page{
   &:active,
   &:focus{
     background-color:$periwinkle;
+
+    svg{
+      .icon{
+        fill:$white;
+      }
+    }
 
     a{
       color:$white;

@@ -1,146 +1,64 @@
 {
-    "249": {
-        "id": "249",
-        "location_id": "4ee4d79661aff5a3422536f7",
-        "url": "http:\/\/www.ruths-chris.com",
-        "title": "Ruth&#8217;s Chris",
-        "street": "26 All Souls Cres",
-        "city": "Asheville",
-        "state": "NC",
+    "246": {
+        "id": "246",
+        "location_id": "4b50add8f964a520102d27e3",
+        "url": "",
+        "title": "Taylor Books",
+        "street": "226 Capitol St",
+        "city": "Charleston",
+        "state": "WV",
         "full_address": [
-            "26 All Souls Cres",
-            "Asheville, NC 28803"
+            "226 Capitol St",
+            "Charleston, WV 25301"
         ],
-        "latitude": 35.5649963351,
-        "longitude": -82.5433845855,
-        "phone": "(828) 398-6200",
-        "hours": {
-            "status": "Closed until 5:00 PM",
-            "richStatus": {
-                "entities": [],
-                "text": "Closed until 5:00 PM"
-            },
-            "isOpen": false,
-            "isLocalHoliday": false,
-            "dayData": [],
-            "timeframes": [
-                {
-                    "days": "Mon\u2013Thu",
-                    "includesToday": true,
-                    "open": [
-                        {
-                            "renderedTime": "5:00 PM\u201310:00 PM"
-                        }
-                    ],
-                    "segments": []
-                },
-                {
-                    "days": "Fri\u2013Sat",
-                    "open": [
-                        {
-                            "renderedTime": "5:00 PM\u201311:00 PM"
-                        }
-                    ],
-                    "segments": []
-                },
-                {
-                    "days": "Sun",
-                    "open": [
-                        {
-                            "renderedTime": "4:00 PM\u20139:00 PM"
-                        }
-                    ],
-                    "segments": []
-                }
-            ]
-        },
-        "website": "http:\/\/www.ruths-chris.com",
-        "cuisine": "Steakhouse",
+        "latitude": 38.350451185,
+        "longitude": -81.634105282,
+        "phone": "(304) 342-1461",
+        "hours": null,
+        "website": null,
+        "cuisine": "Bookstore",
         "price_point": [
             {
-                "displayName": "Price",
-                "displayValue": "$$$$",
-                "priceTier": 4
+                "displayName": "Reservations",
+                "displayValue": "No"
             }
         ],
         "contact": {
-            "phone": "8283986200",
-            "formattedPhone": "(828) 398-6200",
-            "twitter": "ruthschrisash"
+            "phone": "3043421461",
+            "formattedPhone": "(304) 342-1461"
         },
-        "menu": "https:\/\/foursquare.com\/v\/ruths-chris-steak-house\/4ee4d79661aff5a3422536f7\/menu",
-        "mobile_menu": "https:\/\/foursquare.com\/v\/4ee4d79661aff5a3422536f7\/device_menu"
+        "menu": "https:\/\/foursquare.com\/v\/taylor-books\/4b50add8f964a520102d27e3\/menu",
+        "mobile_menu": "https:\/\/foursquare.com\/v\/4b50add8f964a520102d27e3\/device_menu"
     },
-    "250": {
-        "id": "249",
-        "location_id": "4ee4d79661aff5a3422536f7",
-        "url": "http:\/\/www.ruths-chris.com",
-        "title": "Ruth&#8217;s Chris",
-        "street": "26 All Souls Cres",
-        "city": "Asheville",
-        "state": "NC",
+    "247": {
+        "id": "246",
+        "location_id": "4b50add8f964a520102d27e3",
+        "url": "",
+        "title": "Taylor Books",
+        "street": "226 Capitol St",
+        "city": "Charleston",
+        "state": "WV",
         "full_address": [
-            "26 All Souls Cres",
-            "Asheville, NC 28803"
+            "226 Capitol St",
+            "Charleston, WV 25301"
         ],
-        "latitude": 35.5649963351,
-        "longitude": -82.5433845855,
-        "phone": "(828) 398-6200",
-        "hours": {
-            "status": "Closed until 5:00 PM",
-            "richStatus": {
-                "entities": [],
-                "text": "Closed until 5:00 PM"
-            },
-            "isOpen": false,
-            "isLocalHoliday": false,
-            "dayData": [],
-            "timeframes": [
-                {
-                    "days": "Mon\u2013Thu",
-                    "includesToday": true,
-                    "open": [
-                        {
-                            "renderedTime": "5:00 PM\u201310:00 PM"
-                        }
-                    ],
-                    "segments": []
-                },
-                {
-                    "days": "Fri\u2013Sat",
-                    "open": [
-                        {
-                            "renderedTime": "5:00 PM\u201311:00 PM"
-                        }
-                    ],
-                    "segments": []
-                },
-                {
-                    "days": "Sun",
-                    "open": [
-                        {
-                            "renderedTime": "4:00 PM\u20139:00 PM"
-                        }
-                    ],
-                    "segments": []
-                }
-            ]
-        },
-        "website": "http:\/\/www.ruths-chris.com",
-        "cuisine": "Steakhouse",
+        "latitude": 38.350451185,
+        "longitude": -81.634105282,
+        "phone": "(304) 342-1461",
+        "hours": null,
+        "website": null,
+        "cuisine": "Bookstore",
         "price_point": [
             {
-                "displayName": "Price",
-                "displayValue": "$$$$",
-                "priceTier": 4
+                "displayName": "Reservations",
+                "displayValue": "No"
             }
         ],
         "contact": {
-            "phone": "8283986200",
-            "formattedPhone": "(828) 398-6200",
-            "twitter": "ruthschrisash"
+            "phone": "3043421461",
+            "formattedPhone": "(304) 342-1461"
         },
-        "menu": "https:\/\/foursquare.com\/v\/ruths-chris-steak-house\/4ee4d79661aff5a3422536f7\/menu",
-        "mobile_menu": "https:\/\/foursquare.com\/v\/4ee4d79661aff5a3422536f7\/device_menu"
+        "menu": "https:\/\/foursquare.com\/v\/taylor-books\/4b50add8f964a520102d27e3\/menu",
+        "mobile_menu": "https:\/\/foursquare.com\/v\/4b50add8f964a520102d27e3\/device_menu"
     }
 }

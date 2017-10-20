@@ -4,11 +4,13 @@
 get_header(); ?>
 
 <main class="map-page" id="content">
-	<a class="cta-bubble"href="<?php echo $cta_link; ?>" <?php echo $cta_link; ?>>
-						<div class="bubble">
-							<?php echo $cta_text; ?>
-						</div>
-					</a>
+	<!-- <div class="bubble-wrap row">
+		<a class="cta-bubble"href="<?php echo $cta_link; ?>" <?php echo $cta_link; ?>>
+			<div class="bubble">
+				<?php echo $cta_text; ?>
+			</div>
+		</a>
+	</div> -->
 		<div class="row">
 			<div class="columns-4 locations">
 				<div class="">

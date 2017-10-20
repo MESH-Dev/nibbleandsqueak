@@ -8,8 +8,10 @@
 			<div class="">
 				<?php if ( have_posts() ) : ?>
 					<h1><?php //printf( __( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-
-					<?php while ( have_posts() ) : the_post(); ?>
+					 <?php
+					//$the_query = new WP_Query( $args ); 
+					if (have_posts());
+					while (have_posts() ) : the_post(); ?>
 						<?php 
 							$city_name = get_terms('city', $post->ID); 
 							// if($city_name != ''){
@@ -32,7 +34,7 @@
 							}	
 
 						?>
-						<div class="columns-4">
+						<div class="columns-4 eq block">
 							<div class="search-article is_rounded" style="margin-bottom:2em;">	
 								<div class="border-wrap is_rounded" style="background-image:url('<?php echo $photo_URL; ?>');">
 									<span class="sr-only"><?php echo $photo_alt; ?></span>

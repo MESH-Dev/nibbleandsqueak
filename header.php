@@ -38,7 +38,10 @@
 	<?php wp_head(); ?>
 
 </head>
-<script>var $dir = '<?php echo get_template_directory_uri(); ?>';  </script>
+<script>
+	var $dir = '<?php echo get_template_directory_uri(); ?>';  
+	var $home = '<?php echo esc_url( home_url( '/' ) ); ?>'
+</script>
 <script>
 	<?php 
 		$amenities = get_terms(array('taxonomy'=>'amenity', 'hide_empty'=>false));
@@ -49,6 +52,7 @@
 		//var_dump($neighborhoods);
 		$cities = get_terms(array('taxonomy'=>'city', 'hide_empty'=>false));
 		//var_dump($cities);
+		$geo_array = [];
 
 		$amenity_name='';
 		$separator = ', ';
@@ -70,13 +74,41 @@
 		$city_name = '';
 		foreach($cities as $city){
 			$city_name .= '"'.$city->name.'"'.$separator;
+			$city_name_single = $city->name;
+			$city_id = $city->term_id;
+			$city_slug = $city->slug;
+			
+			$lat = get_term_meta($city_id, 'latitude');
+			$long = get_term_meta($city_id, 'longitude');
+
+			$g = [
+				'name' => $city_name_single,
+				'slug' => $city_slug,
+				'id'   => $city_id,
+				'lat'  => $lat,
+				'long' => $long,
+				// $city_name_single,
+				// $city_slug,
+				// $city_id,
+				// $lat,
+				// $long,
+			];
+
+			array_push($geo_array, $g);
+			$g_json = json_encode($geo_array, JSON_PRETTY_PRINT);
+
 		}
+
 		$city_trim = rtrim($city_name, ', ');
+
 	?>
 
 		var da_choices= [];
+		var geo_choices = <?php echo $g_json; ?>;
 		da_choices.push(<?php echo $amenity_name.$cuisine_name.$neighborhood_name.$city_trim; ?>);
-		console.log(da_choices);
+
+		console.log(jQuery.inArray( 'Asheville' , geo_choices));
+		//console.log(geo_choices);
 </script>
 <body <?php body_class(); ?>>
  	
@@ -87,7 +119,7 @@
 					<div class="wrap">
 					<!-- <input type="text" placeholder="Cities" id="city"> -->
 						<ul class="city-dropdown">
-							<li ><span id="city"></span>
+							<li ><span id="city">Cities</span><span class="arrow"><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?></span>
 								<ul class="sub-menu">
 									<div class="city-wrap">
 									<?php 
@@ -105,8 +137,11 @@
 												?>
 											</div><div class="city-wrap">
 											<?php }
+											//Give 'no city' a value of "all cities"
 											?>
-											<li><?php echo $city->name; ?></li>
+
+
+											<li><a href="#" data-name="<?php echo $city->name; ?>" data-slug="<?php echo $city->slug; ?>"><?php echo $city->name; ?></a></li>
 										<?php } 
 											if($city_cnt - $c_cnt == 0){
 										?>
@@ -115,15 +150,17 @@
 								</ul>
 							</li>
 						</ul>
-						<div class="search-form">
-							<?php get_template_part('partials/searchform') ?>
-						</div>
+						<?php if (! is_front_page() || ! is_page_template('templates/template-landing.php')){ ?>
+							<div class="search-form">
+								<?php get_template_part('partials/searchform') ?>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 				<!-- <div class="columns-12"> -->
 				<div class="logo">
 					<h1 class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<a id="homelink" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 							<img class="logomark" src="<?php bloginfo('template_directory'); ?>/img/logo_mark.png">
 							<img class="logotext" src="<?php bloginfo('template_directory'); ?>/img/logo_text.png">
 						</a>
@@ -163,5 +200,6 @@
 			</div>
 		</div>
 		<div class="gradient-line"></div>
+		<?php get_template_part('partials/bubble'); ?>
 	</header>
 	

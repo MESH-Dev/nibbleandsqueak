@@ -39,7 +39,7 @@
 
 						?>
 						<div class="page-wrap <?php echo $columns; ?>">
-							<div class="page-intro"><?php echo $count; ?><?php echo $intro; ?></div>
+							<div class="page-intro"><?php echo $intro; ?></div>
 							<div class="the-content"><?php echo $content; ?></div>
 						</div>
 
