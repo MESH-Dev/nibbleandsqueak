@@ -107,11 +107,17 @@
 		var geo_choices = <?php echo $g_json; ?>;
 		da_choices.push(<?php echo $amenity_name.$cuisine_name.$neighborhood_name.$city_trim; ?>);
 
-		console.log(jQuery.inArray( 'Asheville' , geo_choices));
+
+		///console.log(jQuery.inArray( 'Asheville' , geo_choices));
 		//console.log(geo_choices);
 </script>
 <body <?php body_class(); ?>>
- 	
+ 	<?php //$landing_id = get_page_by_path( home_url( '/' )); 
+
+ 	//var_dump($landing_id);
+
+ 	var_dump(get_id_by_slug('/'));
+ 	?>
 	<header>
 		<div class="header-wrap"><!-- container -->
 			<div class="row head">

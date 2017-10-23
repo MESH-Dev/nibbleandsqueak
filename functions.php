@@ -357,6 +357,7 @@ function getCoordinates($address){
 
 function search_filter($query){
  if ( !is_admin() && $query->is_main_query() ) {
+  //Use is archive for archive page for Amenities
     if ($query->is_search) {
       $city = $_GET["city"];
      
@@ -373,7 +374,38 @@ function search_filter($query){
   }
 }
 }
-
+//
 add_action('pre_get_posts','search_filter');
+
+function archive_filter($query){
+ if ( !is_admin() && $query->is_main_query() ) {
+  //Use is archive for archive page for Amenities
+    if ($query->is_archive) {
+      $city = $_GET["city"];
+     
+
+      $city_query = array(
+        array(
+            'taxonomy' => 'city',
+            'field'    => 'slug',
+            'terms'    => $city,
+        )
+    );
+       $query->set('tax_query', $city_query);
+    //}
+  }
+}
+}
+//
+add_action('pre_get_posts','archive_filter');
+
+function get_id_by_slug($page_slug) {
+  $page = get_page_by_path($page_slug);
+  if ($page) {
+    return $page->ID;
+  } else {
+    return null;
+  }
+};
 
 ?>

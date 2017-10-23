@@ -45,8 +45,8 @@
 		
 		<div class="post columns-8">
 			<h1>
-				<?php //the_title(); ?>
-				<?php echo get_the_term_list( $post->ID, 'amenity', '', ', ', '' ) ?>
+				<?php the_title(); ?>
+				<?php //echo get_the_term_list( $post->ID, 'amenity', '', ', ', '' ) ?>
 			</h1>
 			<div class="location-info row">
 				<span class="info"><?php echo $neighborhood_name;?>, <?php echo $cuisine_name; ?> | <?php echo $cost; ?></span>
