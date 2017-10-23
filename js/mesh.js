@@ -88,12 +88,15 @@ var homeLink = $('a#homelink').attr('href');
 var $select = $('span#city');
 var $bannerSelect = $('.city-input');
 
+$bannerSelect.addClass('new');
+
 
 $('.city-dropdown .sub-menu a').click(function () {
     _newText = $(this).data('name');
     _newCookie = $(this).data('slug');
     $select.text( _newText );
     $bannerSelect.val( _newText );
+
     //$(this).addClass($(this).data('select'));
     //eraseCookie('city');
     
@@ -190,14 +193,19 @@ function NearestCity(latitude, longitude) {
   }
 
 	var cityVal = document.getElementById("city").innerHTML = cities[closest]['slug'];
-	$bannerSelect.val(cookieName);
+
+	var _citySlug = cities[closest]['slug']; //cityVal
+	var _cityName = cities[closest]['name'];
+
+	$select.text(_cityName);
+	$bannerSelect.attr('placeholder','').val(_cityName);
 	var cityName = cities[closest]['name'];
-	console.log(cityName);
-	console.log(cityVal);
-	createCookie('city', cityVal, '');
-	createCookie('cityName', cityName, '')
+	//console.log(cityName);
+	//console.log(cityVal);
+	createCookie('city', _citySlug, '');
+	createCookie('cityName', _cityName, '')
   	
-  	return cityVal;
+  	//return cityVal;
  
 }//end nearest city
 
@@ -214,12 +222,13 @@ function NearestCity(latitude, longitude) {
  		$(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
  	})
  	$('#city').text('Cities');
+ 	$bannerSelect.val(cookieName);
  	if(cookieVal != '' || cookieVal != null){
  		$('#city').text(cookieName);
  		$bannerSelect.val(cookieName);
  	}else{
- 		$('#city').text('Cities');
- 		$bannerSelect.val('Place');
+ 		//$('#city').text('Cities');
+ 		//$bannerSelect.val('Place');
  	}
 
 $(function() {
