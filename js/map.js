@@ -326,8 +326,8 @@
         //setIcon(icon);
 
         //Create the html for the infoWindow
-        var infoWindowContent = '<div class="map-marker-title"><h2 class="list-title">'+ _data[i]['title'] + '</h2><span class="list-address">'+street+'</br>'+city+', '+state+' '+zip+'</span><div class="directions cta"><a class="cta-link" href="'+$link+'" target="_blank">Get Directions >></a></div><div class="border"></div></div>';
-       
+        var infoWindowContent = '<div class="map-marker-title"><h2 class="list-title"><a href="'+$home+'/restaurant/'+slug+'">'+ _data[i]['title'] + '</h2><span class="list-address">'+street+'</br>'+city+', '+state+' '+zip+'</span><div class="directions cta"><a class="cta-link" href="'+$link+'" target="_blank">Get Directions >></a></div><div class="border"></div></div>';
+        
         //Create the marker
         marker = new google.maps.Marker({
             //This is just the title of the blog post
@@ -336,6 +336,7 @@
             map: map,
             id: i,
             name: slug,
+
             //Create the custom icon
             icon:icon,
         });
@@ -359,11 +360,13 @@
                 var markerID = marker.id;
                 var markerCenter = marker.position;
 
+
+
                 var _mID = marker.name;
                 var _top = jQuery('.locations .map-listing#'+marker.name).offset().top;
                 var _offset = jQuery('.locations .map-listing#'+marker.name).data('offset');
                 jQuery('.locations .map-listing').removeClass('location-active');
-                    jQuery('.locations .map-listing#'+marker.name).addClass('location-active');
+                jQuery('.locations .map-listing#'+marker.name).addClass('location-active');
                 //var center = new google.maps.LatLng(_data[i]['coordinates'][0], _data[i]['coordinates'][1]); 
                 map.panTo(markerCenter);
                 console.log(_offset);
@@ -450,7 +453,36 @@
 //set bounds for map. 
 map.fitBounds(bounds);
 
+function markerFocus(marker_slug){
+   for(i=0; i < gmarkers.length; i++){
+       var marker = gmarkers[i];
+       marker.setIcon(icon);
+       if(marker.name == marker_slug){
 
+        var infoWindowContent = '<div class="map-marker-title"><h2 class="list-title"><a href="'+$home+'/restaurant/'+marker_slug+'">'+ marker.title + '</a></h2><span class="list-address">'+street+'</br>'+city+', '+state+' '+zip+'</span><div class="directions cta"><a class="cta-link" href="'+$link+'" target="_blank">Get Directions >></a></div><div class="border"></div></div>';
+        infoWindow.setContent(infoWindowContent);
+         infoWindow.open(map, marker);
+         marker.setIcon(activeIcon);
+         var position = marker.getPosition();
+         map.setCenter(position);
+         //break;
+       }
+      }
+}
+var windowW = jQuery(window).width();
+console.log(windowW);
+//if(jQuery(window).width() > 500){
+jQuery('.map-listing').click(function(e){
+  var windowW = jQuery(window).width();
+  if (windowW >= 500){
+    e.preventDefault();
+  }
+  map.panTo(marker.getPosition());
+  var marker_slug = jQuery(this).attr('id');
+  markerFocus(marker_slug);
+  jQuery('.locations .map-listing').removeClass('location-active');
+  jQuery(this).addClass('location-active');
+})
 
 function scrollToMarker(){
   //alert('Scrolled'+marker.id);

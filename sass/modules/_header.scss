@@ -6,8 +6,8 @@ header{
 		padding:0 15px;
 		//position:relative;
 		z-index:10;
-		display:table;
-		height:100%;
+		// display:table;
+		// height:100%;
 		width:100%;
 		@media only screen and ($bp-smaller-than-tablet){
 			padding:0 0;
@@ -102,10 +102,19 @@ header{
 			margin-bottom:0;
 			position:relative;
 
+			&:hover,
+			&:active,
+			&:focus{
+				.sub-menu{
+					left:0;
+				}
+			}
+
 			a{
 				color:$dark_gray;
 				text-transform:uppercase;
 				font-size:1.2em;
+				padding-bottom:10px;
 				@include brandon-black;
 				&:hover,
 				&:focus,
@@ -117,6 +126,7 @@ header{
 			.sub-menu{
 				margin:0;
 				padding:1em;
+				margin-top:1em;
 				//padding-top:2em;
 				width:250px;
 				background:white;
@@ -171,6 +181,7 @@ header{
 		span{
 			display:inline-block;
 			padding:10px 0;
+			padding-right:5px;
 			font-size:1.2em;
 			@include brandon-black;
 			text-transform:uppercase;
@@ -226,7 +237,7 @@ header{
 
 	.search-form{
 		width:65%;
-		font-size:1.2em;
+		//font-size:1.2em;
 		text-transform:uppercase;
 
 		input{
@@ -237,7 +248,7 @@ header{
 			padding:0 10px;
 			height:30px;
 			line-height:normal;
-			font-size:1.6em;
+			font-size:1.2em;
 		}
 		button{
 			width:15%;

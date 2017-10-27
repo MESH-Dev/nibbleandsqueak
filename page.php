@@ -97,9 +97,8 @@
 				<?php  wp_reset_postdata(); endwhile;?>
 					</div> <!-- end row.related-articles -->
 				<?php endif; } ?>
-		<!-- </div> -->
+		<?php get_template_part('partials/separator'); ?>
 	</div>
-
 </main><!-- End of Content -->
 
 <?php get_footer(); ?>

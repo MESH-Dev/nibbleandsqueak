@@ -5,18 +5,17 @@
 	<div class="container">
  
 			<div class="row">
-
 				<?php if ( have_posts() ) : ?>
 					<h1>
-						<?php if ( is_day() ) : ?>
-							<?php printf( __( 'Daily Archives: <span>%s</span>' ), get_the_date() ); ?>
-						<?php elseif ( is_month() ) : ?>
-							<?php printf( __( 'Monthly Archives: <span>%s</span>' ), get_the_date('F Y') ); ?>
-						<?php elseif ( is_year() ) : ?>
-							<?php printf( __( 'Yearly Archives: <span>%s</span>' ), get_the_date('Y') ); ?>
-						<?php else : ?>
-							<?php single_cat_title(); ?>
-						<?php endif; ?>
+						<?php //if ( is_day() ) : ?>
+							<?php //printf( __( 'Daily Archives: <span>%s</span>' ), get_the_date() ); ?>
+						<?php //elseif ( is_month() ) : ?>
+							<?php //printf( __( 'Monthly Archives: <span>%s</span>' ), get_the_date('F Y') ); ?>
+						<?php //elseif ( is_year() ) : ?>
+							<?php //printf( __( 'Yearly Archives: <span>%s</span>' ), get_the_date('Y') ); ?>
+						<?php //else : ?>
+							<?php //single_cat_title(); ?>
+						<?php //endif; ?>
 						All results for <span><?php single_cat_title(); ?></span> in <span><?php echo $_COOKIE['city'];?></span>
 					</h1>
 
@@ -33,7 +32,9 @@
 							// foreach ($cities as $city_tax){
 							// 	$city_label = 
 							// }
-							$city_label = get_the_terms($post->ID, 'city')[0]->name;
+							if($city_name != ''){
+								$city_label = get_the_terms($post->ID, 'city')[0]->name;
+							}
 							$amenity = get_the_terms($post->ID, 'amenity' );
 							$photo = get_field('primary_photo', $post->ID);
 							$photo_alt = $photo['alt'];
@@ -83,9 +84,9 @@
 				<?php endif; ?>
 
 			</div>
- 
+ 	<?php get_template_part('partials/separator'); ?>
 	</div>
-
+	
 </main><!-- End of Content -->
 
 <?php get_footer(); ?>

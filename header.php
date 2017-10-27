@@ -126,7 +126,7 @@
 				<div class="funnel">
 					<div class="wrap">
 						<ul class="city-dropdown">
-							<li ><span id="city">Cities</span><span class="arrow"><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?></span>
+							<li ><span id="city">Select A City</span><span class="arrow"><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?></span>
 								<ul class="sub-menu">
 									<div class="city-wrap">
 									<?php 

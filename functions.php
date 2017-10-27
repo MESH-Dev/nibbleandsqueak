@@ -378,9 +378,9 @@ add_action('pre_get_posts','search_filter');
 function archive_filter($query){
  if ( !is_admin() && $query->is_main_query() ) {
   //Use is archive for archive page for Amenities
-    if ($query->is_archive) {
+    if ($query->is_archive && ! $query->is_category ) {
       $city = $_GET["city"];
-     
+      //var_dump($city);
 
       $city_query = array(
         array(

@@ -31,6 +31,9 @@ get_header(); ?>
 									<ul style="display:inline-block;">
 										<li>
 											<input placeholder="Place" class="city-input">
+											<span class="arrow">
+												<?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?>
+											</span>
 										<ul class="sub-menu">
 										<div class="city-wrap">
 										<?php 
@@ -294,7 +297,7 @@ get_header(); ?>
 					<a href="<?php echo the_permalink($rr_id); ?>">
 						<div class="columns-2 eq">
 							<div class="restaurant-review">
-								<div class="review-hover is_rounded img" style="background-image:url('<?php echo $rr_bg_URL; ?>');background-repeat:no-repeat; background-size:cover; background-position:center center">
+								<div class="review-hover is_rounded img" style="background-image:url('<?php echo $rr_bg_URL; ?>');">
 									<!-- <img src="<?php echo $rr_bg_URL; ?>"> -->
 									<div class="hover">
 										<div class="wrap">

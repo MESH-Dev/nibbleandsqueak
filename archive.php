@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="content" class="inner-content">
+<main id="content" class="inner-content fuck">
 
 	<div class="container">
  
@@ -83,7 +83,7 @@
 
 			</div>
 			
- 
+ 		<?php get_template_part('partials/separator'); ?>
 	</div>
 
 </main><!-- End of Content -->

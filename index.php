@@ -82,7 +82,7 @@
 				<?php endif; ?>
 
 			</div>
- 
+ 		<?php get_template_part('partials/separator'); ?>
 	</div>
 
 </main><!-- End of Content -->

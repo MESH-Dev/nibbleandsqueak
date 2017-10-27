@@ -94,10 +94,10 @@ createCookie(name,"",-1);
 }
 
 var homeLink = $('a#homelink').attr('href');
-var $select = $('span#city');
+var $select = $('#city');
 var $bannerSelect = $('.city-input');
 
-$bannerSelect.addClass('new');
+//$bannerSelect.addClass('new');
 
 
 $('.city-dropdown .sub-menu a').click(function () {
@@ -190,6 +190,8 @@ function PythagorasEquirectangular(lat1, lon1, lat2, lon2) {
 
 var cities = geo_choices;
 
+var _cityName, _citySlug;
+
 function NearestCity(latitude, longitude) {
   var temp = 999999;
   var closest;
@@ -203,27 +205,37 @@ function NearestCity(latitude, longitude) {
     }
   }
 
-	var cityVal = document.getElementById("city").innerHTML = cities[closest]['slug'];
+	//var cityVal = document.getElementById("city").innerHTML = cities[closest]['slug'];
 
-	var _citySlug = cities[closest]['slug']; //cityVal
-	var _cityName = cities[closest]['name'];
+ 	_citySlug = cities[closest]['slug']; //cityVal
+	_cityName = cities[closest]['name'];
 
-	$select.text(_cityName);
+	console.log("City Name = "+_citySlug);
+
+	//if(_cityName !='' || _cityName != null){
+		$select.text(_cityName);
+	//}else{
+		//$select.text('Select');
+	//}
+	
 	$bannerSelect.attr('placeholder','').val(_cityName);
-	var cityName = cities[closest]['name'];
+	//var cityName = cities[closest]['name'];
 	//console.log(cityName);
 	//console.log(cityVal);
 	createCookie('city', _citySlug, '');
 	createCookie('cityName', _cityName, '')
   	
   	//return cityVal;
+  	return _citySlug, _cityName; 
  
 }//end nearest city
 
+// var _citySlug = cities[closest]['slug']; //cityVal
+// 	var _cityName = cities[closest]['name'];
 	
 	var cookieVal = readCookie('city');
 	var cookieName = readCookie('cityName');
-	console.log('Cookie = '+cookieVal);
+	console.log('Cookie = '+cookieName);
  	createCookie('is_geo_run', '1');
 
  	$('a#homelink').attr('href', homeLink+cookieVal);
@@ -233,15 +245,15 @@ function NearestCity(latitude, longitude) {
  		var $slug = $(this).data('slug');
  		$(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
  	})
- 	$('#city').text('Cities');
- 	$bannerSelect.val(cookieName);
- 	if(cookieVal != '' || cookieVal != null){
+ 	//$('#city').text(cookieName);
+ 	//$bannerSelect.val(cookieName);
+ 	if(cookieName != '' || cookieName != null){
  		$('#city').text(cookieName);
  		$bannerSelect.val(cookieName);
- 	}else{
- 		//$('#city').text('Cities');
+ 	}//else{
+ 		//$('#city').text('Select A City');
  		//$bannerSelect.val('Place');
- 	}
+ 	//}
 
 $(function() {
     $('.eq.block').matchHeight(

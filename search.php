@@ -5,7 +5,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="">
+			
 				<?php if ( have_posts() ) : ?>
 					<h1> 
 						All results for <span><?php echo get_search_query(); ?></span> in <span><?php echo $_COOKIE['cityName'];?></span>
@@ -16,15 +16,7 @@
 					while (have_posts() ) : the_post(); ?>
 						<?php 
 							$city_name = get_terms('city', $post->ID); 
-							// if($city_name != ''){
-							// 	$city = $city_name->slug;
-							// 	$city_label = $city_name->name;
-							// }
-							//$cities = get_the_terms('city');
-							// $city_label='';
-							// foreach ($cities as $city_tax){
-							// 	$city_label = 
-							// }
+							
 							$city_label = get_the_terms($post->ID, 'city')[0]->name;
 							$amenity = get_the_terms($post->ID, 'amenity' );
 							$photo = get_field('primary_photo', $post->ID);
@@ -79,8 +71,8 @@
 									</ul>
 								</div>
 								<?php } ?>
-							</div>
-						</div>
+							</div> <!-- end search-article -->
+						</div> <!-- end columns-4 eq block -->
 
 					<?php endwhile; ?>
 
@@ -88,11 +80,15 @@
 					<h1>Nothing Found</h1>
 					<p>Nothing matched your search criteria. Please try again with some different keywords.</p>
 
-					<?php get_search_form(); ?>
+					<div class="notfound-search">
+							<?php get_template_part('partials/searchform') ?>
+					</div>
 				<?php endif; ?>
-			</div>
-		</div>
-	</div>
+			
+			<!-- </div> -->
+		</div><!-- end row -->
+		
+	</div> <!-- end container -->
 
 </main><!-- End of Content -->
 

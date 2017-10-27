@@ -137,6 +137,10 @@ main.inner-content{
   margin-top:5em;
 }
 
+main{
+  min-height:600px;
+}
+
 .autocomplete-suggestions{
   font-size:1.5em;
   @include brandon-black;
@@ -209,6 +213,17 @@ main.inner-content{
     }
 
     .citysearch{
+      span.arrow{
+        border-bottom:2px solid $title_black;
+        margin-left:-4px;
+        svg{
+          transform:rotate(90deg);
+          width:12px;
+          height:12px;
+          
+        }
+
+      }
       ul{
         margin-bottom:0;
         width:80%;
@@ -314,8 +329,17 @@ main.inner-content{
       border-bottom:2px solid $title_black;
       line-height:normal;
       padding:0 10px;
-      width:100%;
+      width:92%;
       height:initial;
+      &:focus,
+      &:active,
+      &:hover{
+        + .arrow svg{
+          .triangle{
+            stroke:$mint;
+          }
+        }
+      }
     }
 
     input::-webkit-input-placeholder {
@@ -522,6 +546,75 @@ $bubble_size2x: $bubble_size * 2;
         margin-right:1em;
       }
     }
+}
+
+.notfound-search{
+  width:50%;
+   max-width:600px;
+   min-width:280px;
+
+  #searchform{
+    //width:65%;
+    //font-size:1.2em;
+    text-transform:uppercase;
+
+    input{
+      width:70%;
+      border:none;
+      box-shadow:none;
+      border-bottom:2px solid $periwinkle;
+      padding:0 10px;
+      height:30px;
+      line-height:normal;
+      font-size:1.6em;
+    }
+    button{
+      width:15%;
+      border:none;
+      box-shadow:none;
+      border-bottom:2px solid $periwinkle;
+      padding:0;
+      height:30px;
+       svg{
+              height:15px;
+              width:15px;
+            }
+    }
+    input,
+    button{
+      display:inline-block;
+      float:left;
+    }
+    input::-webkit-input-placeholder {
+    @include brandon-black;
+      color:$periwinkle;
+      text-transform:uppercase;
+    }
+
+    input::-moz-placeholder {
+        @include brandon-black;
+        color:$periwinkle;
+        text-transform:uppercase;
+    }
+
+     input:-ms-input-placeholder {
+        @include brandon-black;
+        color:$periwinkle;
+        text-transform:uppercase;
+    }
+
+     input:-moz-placeholder {
+        @include brandon-black;
+        color:$periwinkle;
+        text-transform:uppercase;
+    }
+
+     input::webkit-input-placeholder {
+        @include brandon-black;
+        color:$periwinkle;
+        text-transform:uppercase;
+    }
+  }
 }
 
 //-------------------------------------------
