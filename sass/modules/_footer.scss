@@ -4,7 +4,11 @@ footer{
 	//padding:0 15px;
 
 	.footer-interaction{
-		padding: 2em 1.5em;
+		padding: 0 1.5em 2em 1.5em;
+
+		@media only screen and ($bp-smaller-than-mobile){
+			text-align:center;
+		}
 	}
 
 	ul{
@@ -43,6 +47,15 @@ footer{
 			text-transform:uppercase;
 		}
 
+		a{
+			color:$white;
+			&:hover,
+			&:focus,
+			&:active{
+				text-decoration:underline;
+			}
+		}
+
 		.signature{
 			text-align:right;
 
@@ -60,6 +73,121 @@ footer{
 		display:inline-block;
 		margin-right:4em;
 	}
+
+	.social-nav{
+		margin:0;
+		margin-bottom:0;
+		li{
+			list-style-type: none;
+			display:inline-block;
+			margin-right:1em;
+			margin-bottom:0;
+		}
+	}
+
+	.email-signup{
+		.label,
+		.signup{
+			display:inline-block;
+			vertical-align:middle;
+			//width:48%;
+			@media only screen and ($bp-smaller-than-tablet){
+				width:100%;
+			}
+		}
+
+		.label{
+			@include brandon-black;
+			font-size:1.6em;
+			text-transform:uppercase;
+			margin-right:1em;
+			
+		}
+
+		.signup{
+			width:20%;
+			min-width:220px;
+			//padding:0 10px;
+			@media only screen and (max-width:850px){
+				width:95%;
+				margin:1em 0;
+			}
+
+			input{
+				// padding:0;
+				// line-height: normal;
+				padding:0 10px;
+				//width:30%;
+				@media only screen and ($bp-smaller-than-tablet){
+					width:85%;
+				}
+			}
+
+			button{
+				width:25px;
+				//height:26px;
+			}
+			input::-webkit-input-placeholder {
+			    @include brandon-black;
+			      color:$title_black;
+			      text-transform:capitalize;
+			    }
+
+		    input::-moz-placeholder {
+		        @include brandon-black;
+		        color:$title_black;
+		        text-transform:capitalize;
+		    }
+
+		     input:-ms-input-placeholder {
+		        @include brandon-black;
+		        color:$title_black;
+		        text-transform:capitalize;
+		    }
+
+		     input:-moz-placeholder {
+		        @include brandon-black;
+		        color:$title_black;
+		        text-transform:capitalize;
+		    }
+
+		     input::webkit-input-placeholder {
+		        @include brandon-black;
+		        color:$title_black;
+		        text-transform:capitalize;
+		    }
+		}
+	}
+
+	.hashtag{
+		@include brandon-black;
+		font-size:1.6em;
+		text-transform:uppercase;
+		margin-right:1em;
+
+	}
+
+	.hashtag,
+	.social-nav{
+		display:inline-block;
+		vertical-align:middle;
+	}
+
+	.social-nav{
+		li{
+			a{
+				font-size:1.6em;
+			}
+		}
+	}
+
+	.social{
+		text-align: right;
+		@media only screen and ($bp-smaller-than-mobile){
+			text-align:left;
+		}
+	}
+
 }
 
 .sub-title{

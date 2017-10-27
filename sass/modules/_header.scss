@@ -9,37 +9,56 @@ header{
 		display:table;
 		height:100%;
 		width:100%;
-		//overflow:hidden;
+		@media only screen and ($bp-smaller-than-tablet){
+			padding:0 0;
+		}
 
 		.head{
 			// display:table-cell;
 			// height:100%;
 			// vertical-align: middle;
+			//overflow: hidden;
+			height:113px;
+			position:relative;
 		}
 	}
 	.logo,
 	.funnel,
 	nav{
 		display:inline-block;
-		float:left;
-		height:113px;
+		//float:left;
+		//height:113px;
 		vertical-align: middle;
 	}
 
 	.funnel{
 		color:$periwinkle;
+		@media only screen and ($bp-smaller-than-tablet){
+			// position:absolute;
+			// display:none;
+			position:absolute;
+			z-index:200;
+			width:100% !important;
+			background-color:$white;
+			height:60px;
+			top:100%;
+			padding:15px;
+			border-top:2px solid $periwinkle;
+		}
 	}
 
 	.funnel,
 	.main-navigation{
-		display:table;
-		width:30%;
+		//display:table;
+		width:29%;
 		.wrap{
-			display:table-cell;
+			//display:table-cell;
 			vertical-align: middle;
+			
 		}
 		@media only screen and ($bp-smaller-than-tablet){
-			width:50%;
+			//width:50%;
+			display:none;
 		}
 	}
 
@@ -48,16 +67,18 @@ header{
 		text-align:center;
 		overflow: hidden;
 		@media only screen and ($bp-smaller-than-tablet){
-			position:absolute;
+			//position:absolute;
 		}
 		.site-title{
 			max-width:120px;
 			display: inline-block;
-			transition:all .2s ease-in-out;
+			//transition:all .3s ease-in-out;
 			margin:0;
 			padding:0;
+			overflow:hidden;
 			img{
 				display:block;
+				transition:all .3s ease-in-out;
 			}
 		}
 		
@@ -66,15 +87,20 @@ header{
 
 	.main-navigation{
 		text-align:right;
+		// @media only screen and ($bp-smaller-than-tablet){
+		// 	display:none;
+		// }
+
 	ul{
 		display:inline-block;
 		margin:0;
-
+		
 		li{
 			display:inline-block;
 			float:left;
 			margin-left:2em;
 			margin-bottom:0;
+			position:relative;
 
 			a{
 				color:$dark_gray;
@@ -87,9 +113,39 @@ header{
 					text-decoration:underline;
 				}
 			}
+
+			.sub-menu{
+				margin:0;
+				padding:1em;
+				//padding-top:2em;
+				width:250px;
+				background:white;
+				position:absolute;
+				z-index: 120;
+				left:-99999px;
+				border:2px solid $periwinkle;
+				
+				li{
+					font-size:1.2em;
+					text-transform:uppercase;
+					@include brandon-black;
+					a{
+						color:$periwinkle;
+						&:hover,
+						&:active,
+						&:focus{
+							color:$mint;
+							text-decoration:underline;
+						}
+					}
+				}
+			}
 		}
 
 		&.social-nav{
+			@media only screen and ($bp-smaller-than-tablet){
+				display:none;
+			}
 			li{
 				margin-left:1em;
 			}
@@ -143,7 +199,17 @@ header{
 				li{
 					font-size:1.2em;
 					text-transform:uppercase;
+					margin-bottom:1em;
 					@include brandon-black;
+					a{
+						color:$periwinkle;
+						&:hover,
+						&:active,
+						&:focus{
+							color:$mint;
+							text-decoration:underline;
+						}
+					}
 				}
 			}
 
@@ -162,6 +228,7 @@ header{
 		width:65%;
 		font-size:1.2em;
 		text-transform:uppercase;
+
 		input{
 			width:70%;
 			border:none;
@@ -170,6 +237,7 @@ header{
 			padding:0 10px;
 			height:30px;
 			line-height:normal;
+			font-size:1.6em;
 		}
 		button{
 			width:15%;
@@ -216,6 +284,30 @@ header{
 		    @include brandon-black;
 		    color:$periwinkle;
 		    text-transform:uppercase;
+		}
+	}
+
+	.close{
+		display:none;
+	}
+
+	.mobile-search-trigger,
+	.sidr-trigger{
+		@include brandon-black;
+		color:$periwinkle;
+		font-size:1.6em;
+		text-transform:uppercase;
+		cursor:pointer;
+		text-align:center;
+
+		display:inline-block;
+		width:29%;
+		vertical-align: middle;
+		@media only screen and ($bp-larger-than-tablet){
+			display:none;
+		}
+		@media only screen and ($bp-smaller-than-tablet){
+			display:inline-block;
 		}
 	}
 }

@@ -1,4 +1,21 @@
-  var icon = '/img/mapmarker.png';
+  var iconUrl = '/img/mapmarker.svg';
+  var activeUrl = '/img/activeMapmarker.svg';
+  var gmarkers = [];
+
+  var icon = {
+    url: $dir+iconUrl, // url
+    scaledSize: new google.maps.Size(30, 30), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+  };
+
+  var activeIcon = {
+    url: $dir+activeUrl, // url
+    scaledSize: new google.maps.Size(40, 40), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+  };
+
   var infoWindow = new google.maps.InfoWindow(), marker, i;
 
   var mapStyles = [
@@ -306,6 +323,8 @@
         
         $link = 'https://www.google.com/maps?saddr=My+location&daddr='+latitude+','+longitude;
 
+        //setIcon(icon);
+
         //Create the html for the infoWindow
         var infoWindowContent = '<div class="map-marker-title"><h2 class="list-title">'+ _data[i]['title'] + '</h2><span class="list-address">'+street+'</br>'+city+', '+state+' '+zip+'</span><div class="directions cta"><a class="cta-link" href="'+$link+'" target="_blank">Get Directions >></a></div><div class="border"></div></div>';
        
@@ -318,7 +337,7 @@
             id: i,
             name: slug,
             //Create the custom icon
-            icon:$dir + icon,
+            icon:icon,
         });
 
         bounds.extend(marker.getPosition());
@@ -329,9 +348,14 @@
         //CLICK LISTENER TO SET AND SHOW INFOWINDOW, PAN TO ICON, AND SCROLL TO LEFT LOCATION
         google.maps.event.addListener(marker, 'click', (function(marker, infoWindowContent, infoWindow) {
             return function() {
-              
+                
+                for(i=0; i < gmarkers.length; i++){
+                  gmarkers[i].setIcon(icon);
+                }
+
                 infoWindow.setContent(infoWindowContent);
                 infoWindow.open(map, marker);
+                this.setIcon(activeIcon);
                 var markerID = marker.id;
                 var markerCenter = marker.position;
 
@@ -419,7 +443,7 @@
                   jQuery(this).css({opacity: '0'});
             });
         });
-
+  gmarkers.push(marker);
 }//end for loop
 
 

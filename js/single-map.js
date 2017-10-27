@@ -13,12 +13,15 @@
 
   //    var infoWindow = new google.maps.InfoWindow(), marker, i;
 
-  var icon = '/img/mapmarker.png';
-  var $marker = $dir+icon;
-  console.log($dir);
-  console.log($_lat);
-  console.log($_long);
-  console.log($marker);
+  var iconUrl = '/img/mapmarker.svg';
+
+  // var icon = {
+  //   url: $dir+iconUrl, // url
+  //   scaledSize: new google.maps.Size(60, 60), // scaled size
+  //   origin: new google.maps.Point(0,0), // origin
+  //   anchor: new google.maps.Point(0, 0) // anchor
+  // };
+
   var map; 
 
 
@@ -281,13 +284,14 @@
         fullscreenControl: false,
         styles:mapStyles      });
 
+    //Declaring this after the map variable is vitally important
     marker = new google.maps.Marker({
             //This is just the title of the blog post
             //title: title,
             position: new google.maps.LatLng($_lat, $_long),
             map: map,
             //Create the custom icon
-            icon:$dir + icon,
+            icon:$dir+iconUrl,
             
           });
     

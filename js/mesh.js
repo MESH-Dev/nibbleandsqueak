@@ -4,25 +4,26 @@ jQuery(document).ready(function($){
   console.log('New theme loaded!');
 
   //Let's do something awesome!
+
+//Animate the stickyness/size of the header
 $(window).scroll(function(){
 	 var scroll = $(window).scrollTop();    
     if (scroll >= 100) {
-        $("header").addClass("fixed");
-        $('.site-title').css({width:65});
+        $('header').addClass('fixed');
         $('.logotext').css({display:'none'});
-        $('.logo, nav, .funnel').css({height:50});
+        $('.site-title').animate({width:65}, 40);
+        $('.head').animate({height:50}, 45);
     }else{
     	$('header').removeClass('fixed');
-    	$('.site-title').css({width:125});
-    	 $('.logo, nav, .funnel').css({height:113});
-    	 $('.logotext').css({display:'block'});
+    	$('.logotext').css({display:'block'});
+    	$('.site-title').animate({width:125}, 20);
+    	 $('.head').animate({height:113},15);
     }
 })
 
 
 //Autocomplete
-
-//searchHeader
+// see https://goodies.pixabay.com/jquery/auto-complete/demo.html for more info 
 
 $('input[name="s"]').autoComplete({
     minChars: 2,
@@ -37,21 +38,29 @@ $('input[name="s"]').autoComplete({
     }
 });
 
+//  Get the current offset value of map listing items, and save it
+//  as a data-offset variable
+//  run the function on load and on window scroll
 
-$('.locations .map-listing').each(function(){
-	var TT = $(this).offset().top;
+function getOffset(){
+	$('.locations .map-listing').each(function(){
+		var TT = $(this).offset().top;
+		$(this).attr('data-offset', TT);
+	});
+}
+getOffset();
+$(window).scroll(getOffset)
 
-	$(this).attr('data-offset', TT);
-	//console.log(TT); 
-});
-
+//  Just a variable for the 'locations' class
 var _hasLocations = $('locations');
 
+
+//Find 
 function findOffset(){
 	if(_hasLocations.length > 0){
 	var _top = $('.locations .map-listing#'+marker.name).offset().top;
-        console.log(_top);
-        jQuery('.locations .map-listing').addClass('this-is-a-marker'+_top);
+        //console.log(_top);
+        //jQuery('.locations .map-listing').addClass('this-is-a-marker'+_top);
 	}
 }
 
@@ -109,6 +118,7 @@ $('.city-dropdown .sub-menu a').click(function () {
     console.log('Cookie = '+cookieVal);
     $('a#homelink').attr('href', homeLink+cookieVal);
     $('input#city-search').attr('value', cookieVal);
+    $('input#city-banner-search').attr('value', cookieVal);
     $('#city').text(cookieName);
     $bannerSelect.val(cookieName);
 });
@@ -130,6 +140,7 @@ $('.citysearch .sub-menu a').click(function () {
     console.log('Cookie = '+cookieVal);
     $('a#homelink').attr('href', homeLink+cookieVal);
     $('input#city-search').attr('value', cookieVal);
+    $('input#city-banner-search').attr('value', cookieVal);
     $('#city').text(cookieName);
     $bannerSelect.val(cookieName);
 });
@@ -217,6 +228,7 @@ function NearestCity(latitude, longitude) {
 
  	$('a#homelink').attr('href', homeLink+cookieVal);
  	$('input#city-search').attr('value', cookieVal);
+ 	$('input#city-banner-search').attr('value', cookieVal);
  	$('.amenities li a').each(function(){
  		var $slug = $(this).data('slug');
  		$(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
@@ -239,6 +251,43 @@ $(function() {
     remove: false }
       );
 });
+
+// $(function() {
+//     $('.eq .img').matchHeight(
+//       { byRow: true,
+//     property: 'height',
+//     target: null,
+//     remove: false }
+//       );
+// });
+
+$ms_cnt = 0;
+$('.mobile-search-trigger').click(function(){
+	$ms_cnt++;
+	//console.log($ms_cnt);
+	if($ms_cnt == 1){
+		$('.funnel').slideDown('slow');
+		//console.log($ms_cnt);
+	}else{
+		$('.funnel').slideUp('slow');
+		$ms_cnt = 0;
+	}
+});
+//}
+
+//Sidr
+$('.sidr-trigger').sidr({
+      name: 'sidr-main',
+      source: '.main-navigation',
+      renaming: false,
+      side: 'right',
+      displace: false,      
+       //onOpen: function(){
+
+        //$('.sidr-trigger').animate({right:"20000"},50);
+      //}////end sidr onOpen function
+
+ });//end sidr onOpen function
 
 });
 

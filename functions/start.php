@@ -9,6 +9,7 @@ function loadup_scripts() {
 	wp_enqueue_script( 'theme-js', get_template_directory_uri().'/js/mesh.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'autocomplete-js', get_template_directory_uri().'/js/jquery.auto-complete.min.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'geolocation-js', get_template_directory_uri().'/js/jquery.matchHeight.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'sidr-js', get_template_directory_uri().'/js/jquery.sidr.min.js', array('jquery'), '1.0.0', true );
     if(is_page_template("templates/template-map.php")){
         wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCbX_dvIvIBOUlSTYKA5lYPUHUkBAN-lb4', array('jquery'), '1.0.0', true );
         wp_enqueue_script( 'cluster', '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array('jquery'), '1.0.0', true );
@@ -21,6 +22,7 @@ function loadup_scripts() {
    }
    wp_enqueue_style( 'fontawesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', true );
    wp_enqueue_style( 'autocomplete-style', get_template_directory_uri().'/css/jquery.auto-complete.css', true );
+   wp_enqueue_style( 'sidr-style', get_template_directory_uri().'/css/jquery.sidr.bare.css', true );
 }
 add_action( 'wp_enqueue_scripts', 'loadup_scripts' );
 
@@ -32,6 +34,7 @@ add_image_size('short-banner', 1800, 800, true);
 add_image_size('large', 700, '', true); // Large Thumbnail
 add_image_size('medium', 250, '', true); // Medium Thumbnail
 add_image_size('small', 120, '', true); // Small Thumbnail
+add_image_size('square', 500, 500, true); //square images
 add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
 

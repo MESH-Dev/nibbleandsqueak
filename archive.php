@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="content">
+<main id="content" class="inner-content">
 
 	<div class="container">
  
@@ -44,7 +44,7 @@
 
 						?>
 
-						<div class="columns-4">
+						<div class="columns-4 eq block">
 							<div class="search-article is_rounded" style="margin-bottom:2em;">	
 								<div class="border-wrap is_rounded" style="background-image:url('<?php echo $photo_URL; ?>');">
 									<span class="sr-only"><?php echo $photo_alt; ?></span>

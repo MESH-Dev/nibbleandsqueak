@@ -116,14 +116,15 @@
 
  	//var_dump($landing_id);
 
- 	var_dump(get_id_by_slug('/'));
+ 	//var_dump(get_id_by_slug());
+ 	//$l_id = get_id_by_slug();
  	?>
 	<header>
 		<div class="header-wrap"><!-- container -->
 			<div class="row head">
+				<div class="mobile-search-trigger">Search</div>
 				<div class="funnel">
 					<div class="wrap">
-					<!-- <input type="text" placeholder="Cities" id="city"> -->
 						<ul class="city-dropdown">
 							<li ><span id="city">Cities</span><span class="arrow"><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?></span>
 								<ul class="sub-menu">
@@ -156,7 +157,7 @@
 								</ul>
 							</li>
 						</ul>
-						<?php if (! is_front_page() || ! is_page_template('templates/template-landing.php')){ ?>
+						<?php if (! is_page_template('templates/template-landing.php')){ ?>
 							<div class="search-form">
 								<?php get_template_part('partials/searchform') ?>
 							</div>
@@ -172,7 +173,10 @@
 						</a>
 					</h1>
 				</div>
+				<div class="sidr-trigger">MENU</div>
 				<nav class="main-navigation">
+					
+					<div class="close">Close</div>
 					<div class="wrap">
 					<?php if(has_nav_menu('main_nav')){
 								$defaults = array(

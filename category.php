@@ -17,6 +17,7 @@
 						<?php else : ?>
 							<?php single_cat_title(); ?>
 						<?php endif; ?>
+						All results for <span><?php single_cat_title(); ?></span> in <span><?php echo $_COOKIE['city'];?></span>
 					</h1>
 
 					<?php while ( have_posts() ) : the_post(); ?>

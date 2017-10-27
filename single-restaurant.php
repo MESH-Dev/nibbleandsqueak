@@ -29,13 +29,6 @@
 	var $_lat = <?php echo $latitude; ?>;
 	var $_long = <?php echo $longitude; ?>;
 </script>
-<!-- <div class="bubble-wrap row">
-		<a class="cta-bubble"href="<?php echo $cta_link; ?>" <?php echo $cta_link; ?>>
-			<div class="bubble">
-				<?php echo $cta_text; ?>
-			</div>
-		</a>
-	</div> -->
 <main id="content" class="inner-content">
 
 	<div class="container">
@@ -66,6 +59,12 @@
 						<li>Changing Tables</li> -->
 				</ul>
 			</div>
+
+			<div class="addthis">
+				<!-- Go to www.addthis.com/dashboard to customize your tools --> 
+				<div class="addthis_inline_share_toolbox"></div>
+			</div>
+
 		</div> <!-- end post.columns-8 -->
 		<div class="page-content">
 			<div class="columns-8">
@@ -134,7 +133,10 @@
 					</div>
 					<?php if ($open_table != ""){ ?>
 						<div class="loc-button open-table">
-							<a href="<?php echo $open_table; ?>" target="_blank"><?php echo file_get_contents(get_template_directory().'/img/findtable.svg')?> Find a table</a>
+							<a href="<?php echo $open_table; ?>" target="_blank">
+								<span><?php echo file_get_contents(get_template_directory().'/img/findtable.svg')?></span> 
+								<span>Find a table</span>
+							</a>
 						</div>
 					<?php } ?>
 					<?php if($menu != '' || $menu_mobile != ''){ ?>
@@ -152,21 +154,18 @@
 					</div>
 					<?php } ?>
 					<div class="loc-button directions">
-						<a href="<?echo $gmd_link; ?>" target="_blank"><?php echo file_get_contents(get_template_directory().'/img/findtable.svg')?> Get Directions</a>
+						<a href="<?echo $gmd_link; ?>" target="_blank">
+							<span><?php echo file_get_contents(get_template_directory().'/img/directions.svg')?></span>
+							<span>Get Directions</span>
+						</a>
 					</div>
 					
 				</div>
 				</div>
 			</div> <!-- end columns-3 -->
-		</div> <!-- end page-content -->
-		<?php //comments_template( '', true ); ?>
-		
+		</div> <!-- end page-content -->	
 	<?php endwhile; ?>
 		</div>
 	</div>
 </main><!-- End of Content -->
-
-
-
-<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

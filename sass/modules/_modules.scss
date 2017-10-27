@@ -142,6 +142,18 @@ main.inner-content{
   @include brandon-black;
 }
 
+.social-nav{
+  li{
+    &:hover,
+    &:focus,
+    &:active{
+      i{
+        color:$mint;
+      }
+    }
+  }
+}
+
 //__ Homepage/City Specific Landing page
 
 .banner{
@@ -170,25 +182,42 @@ main.inner-content{
     background-color:$white;
     width:60%;
     margin:0 auto;
-    padding:1em 0;
+    padding:1em;
     border-radius:10px;
     color:$title_black;
     text-transform:uppercase;
     font-size:1.6em;
     @include brandon-black;
-    @media only screen and (max-width:1200px){
+    @media only screen and (max-width:1300px){
       width:80%;
+    }
+    @media only screen and (max-width:1000px){
+      width:90%;
+    }
+    @media only screen and (max-width:950px){
+      //text-align:left;
     }
 
     .gateway-item{
       display:inline-block;
       width:43%;
       vertical-align: middle;
+        @media only screen and (max-width:650px){
+         width:90%;
+         margin:0 auto;
+      }
     }
 
     .citysearch{
       ul{
         margin-bottom:0;
+        width:80%;
+        @media only screen and (max-width:950px){
+          width:75%;
+        }
+         @media only screen and ($bp-smaller-than-tablet){
+          width:70%;
+        }
           li{
             position:relative;
             list-style-type: none;
@@ -196,24 +225,45 @@ main.inner-content{
           }
       }
       .sub-menu{
-        width:95%;
+        width:100%;
         list-style-type: none;
         position:absolute;
         left:-999999px;
         margin:0;
         padding:1em;
         //padding-top:2em;
-        width:250px;
+        //width:250px;
         background:white;
         position:absolute;
         z-index: 120;
         border:2px solid $periwinkle;
+        li{
+          //font-size:1.2em;
+          margin-bottom:.625em;
+          text-transform:uppercase;
+          @include brandon-black;
+          a{
+            color:$periwinkle;
+            &:hover,
+            &:active,
+            &:focus{
+              color:$mint;
+              text-decoration:underline;
+            }
+          }
+        }
         .city-wrap{
           display:inline-block;
           vertical-align: top;
 
           width:45%;
           margin-right:1%;
+          text-align:left;
+          @media only screen and (max-width:950px){
+            width:95%
+
+          }
+
         }
       }
 
@@ -230,6 +280,10 @@ main.inner-content{
       width:10%;
       text-align: center;
       display:inline-block;
+      @media only screen and (max-width:650px){
+        width:90%;
+        margin:2em auto;
+      }
     }
 
     #banner-searchform{
@@ -237,6 +291,10 @@ main.inner-content{
       button{
         display:inline-block;
         float:left;
+      }
+
+      input{
+        width:89%;
       }
       button{
       width:9%;
@@ -256,9 +314,10 @@ main.inner-content{
       border-bottom:2px solid $title_black;
       line-height:normal;
       padding:0 10px;
-      //width:80%;
+      width:100%;
       height:initial;
     }
+
     input::-webkit-input-placeholder {
     @include brandon-black;
       color:$title_black;
@@ -308,9 +367,22 @@ $bubble_size2x: $bubble_size * 2;
   height:$bubble_size;
   width:$bubble_size2x;
   z-index: 105;
+  @include brandon-black;
+  font-size:1em;
+  color:$title_black;
+  text-transform: uppercase;
+
+  &:hover,
+  &:active,
+  &:focus{
+    background-color: $mint;
+    color:white;
+    text-decoration: none;
+    }
+
   .bubble{
     text-align: center;
-    width:95%;
+    width:75%;
     margin:0 auto;
     padding-top:1em;
   }
@@ -330,6 +402,9 @@ $bubble_size2x: $bubble_size * 2;
   //margin-bottom:2rem;
   position:relative;
   cursor:pointer;
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
 
   &:hover,
   &:focus,
@@ -438,10 +513,11 @@ $bubble_size2x: $bubble_size * 2;
   }
   .loc-amenities{
       margin:1em 0;
+      text-align:right;
       li{
         width:35px; 
         list-style-type:none; 
-        float:left; 
+        //float:left; 
         display:inline-block; 
         margin-right:1em;
       }
@@ -507,12 +583,29 @@ $bubble_size2x: $bubble_size * 2;
 
     img{
       display: block;
+      width:100%;
+    }
+
+    &:hover,
+      &:focus,
+      &:active{
+      .hover{
+        display:block;
+        color:$title_black;
+      }
+      .city{
+        color:$mint;
+      }
     }
 
     .review-hover{
       position:relative;
       overflow: hidden;
       margin-bottom:10px;
+      padding-bottom:100%;
+      background-repeat:no-repeat; 
+      background-size:cover; 
+      background-position:center center;
       .wrap{
         display:table;
         width:100%;
@@ -530,15 +623,7 @@ $bubble_size2x: $bubble_size * 2;
           }
         }
       }
-      &:hover,
-      &:focus,
-      &:active{
-      .hover{
-        display:block;
-        color:$title_black;
-      }
       
-      }
     }
     
     .hover{
@@ -551,7 +636,7 @@ $bubble_size2x: $bubble_size * 2;
       color:$title_black;
     }
     .post-title{
-      font-size:2.4rem;
+      font-size:1.6em;
       @include brandon-black;
       text-transform:uppercase;
       color:$title_black;
@@ -601,6 +686,7 @@ $bubble_size2x: $bubble_size * 2;
       //7 count width:
       width:14%;
       margin-bottom:0;
+      vertical-align: middle;
       @media only screen and ($bp-smaller-than-tablet){
         width:30%;
       }
@@ -631,7 +717,7 @@ $bubble_size2x: $bubble_size * 2;
   h2{
     text-transform:uppercase;
     @include brandon-black;
-    font-size:2.4em; 
+    font-size:1.6em; 
     margin:0;
   }
   // h2,.content{
@@ -665,7 +751,7 @@ $bubble_size2x: $bubble_size * 2;
   }
   a{
     color:$periwinkle;
-    font-size:1.6em;
+    font-size:1.2em;
     @include brandon-black;
     text-transform:uppercase;
   }
@@ -680,14 +766,18 @@ $bubble_size2x: $bubble_size * 2;
     font-size:1.6em;
     @include brandon-black;
     text-transform:uppercase;
+    padding: 0;
+    margin: 0;
+    height: 26px;
   }
   button{
-    width:5%;
+    width:25px;
     border:none;
     border-bottom:1px solid $title_black;
     padding:0 0;
     line-height:normal;
-    height:26px;
+    height:28px;
+    margin-left:-4px;
 
     &:hover,
     &:focus,
@@ -712,7 +802,7 @@ $bubble_size2x: $bubble_size * 2;
   input,
   button{
     display:inline-block;
-    float:left;
+    //float:left;
   }
 
   input::-webkit-input-placeholder {
@@ -750,6 +840,7 @@ $bubble_size2x: $bubble_size * 2;
 
 main.map-page{
   min-height:100vh;
+  position: relative;
 }
 
 .locations{
@@ -759,19 +850,32 @@ main.map-page{
   position:absolute;
   z-index:6;
   padding:40px 15px 600px 15px;
+  width:33.33333%;
   //padding-bottom:600px;
+   @media only screen and (max-width:900px){
+    width:50%;
+  }
   @media only screen and ($bp-smaller-than-tablet){
-    padding:40px 15px 0 15px;
+    padding:40px 15px 40px 15px;
+    overflow:visible;
+    height:auto !important;
+    position:relative;
+  }
+  @media only screen and ($bp-smaller-than-tablet){
+    width:100%;
   }
 
   .map-listing{
     height:200px; 
-    width:95%; 
+    //width:95%; 
     margin:1.5em auto;
     position:relative;
     overflow: hidden;
 
-    &.location-active{
+    &.location-active,
+    &:hover,
+    &:active,
+    &:focus{
       .border{
         background-color:$mint;
       }
@@ -791,7 +895,11 @@ main.map-page{
       float:left; 
     }
 
-
+    .post-title{
+      font-size:1.6em;
+      @include brandon-black;
+      color:$title-black;
+    }
 
     .map-listing-content{
       padding:15px 10px; 
@@ -816,7 +924,7 @@ main.map-page{
 
     .loc-tags{
       @include brandon-black;
-      font-size:1.6em;
+      font-size:1.2em;
       text-transform:uppercase;
       color:$dark_gray;
     }
@@ -826,7 +934,7 @@ main.map-page{
       li{
         width:35px; 
         list-style-type:none; 
-        float:left; 
+        //float:left; 
         display:inline-block; 
         margin-right:1em;
       }
@@ -845,6 +953,11 @@ main.map-page{
   margin-left:33.33333%;
 	z-index: 0;
 	transition: width 0.4s ease-in-out;
+
+   @media only screen and (900px){
+     width:50%
+  }
+
 }
 
 .gm-style{
@@ -974,12 +1087,15 @@ main.map-page{
       li{
         width:35px; 
         list-style-type:none; 
-        float:left; 
+        //float:left; 
         display:inline-block; 
         margin-right:1em;
       }
     }
 
+.addthis{
+  margin-top:20px;
+}
 //-------------------------------------------
 
 //__Accessibility
@@ -992,6 +1108,14 @@ main.map-page{
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+//Sidr
+
+.sidr{
+  .close{
+    display:block;
+  }
 }
 
 //__WordPress Core

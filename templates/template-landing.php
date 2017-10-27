@@ -19,11 +19,6 @@ get_header(); ?>
 					}
 				?>
 				<div class="banner" style="background-image:url('<?php echo $bg_URL; ?>');">
-					<!-- <a class="cta-bubble"href="<?php echo $cta_link; ?>" <?php echo $cta_link; ?>>
-						<div class="bubble">
-							<?php echo $cta_text; ?>
-						</div>
-					</a> -->
 					<div class="wrap">
 						<div class="content">
 							<p class="banner-subtitle">
@@ -75,6 +70,7 @@ get_header(); ?>
 										<div class="form input">
 											<label for="searchHeader" class="sr-only">Search the site</label>
 											<input id="searchHeader" class="hide" type="text" placeholder="Cuisine, restaurant, etc..." value="<?php the_search_query(); ?>" name="s" id="s" />
+											<input id="city-banner-search" type="hidden" name="city" type="text" value="" name="s" id="s" />
 											<button type="submit" class="form submit search-submit" id="searchsubmit" value="" >
 												<span class="sr-only">Submit search</span>
 												<?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?>	
@@ -105,7 +101,7 @@ get_header(); ?>
 										// foreach($amenity as $icon)
 										//Trying to get property of non-object
 										?>
-										<li>
+										<li class="eq block">
 											<a data-slug="<?php echo $amenity_slug; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $amenity_slug; ?>">
 												<div class="amenity-icon" data-svg="<?php echo $amenity_icon; ?>">
 													<?php 
@@ -172,7 +168,7 @@ get_header(); ?>
 							}
 					?>
 					<div class="columns-4">
-						<a href="<?php echo $mbx_link; ?>" <?php echo $mbx_target; ?>>
+						<a href="<?php echo $mbx_link; ?>" <?php echo $mbx_target; ?> >
 							<div class="map-callout" style="background-image:url('<?php echo $mbx_bg_URL; ?>');">
 								<div class="content">
 									<div class="wrap">
@@ -218,8 +214,8 @@ get_header(); ?>
 					<a href="<?php echo the_permalink($nf_id); ?>">
 						<div class="columns-4">
 								<div class="featured-article is_rounded">	
-									<div class="border-wrap is_rounded">
-										<img class="periwinkle" src="<?php echo $nf_bg_URL; ?>" >
+									<div class="border-wrap is_rounded" style="background-image:url('<?php echo $nf_bg_URL; ?>'); background-repeat:no-repeat; backround-size:cover; background-position:center center;">
+										<!-- <img class="periwinkle" src="<?php echo $nf_bg_URL; ?>" > -->
 										<div class="border" aria-hidden="true"></div>
 									</div>
 									<?php foreach($nf_city as $nf_term){ ?>
@@ -272,7 +268,7 @@ get_header(); ?>
 							<h2>Sign up &amp; stay in the loop with our emails</h2>
 						</div>
 						<div class="email-signup content section">
-							<input placeholder="Your Email here">
+							<input type="email" placeholder="Your Email here">
 							<button><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?>	</button>
 						</div>
 					</div>
@@ -296,10 +292,10 @@ get_header(); ?>
 						$rr_city = get_the_terms($rr_id, 'city');
 					?>
 					<a href="<?php echo the_permalink($rr_id); ?>">
-						<div class="columns-2">
+						<div class="columns-2 eq">
 							<div class="restaurant-review">
-								<div class="review-hover is_rounded">
-									<img src="<?php echo $rr_bg_URL; ?>">
+								<div class="review-hover is_rounded img" style="background-image:url('<?php echo $rr_bg_URL; ?>');background-repeat:no-repeat; background-size:cover; background-position:center center">
+									<!-- <img src="<?php echo $rr_bg_URL; ?>"> -->
 									<div class="hover">
 										<div class="wrap">
 											<div class="content">

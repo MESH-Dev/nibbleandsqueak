@@ -3,22 +3,32 @@
 <footer class="site-footer">
 			<div class="footer-interaction row" style="background-color:white;">
 				<div class="columns-8 email-signup">
-					Sign up and stay in the loop with our emails:
-					<input placeholder="Your email here">
-					<button>
-						<span class="sr-only">Submit Email</span>
-						<?php echo file_get_contents(get_template_directory().'/img/search.svg')?>
-					</button>
+					<div class="label">
+						Sign up and stay in the loop with our emails:
+					</div>
+					<div class="signup">
+						<input placeholder="Your email here">
+						<button>
+							<span class="sr-only">Submit Email</span>
+							<?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?>
+						</button>
+					</div>
 				</div>
 				<div class="columns-4">
-					#PARENTSWITHPIPSQUEAKS
-					<ul class="social-nav">
-						<li><a href="#"><i class="fa fa-fw fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-fw fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-fw fa-instagram"></i></a></li>
-					</ul>
+					<div class="social">
+						<div class="hashtag">
+							<?php 
+							$hashtag = get_field('twitter_hashtag', 'options');
+							?>
+							#<?php echo $hashtag; ?>
+						</div>
+						<ul class="social-nav">
+							<li><a href="#"><i class="fa fa-fw fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-fw fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-fw fa-instagram"></i></a></li>
+						</ul>
+					</div>
 				</div>
-
 			</div>
 			<div class="footer-navs row">
 				<div class="columns-6 events">
@@ -29,41 +39,7 @@
 				
 							//Get that nav
 							$split_nav = get_split_nav('events_nav');
-							//var_dump($split_nav->left_menu);
-
-							//if($split_nav->left_menu != ''){
-
-							//render left nav
-							//echo $split_nav->left_menu; 
-			
-							//render right nav
-							//echo $split_nav->right_menu;
-
-							// }else{
-							// 	// if(has_nav_menu('events_nav')){
-							// 	$defaults = array(
-							// 		'theme_location'  => 'events_nav',
-							// 		'menu'            => 'events_nav',
-							// 		'container'       => false,
-							// 		'container_class' => '',
-							// 		'container_id'    => '',
-							// 		'menu_class'      => 'footer-menu',
-							// 		'menu_id'         => '',
-							// 		'echo'            => true,
-							// 		'fallback_cb'     => 'wp_page_menu',
-							// 		'before'          => '',
-							// 		'after'           => '',
-							// 		'link_before'     => '',
-							// 		'link_after'      => '',
-							// 		'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-							// 		'depth'           => 0,
-							// 		'walker'          => ''
-							// 	); wp_nav_menu( $defaults );
-							// 	}
-								// else{
-								// 	echo "<p><em>about_nav</em> doesn't exist! Create it and it'll render here.</p>";
-								// } 
-							//}
+						
 						?>
 				</div>
 				<div class="columns-2 about">
@@ -155,6 +131,13 @@
 		<!-- </div> --><!-- end row -->
 
 </footer>
+
+<?php if(is_singular('restaurant')){ ?>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools --> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59f3382bc03ba174"></script> 
+
+<?php } ?>
 
 <?php wp_footer(); ?>
 

@@ -12,7 +12,7 @@ get_header(); ?>
 		</a>
 	</div> -->
 		<div class="row">
-			<div class="columns-4 locations">
+			<div class="locations">
 				<div class="">
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
