@@ -107,8 +107,9 @@ img{
 
   padding:4em 15px 4em 0 ;
   margin:0 15px 0 0;
-  background-repeat-y:no-repeat;
-  background-repeat-x:repeat;
+  // background-repeat-y:no-repeat;
+  // background-repeat-x:repeat;
+  background-repeat:repeat-x;
   height:50px;
   background-position:center center;
   background-image:url('img/separator.svg');
