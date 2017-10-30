@@ -6,7 +6,7 @@
  
 			<div class="row">
 				<?php if ( have_posts() ) : ?>
-					<h1>
+					<h1 class="search-title">
 						<?php //if ( is_day() ) : ?>
 							<?php //printf( __( 'Daily Archives: <span>%s</span>' ), get_the_date() ); ?>
 						<?php //elseif ( is_month() ) : ?>
