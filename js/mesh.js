@@ -245,8 +245,8 @@ function NearestCity(latitude, longitude) {
  		var $slug = $(this).data('slug');
  		$(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
  	})
- 	//$('#city').text(cookieName);
- 	//$bannerSelect.val(cookieName);
+ 	$('#city').text(cookieName);
+ 	$bannerSelect.val(cookieName);
  	if(cookieName != '' || cookieName != null){
  		$('#city').text(cookieName);
  		$bannerSelect.val(cookieName);
