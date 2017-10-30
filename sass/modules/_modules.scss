@@ -136,6 +136,9 @@ img{
 
 main.inner-content{
   margin-top:5em;
+  @media only screen and ($bp-smaller-than-tablet){
+    margin-top:10em;
+  }
 }
 
 main{
