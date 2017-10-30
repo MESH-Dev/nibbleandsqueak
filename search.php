@@ -30,6 +30,7 @@
 						?>
 						
 						<div class="columns-4 eq block">
+							<a href="<?php the_permalink($post->id)?>">
 							<div class="search-article is_rounded" style="margin-bottom:2em;">	
 								<div class="border-wrap is_rounded" style="background-image:url('<?php echo $photo_URL; ?>');">
 									<span class="sr-only"><?php echo $photo_alt; ?></span>
@@ -46,9 +47,9 @@
 									<?php if($city_label != ''){?>
 										<span class="city"><?php echo $city_label; ?></span>
 									<?php } ?>
-									<a href="<?php the_permalink($post->id)?>">
+									
 										<h2 class="post-title"><?php the_title(); ?></h2>
-									</a>
+									
 								</div>
 								<?php if($amenity != ''){?>
 								<div class="columns-4">
@@ -68,15 +69,16 @@
 												if($a_cnt <= 2){
 											?>
 											<li>
-												<a href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $icon_slug; ?>?city=<?php echo $_COOKIE['city'];?>">
+												<!-- <a href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $icon_slug; ?>?city=<?php echo $_COOKIE['city'];?>"> -->
 													<span class="sr-only"><?php echo $icon_name ?></span><?php echo file_get_contents($icon_img); ?>
-												</a>
+												<!-- </a> -->
 											</li>
 										<?php } } } ?>
 									</ul>
 								</div>
 								<?php } ?>
 							</div> <!-- end search-article -->
+							</a>
 						</div> <!-- end columns-4 eq block -->
 					
 					<?php endwhile; ?>
@@ -92,7 +94,7 @@
 			
 			<!-- </div> -->
 		</div><!-- end row -->
-		
+		<?php get_template_part('partials/separator'); ?>
 	</div> <!-- end container -->
 
 </main><!-- End of Content -->
