@@ -109,8 +109,10 @@ $a = [
 						$icon_name = $icon->name;
 						$icon_img = get_term_meta($icon_id, 'meta-image', true );
 					?>
-					<li style="width:25px; list-style-type:none; float:left; display:inline-block; margin-right:1em;">
-						<span class="sr-only"><?php echo $icon_name; ?></span><?php echo file_get_contents($icon_img); ?>
+					<li><!-- style="width:25px; list-style-type:none; float:left; display:inline-block; margin-right:1em;" -->
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $icon_slug; ?>?city=<?php echo $_COOKIE['city'];?>">
+							<span class="sr-only"><?php echo $icon_name; ?></span><?php echo file_get_contents($icon_img); ?>
+						</a>
 					</li>
 				<?php } } ?>
 				<!-- <li>highchairs</li>

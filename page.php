@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="content" class="inner-content">
+<main id="content" class="inner-content fuck you">
 
 	<div class="container">
 		<div class="row">
@@ -96,8 +96,9 @@
 					
 				<?php  wp_reset_postdata(); endwhile;?>
 					</div> <!-- end row.related-articles -->
+					<?php get_template_part('partials/separator'); ?>
 				<?php endif; } ?>
-		<?php get_template_part('partials/separator'); ?>
+		
 	</div>
 </main><!-- End of Content -->
 

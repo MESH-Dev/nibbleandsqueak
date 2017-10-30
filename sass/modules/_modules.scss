@@ -548,6 +548,16 @@ $bubble_size2x: $bubble_size * 2;
     }
 }
 
+.search-title,
+.notfound-title{
+  @include brandon-reg;
+  font-size:2.4em;
+
+  span{
+    @include brandon-black;
+  }
+}
+
 .notfound-search{
   width:50%;
    max-width:600px;
@@ -558,7 +568,7 @@ $bubble_size2x: $bubble_size * 2;
     //font-size:1.2em;
     text-transform:uppercase;
 
-    input{
+    input#searchHeader{
       width:70%;
       border:none;
       box-shadow:none;
@@ -567,14 +577,29 @@ $bubble_size2x: $bubble_size * 2;
       height:30px;
       line-height:normal;
       font-size:1.6em;
+      &:hover,
+      &:focus,
+      &:active{
+         border-bottom:2px solid $mint;
+          ~ button{
+            border-bottom:2px solid $mint;
+          //   svg{
+          //   .icon{
+          //     fill:$mint;
+          //   }
+          // }
+        }
+      }
     }
     button{
-      width:15%;
+      width:30px;
       border:none;
       box-shadow:none;
       border-bottom:2px solid $periwinkle;
       padding:0;
       height:30px;
+
+
        svg{
               height:15px;
               width:15px;
@@ -1107,6 +1132,17 @@ main.map-page{
     font-size:1.6em;
     margin-bottom:10px;
     color:$periwinkle;
+    text-transform:uppercase;
+
+    a{
+      color:$periwinkle;
+      &:hover,
+      &:active,
+      &:focus{
+        color:$mint;
+        text-decoration: underline;
+      }
+    }
 
      .desktop{
     @media only screen and ($bp-smaller-than-mobile){
@@ -1188,7 +1224,18 @@ main.map-page{
 
 .addthis{
   margin-top:20px;
+  .share,
+  .addthis_inline_share_toolbox{
+    display:inline-block;
+
+  }
+  .share{
+    @include brandon-black;
+    text-transform:uppercase;
+    font-size:1.2em;
+  }
 }
+
 //-------------------------------------------
 
 //__Accessibility

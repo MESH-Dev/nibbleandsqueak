@@ -132,10 +132,13 @@
 						foreach($amenity as $icon){
 							$icon_id = $icon->term_id;
 							$icon_name = $icon->name;
+							$icon_slug = $icon->slug;
 							$icon_img = get_term_meta($icon_id, 'meta-image', true );
 						?>
 						<li>
-							<span class="sr-only"><?php echo $icon_name; ?></span><?php echo file_get_contents($icon_img); ?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $icon_slug; ?>?city=<?php echo $_COOKIE['city'];?>">
+								<span class="sr-only"><?php echo $icon_name; ?></span><?php echo file_get_contents($icon_img); ?>
+							</a>
 						</li>
 					<?php } } ?>
 					<!-- <li>highchairs</li>

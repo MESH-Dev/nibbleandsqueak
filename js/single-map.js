@@ -270,7 +270,7 @@
 
     //Keep this out of the getJSON loop
     map = new google.maps.Map(document.getElementById('single-map'), {
-        zoom: 11,
+        zoom: 14,
         center: new google.maps.LatLng($_lat, $_long),
         scrollwheel:  false,
         zoomControl: false,

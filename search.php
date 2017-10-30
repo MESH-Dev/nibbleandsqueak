@@ -1,15 +1,15 @@
 <?php get_header(); ?>
 
 
-<main id="content" class="inner-content">
+<main id="content" class="inner-content search_php">
 
 	<div class="container">
 		<div class="row">
 			
 				<?php if ( have_posts() ) : ?>
-					<h1> 
+					<h1 class="search-title"> 
 						All results for <span><?php echo get_search_query(); ?></span> in <span><?php echo $_COOKIE['cityName'];?></span>
-					<?php //printf( __( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+					</h1>
 					 <?php
 					//$the_query = new WP_Query( $args ); 
 					if (have_posts());
@@ -28,6 +28,7 @@
 							}	
 
 						?>
+						
 						<div class="columns-4 eq block">
 							<div class="search-article is_rounded" style="margin-bottom:2em;">	
 								<div class="border-wrap is_rounded" style="background-image:url('<?php echo $photo_URL; ?>');">
@@ -45,7 +46,9 @@
 									<?php if($city_label != ''){?>
 										<span class="city"><?php echo $city_label; ?></span>
 									<?php } ?>
-									<h2 class="post-title"><?php the_title(); ?></h2>
+									<a href="<?php the_permalink($post->id)?>">
+										<h2 class="post-title"><?php the_title(); ?></h2>
+									</a>
 								</div>
 								<?php if($amenity != ''){?>
 								<div class="columns-4">
@@ -65,7 +68,9 @@
 												if($a_cnt <= 2){
 											?>
 											<li>
-												<span class="sr-only"><?php echo $icon_name ?></span><?php echo file_get_contents($icon_img); ?>
+												<a href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $icon_slug; ?>?city=<?php echo $_COOKIE['city'];?>">
+													<span class="sr-only"><?php echo $icon_name ?></span><?php echo file_get_contents($icon_img); ?>
+												</a>
 											</li>
 										<?php } } } ?>
 									</ul>
@@ -73,7 +78,7 @@
 								<?php } ?>
 							</div> <!-- end search-article -->
 						</div> <!-- end columns-4 eq block -->
-
+					
 					<?php endwhile; ?>
 
 				<?php else : ?>

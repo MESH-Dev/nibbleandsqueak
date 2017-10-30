@@ -360,6 +360,7 @@ function search_filter($query){
   //Use is archive for archive page for Amenities
     if ($query->is_search) {
       $city = $_GET["city"];
+    
       $city_query = array(
         array(
             'taxonomy' => 'city',

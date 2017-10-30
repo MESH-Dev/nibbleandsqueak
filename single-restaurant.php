@@ -49,10 +49,13 @@
 						foreach($amenity as $icon){
 							$icon_id = $icon->term_id;
 							$icon_name = $icon->name;
+							$icon_slug = $icon->slug;
 							$icon_img = get_term_meta($icon_id, 'meta-image', true );
 						?>
 						<li>
-							<span class="sr-only"><?php echo $icon_name; ?></span><?php echo file_get_contents($icon_img); ?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $icon_slug; ?>?city=<?php echo $_COOKIE['city'];?>">
+								<span class="sr-only"><?php echo $icon_name; ?></span><?php echo file_get_contents($icon_img); ?>
+							</a>
 						</li>
 					<?php } } ?>
 						<!-- <li>highchairs</li>
@@ -62,7 +65,7 @@
 
 			<div class="addthis">
 				<!-- Go to www.addthis.com/dashboard to customize your tools --> 
-				<div class="addthis_inline_share_toolbox"></div>
+				<span class="share">Share this:</span><div class="addthis_inline_share_toolbox"></div>
 			</div>
 
 		</div> <!-- end post.columns-8 -->
@@ -165,8 +168,9 @@
 			</div> <!-- end columns-3 -->
 		</div> <!-- end page-content -->	
 	<?php endwhile; ?>
+	<?php get_template_part('partials/separator'); ?>
 		</div>
-		<?php get_template_part('partials/separator'); ?>
+		
 	</div>
 
 </main><!-- End of Content -->
