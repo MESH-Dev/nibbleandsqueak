@@ -10,14 +10,23 @@ $(window).scroll(function(){
 	 var scroll = $(window).scrollTop();    
     if (scroll >= 100) {
         $('header').addClass('fixed');
-        $('.logotext').css({display:'none'});
-        $('.site-title').animate({width:65}, 40);
-        $('.head').animate({height:50}, 45);
+        //$('header').hide().addClass('fixed').stop().slideDown();
+        
+        $('.site-title').stop().animate({width:65}, 100);
+        //$('.site-title').animate({width:65}, 50);
+        $('.logotext').stop().animate({'opacity':'0', display:'none'}, 0);
+        $('.head').stop().animate({height:50}, 20);
+        
+        //$('.head').css({height:50});
     }else{
     	$('header').removeClass('fixed');
-    	$('.logotext').css({display:'block'});
-    	$('.site-title').animate({width:125}, 20);
-    	 $('.head').animate({height:113},15);
+    	//$('header').css({'position':'relative'});
+    	$('.head').stop().animate({height:113},20);
+    	$('.site-title').stop().animate({width:125},320);
+    	//$('.head').css({height:113});
+    	// $('.site-title').animate({width:125}, 60);
+    	
+    	 $('.logotext').stop().delay(20).animate({'opacity':'1', display:'block'}, 350);
     }
 })
 

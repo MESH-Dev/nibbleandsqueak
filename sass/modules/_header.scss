@@ -1,5 +1,6 @@
 header{
 	position:relative;
+	width:100%;
 	z-index:100;
 	.header-wrap{
 		background-color:$white;
@@ -20,6 +21,7 @@ header{
 			//overflow: hidden;
 			height:113px;
 			position:relative;
+			//transition:all .50s ease-in-out;
 		}
 	}
 	.logo,
@@ -78,11 +80,15 @@ header{
 			overflow:hidden;
 			img{
 				display:block;
-				transition:all .3s ease-in-out;
+				//transition:all .3s ease-in-out;
 			}
 		}
 		
 
+	}
+
+	.logotext{
+		//transition:opacity .6s ease-in-out;
 	}
 
 	.main-navigation{

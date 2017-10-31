@@ -656,8 +656,9 @@ $bubble_size2x: $bubble_size * 2;
 .map-callout{
   display: table;
   background-repeat:no-repeat;
-  background-size:cover;
-  background-position:15px center;
+  background-size:contain;
+  //background-position:15px center;
+  background-position:center center;
 
   color:$title-black;
   &:hover,
