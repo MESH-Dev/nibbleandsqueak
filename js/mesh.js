@@ -89,6 +89,8 @@ for(var i=0;i < ca.length;i++) {
 return null;
 }
 
+console.log(readCookie());
+
 function eraseCookie(name) {
 createCookie(name,"",-1);
 }
@@ -155,11 +157,15 @@ window.onload = function() {
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(UserLocation);
+    $select.text(_cityName);
+	$bannerSelect.attr('placeholder','').val(_cityName);
   }
   // Default to Washington, DC
   else
     NearestCity(38.8951, -77.0367);
-	
+	//Keeps the value of these fields in the initial state until/unless geolocation has run
+	$('#city').text('Select A City');
+	$bannerSelect.val('Place');
 	}
 }
 
@@ -212,26 +218,19 @@ function NearestCity(latitude, longitude) {
 
 	console.log("City Name = "+_citySlug);
 
-	//if(_cityName !='' || _cityName != null){
-		$select.text(_cityName);
-	//}else{
-		//$select.text('Select');
-	//}
 	
+	$select.text(_cityName);
 	$bannerSelect.attr('placeholder','').val(_cityName);
-	//var cityName = cities[closest]['name'];
-	//console.log(cityName);
-	//console.log(cityVal);
+
 	createCookie('city', _citySlug, '');
 	createCookie('cityName', _cityName, '')
+
+	//$('#city').text(_cityName);
+ 		//$bannerSelect.val(_cityName);
   	
-  	//return cityVal;
-  	return _citySlug, _cityName; 
+  	//return _citySlug, _cityName; 
  
 }//end nearest city
-
-// var _citySlug = cities[closest]['slug']; //cityVal
-// 	var _cityName = cities[closest]['name'];
 	
 	var cookieVal = readCookie('city');
 	var cookieName = readCookie('cityName');
@@ -245,15 +244,15 @@ function NearestCity(latitude, longitude) {
  		var $slug = $(this).data('slug');
  		$(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
  	})
- 	$('#city').text(cookieName);
- 	$bannerSelect.val(cookieName);
- 	if(cookieName != '' || cookieName != null){
+ 	//$('#city').text(cookieName);
+ 	//$bannerSelect.val(cookieName);
+ 	if(cookieName != '' || cookieName != null || cookieName != 'null'){
  		$('#city').text(cookieName);
  		$bannerSelect.val(cookieName);
- 	}//else{
- 		//$('#city').text('Select A City');
- 		//$bannerSelect.val('Place');
- 	//}
+ 	}else{
+ 		$('#city').text('Select A City');
+ 		$bannerSelect.val('Place');
+ 	}
 
 $(function() {
     $('.eq.block').matchHeight(
