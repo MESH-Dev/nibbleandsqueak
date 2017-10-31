@@ -510,5 +510,5 @@ function scrollToMarker(){
 // });
 }
 jQuery(window).resize(scrollToMarker());
-scrollToMarker();
+//scrollToMarker();
 //});

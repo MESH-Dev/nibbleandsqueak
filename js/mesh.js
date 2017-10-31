@@ -67,6 +67,10 @@ function findOffset(){
 $(window).resize(findOffset);
 findOffset();
 
+// var d = new Date();
+//     d.setTime(d.getTime() + (exdays*24*60*60*1000));
+//     var expires = "expires="+ d.toUTCString();
+
 //Create Cookies
 function createCookie(name,value,days) {
 if (days) {
@@ -112,9 +116,9 @@ $('.city-dropdown .sub-menu a').click(function () {
     //eraseCookie('city');
     
     eraseCookie('city');
-    createCookie('city', _newCookie, '' );
+    createCookie('city', _newCookie, '1' );
     eraseCookie('cityName');
-    createCookie('cityName', _newText, '' );
+    createCookie('cityName', _newText, '1' );
     var cookieVal = readCookie('city');
     var cookieName = readCookie('cityName');
     console.log('Cookie = '+cookieVal);
@@ -134,9 +138,9 @@ $('.citysearch .sub-menu a').click(function () {
     //eraseCookie('city');
     
     eraseCookie('city');
-    createCookie('city', _newCookie, '' );
+    createCookie('city', _newCookie, '1' );
     eraseCookie('cityName');
-    createCookie('cityName', _newText, '' );
+    createCookie('cityName', _newText, '1' );
     var cookieVal = readCookie('city');
     var cookieName = readCookie('cityName');
     console.log('Cookie = '+cookieVal);
@@ -222,8 +226,8 @@ function NearestCity(latitude, longitude) {
 	$select.text(_cityName);
 	$bannerSelect.attr('placeholder','').val(_cityName);
 
-	createCookie('city', _citySlug, '');
-	createCookie('cityName', _cityName, '')
+	createCookie('city', _citySlug, '1');
+	createCookie('cityName', _cityName, '1')
 
 	//$('#city').text(_cityName);
  		//$bannerSelect.val(_cityName);
@@ -235,7 +239,7 @@ function NearestCity(latitude, longitude) {
 	var cookieVal = readCookie('city');
 	var cookieName = readCookie('cityName');
 	console.log('Cookie = '+cookieName);
- 	createCookie('is_geo_run', '1');
+ 	createCookie('is_geo_run', '1', '');
 
  	$('a#homelink').attr('href', homeLink+cookieVal);
  	$('input#city-search').attr('value', cookieVal);
