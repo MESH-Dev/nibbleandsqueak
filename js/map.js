@@ -326,7 +326,7 @@
         //setIcon(icon);
 
         //Create the html for the infoWindow
-        var infoWindowContent = '<div class="map-marker-title"><h2 class="list-title"><a href="'+$home+'/restaurant/'+slug+'">'+ _data[i]['title'] + '</h2><span class="list-address">'+street+'</br>'+city+', '+state+' '+zip+'</span><div class="directions cta"><a class="cta-link" href="'+$link+'" target="_blank">Get Directions >></a></div><div class="border"></div></div>';
+        var infoWindowContent = '<div class="map-marker-title"><h2 class="list-title"><a href="'+$home+'/restaurant/'+slug+'">'+ _data[i]['title'] + '</a></h2><span class="list-address">'+street+'</br>'+city+', '+state+' '+zip+'</span><div class="directions cta"><a class="cta-link" href="'+$link+'" target="_blank">Get Directions >></a></div><div class="border"></div></div>';
         
         //Create the marker
         marker = new google.maps.Marker({
@@ -491,7 +491,7 @@ function scrollToMarker(){
   jQuery('.locations .map-listing').data('top', _top);
   //console.log(_mID);
   //jquery('locations').scrollTo(_top);
-  jQuery(".locations").animate({ scrollTop: _top+100 }, "slow");
+  //jQuery(".locations").animate({ scrollTop: _top+100 }, "slow");
 //   $(function() {
 // $('a[href*=#]:not([href=#])').click(function() {
 // if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
