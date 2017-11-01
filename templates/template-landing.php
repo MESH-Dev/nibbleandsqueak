@@ -217,7 +217,7 @@ get_header(); ?>
 					<a href="<?php echo the_permalink($nf_id); ?>">
 						<div class="columns-4">
 								<div class="featured-article is_rounded">	
-									<div class="border-wrap is_rounded" style="background-image:url('<?php echo $nf_bg_URL; ?>'); background-repeat:no-repeat; backround-size:cover; background-position:center center;">
+									<div class="border-wrap is_rounded" style="background-image:url('<?php echo $nf_bg_URL; ?>'); background-repeat:no-repeat; background-size:cover; background-position:center center;">
 										<!-- <img class="periwinkle" src="<?php echo $nf_bg_URL; ?>" > -->
 										<div class="border" aria-hidden="true"></div>
 									</div>
