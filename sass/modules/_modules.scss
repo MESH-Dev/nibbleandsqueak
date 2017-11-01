@@ -656,6 +656,7 @@ $bubble_size2x: $bubble_size * 2;
 .map-callout{
   display: table;
   background-repeat:no-repeat;
+  //background-size:contain;
   background-size:contain;
   //background-position:15px center;
   background-position:center center;
@@ -667,6 +668,13 @@ $bubble_size2x: $bubble_size * 2;
     color:$mint;
     text-decoration:none;
   }
+
+  @media only screen and (max-width:1000px){
+    background-size:400px 100%;
+    background-position:left center;
+  }
+
+
   @media only screen and ($bp-smaller-than-tablet){
     background-size:cover;
     background-position:center center;
