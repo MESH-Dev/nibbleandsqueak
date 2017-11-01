@@ -37,8 +37,8 @@ function restaurant_CPT() {
 		'label'                 => __( 'Restaurant', 'text_domain' ),
 		'description'           => __( 'CPT for Restaurants', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', ),
-		'taxonoimies'			=> array('category', 'post_tag' ),
+		'supports'              => array( 'title', 'editor' ),
+		'taxonomies'			=> array('category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -57,6 +57,63 @@ function restaurant_CPT() {
 
 }
 add_action( 'init', 'restaurant_CPT', 0 );
+
+// // Register Custom Listing Post Type
+// function listing_custom_post() {
+
+// 	$labels = array(
+// 		'name'                  => _x( 'Listings', 'Post Type General Name', 'text_domain' ),
+// 		'singular_name'         => _x( 'Listing', 'Post Type Singular Name', 'text_domain' ),
+// 		'menu_name'             => __( 'Listings', 'text_domain' ),
+// 		'name_admin_bar'        => __( 'Listings', 'text_domain' ),
+// 		'archives'              => __( 'Listing Archives', 'text_domain' ),
+// 		'attributes'            => __( 'Listing Attributes', 'text_domain' ),
+// 		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
+// 		'all_items'             => __( 'All Listings', 'text_domain' ),
+// 		'add_new_item'          => __( 'Add New Listing', 'text_domain' ),
+// 		'add_new'               => __( 'Add New', 'text_domain' ),
+// 		'new_item'              => __( 'New Listing', 'text_domain' ),
+// 		'edit_item'             => __( 'Edit Listing', 'text_domain' ),
+// 		'update_item'           => __( 'Update Listing', 'text_domain' ),
+// 		'view_item'             => __( 'View Listing', 'text_domain' ),
+// 		'view_items'            => __( 'View Listings', 'text_domain' ),
+// 		'search_items'          => __( 'Search Listings', 'text_domain' ),
+// 		'not_found'             => __( 'Not found', 'text_domain' ),
+// 		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+// 		'featured_image'        => __( 'Featured Image', 'text_domain' ),
+// 		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+// 		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+// 		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+// 		'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+// 		'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+// 		'items_list'            => __( 'Listing list', 'text_domain' ),
+// 		'items_list_navigation' => __( 'Listing list navigation', 'text_domain' ),
+// 		'filter_items_list'     => __( 'Filter Listing list', 'text_domain' ),
+// 	);
+// 	$args = array(
+// 		'label'                 => __( 'Listing', 'text_domain' ),
+// 		'description'           => __( 'Custom Post Types for Listings', 'text_domain' ),
+// 		'labels'                => $labels,
+// 		'supports'              => array( 'title', 'editor', 'thumbnail'),
+// 		'taxonomies'            => array( 'category', 'post_tag' ),
+// 		'hierarchical'          => false,
+// 		'public'                => true,
+// 		'show_ui'               => true,
+// 		'show_in_menu'          => true,
+// 		'menu_position'         => 5,
+// 		'menu_icon'				=> 'dashicons-location',
+// 		'show_in_admin_bar'     => true,
+// 		'show_in_nav_menus'     => true,
+// 		'can_export'            => true,
+// 		'has_archive'           => true,		
+// 		'exclude_from_search'   => false,
+// 		'publicly_queryable'    => true,
+// 		'capability_type'       => 'page',
+// 	);
+// 	register_post_type( 'listing', $args );
+
+// }
+// add_action( 'init', 'listing_custom_post', 0 );
 
 // Register City Taxonomy
 function city_tax() {
@@ -243,8 +300,6 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
 			</div> 
                 <?php }
 
-        //Remove this function if we don't/can't get this working
-
         /**
 		 * Loads the image management javascript
 		 */
@@ -273,23 +328,9 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
 
             function amenity_edit_term_field( $term ) {
 
-                //$default = '#ffffff';
-                //$location_term = location_get_term( $term->term_id, true );
-
-                //$icon = get_term_meta( $term->term_id, 'icon', true );
                 $image = get_term_meta( $term->term_id, 'meta-image', true );
-                
+             ?>
 
-               //if ( ! $location_term )
-                    //$color = $default; ?>
-
-               <!--  <tr class="form-field amenity-term-wrap">
-                    <th scope="row"><label for="amenity-term"><?php _e( 'Icon', 'amenity' ); ?></label></th>
-                    <td>
-                        <?php wp_nonce_field( basename( __FILE__ ), 'amenity_term_nonce' ); ?>
-                        <input type="text" name="amenity_term_icon" id="amenity-term-icon" value="<?php echo esc_attr( $icon ); ?>" class="location-field" />
-                    </td>
-                </tr> -->
              	<tr class="form-field amenity-term-wrap">
                     <th scope="row"><label for="amenity-term"><?php _e( 'Image', 'amenity' ); ?></label></th>
                     <td>
@@ -315,16 +356,8 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
             if ( ! isset( $_POST['amenity_term_nonce'] ) || ! wp_verify_nonce( $_POST['amenity_term_nonce'], basename( __FILE__ ) ) )
                 return;
 
-            //$old_term = get_term_meta( $term_id, 'icon', true );
             $old_media = get_term_meta($term_id, 'meta-image', true);
-            //$new_term = $_POST['amenity_term_icon'];
             $new_media = $_POST['meta-image'];
-
-            // if ( $old_term && '' === $new_term )
-            //     delete_term_meta( $term_id, 'icon' );
-
-            // else if ( $old_term !== $new_term )
-            //     update_term_meta( $term_id, 'icon', $new_term );
 
             if ( $old_media && '' === $new_media )
                 delete_term_meta( $term_id, 'meta-image' );
@@ -359,17 +392,11 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
 
             function city_edit_term_field( $term ) {
 
-                //$default = '#ffffff';
-                //$location_term = location_get_term( $term->term_id, true );
-
-                //$color = get_term_meta( $term->term_id, 'color', true );
                 $latitude = get_term_meta( $term->term_id, 'latitude', true );
-                //var_dump($latitude);
+             
                 $longitude = get_term_meta( $term->term_id, 'longitude', true );
-                //var_dump($longitude);
-
-               //if ( ! $location_term )
-                    //$color = $default; ?>
+                
+                 ?>
 
                 <tr class="form-field city-term-wrap">
                     <th scope="row"><label for="city-term-latitude"><?php _e( 'Latitude', 'city' ); ?></label></th>
@@ -392,15 +419,14 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
 
         function city_save_term($term_id) {
 
+        	//We're trying to update/save both terms in this single function, so have to check for a value, and verify for both
             if ( ! isset( $_POST['latitude_term_nonce'] ) || ! wp_verify_nonce( $_POST['latitude_term_nonce'], basename( __FILE__ ) ) || ! isset( $_POST['longitude_term_nonce'] ) || ! wp_verify_nonce( $_POST['longitude_term_nonce'], basename( __FILE__ ) ))
                 return;
 
             $old_latitude = get_term_meta( $term_id, 'latitude', true );
             $new_latitude = $_POST['city_term_latitude'];
-            //var_dump($new_latitude);
             $old_longitude = get_term_meta( $term_id, 'longitude', true );
             $new_longitude = $_POST['city_term_longitude'];
-            //var_dump($new_longitude);
 
             if ( $old_latitude && '' === $new_latitude )
                 delete_term_meta( $term_id, 'latitude' );
@@ -413,12 +439,6 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
 
             else if ( $old_longitude !== $new_longitude )
                 update_term_meta( $term_id, 'longitude', $new_longitude );
-
-            // if ( $old_term && '' === $new_term )
-            //     delete_term_meta( $term_id, 'address' );
-
-            // else if ( $old_term !== $new_term )
-            //     update_term_meta( $term_id, 'address', $new_term );
         }
 
 ?>
