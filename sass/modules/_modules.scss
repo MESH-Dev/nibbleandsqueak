@@ -907,8 +907,9 @@ $bubble_size2x: $bubble_size * 2;
     border-bottom:1px solid $title_black;
     padding:0 0;
     line-height:normal;
-    height:28px;
+    height:30px;
     margin-left:-4px;
+    border-radius:0;
 
     &:hover,
     &:focus,

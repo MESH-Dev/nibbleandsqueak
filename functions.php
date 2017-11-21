@@ -316,6 +316,9 @@ add_action('save_post', 'update_restaurant_map', 10, 3);
 
 function get4S_data($r_id){
 	$tok = 'PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
+  //New token 11/21/17
+  //Replace if necessary
+  //$tok = 'WYKV5T3KXZV3FWOKLESJLBJBPOJAKXRUMJNVJF3MOQ02L0OJ';
 	//var_dump($tok);
 	$_date = date("Ymd");
 

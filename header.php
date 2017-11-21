@@ -35,6 +35,12 @@
 	<script src="https://use.typekit.net/pse0jnn.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+
+	<?php 
+	$bugherd="true";
+	if($bugherd = 'true'){
+	?>
+
 	<!-- Bugherd -->
 	<script type='text/javascript'>
 	(function (d, t) {
@@ -44,6 +50,8 @@
 	  s.parentNode.insertBefore(bh, s);
 	  })(document, 'script');
 	</script>
+	
+	<?php } ?> 
 
 	<?php wp_head(); ?>
 
