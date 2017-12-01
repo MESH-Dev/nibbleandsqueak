@@ -42,7 +42,7 @@
 				<?php //echo get_the_term_list( $post->ID, 'amenity', '', ', ', '' ) ?>
 			</h1>
 			<div class="location-info row">
-				<span class="info"><?php echo $neighborhood_name;?>, <?php echo $cuisine_name; ?> | <?php echo $cost; ?></span>
+				<span class="info"><?php if($neighborhood_name != ''){ echo $neighborhood_name.', '; }?><?php echo $cuisine_name; ?><?php if($cost != ''){ echo ' | '.$cost; }?></span>
 				<ul class="loc-amenities">
 					<?php 
 						if($amenity != ''){
@@ -100,6 +100,7 @@
 						$phone = get_field('phone');
 						$facebook = get_field('location_facebook_link');
 						$twitter = get_field('location_twitter');
+						$instagram = get_field('location_instagram_link');
 					?>
 					<div class="restaurant-data">
 						<div class="loc-address">
@@ -123,6 +124,11 @@
 							<i class="fa fa-fw fa-facebook"><span class="sr-only">Facebook:</span></i><a href="https://facebook.com/<?php echo $facebook; ?>" target="_blank">On Facebook</a>
 						</div>
 						<?php } ?>
+						<?php if ($instagram != ""){ ?>
+						<div class="instagram">
+							<i class="fa fa-fw fa-instagram"><span class="sr-only">Instagram:</span></i><a href="https://instagram.com/<?php echo $instagram; ?>" target="_blank"><?php echo $instagram; ?></a>
+						</div>
+						<?php } ?>
 						<?php if ($twitter != ''){ ?>
 							<div class="twitter">
 								<i class="fa fa-fw fa-twitter"><span class="sr-only">Twitter:</span></i><a href="https://twitter.com/<?php echo $twitter; ?>" target="_blank">@<?php echo $twitter; ?></a>
@@ -136,7 +142,7 @@
 					</div>
 					<?php if ($open_table != ""){ ?>
 						<div class="loc-button open-table">
-							<a href="<?php echo $open_table; ?>" target="_blank">
+							<a href="<?php echo $open_table; ?>/&amp;ref=17272" target="_blank">
 								<span><?php echo file_get_contents(get_template_directory().'/img/findtable.svg')?></span> 
 								<span>Find a table</span>
 							</a>

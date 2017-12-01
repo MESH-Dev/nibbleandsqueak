@@ -602,7 +602,7 @@ $bubble_size2x: $bubble_size * 2;
       border-bottom:2px solid $periwinkle;
       padding:0;
       height:30px;
-
+      border-radius:0;
 
        svg{
               height:15px;
@@ -782,12 +782,15 @@ $bubble_size2x: $bubble_size * 2;
   margin:2em auto;
 
   .amenity-icon{
-    width:30%;
+    //width:30%;
+    width:40%;
     margin:0 auto;
     border-radius:50%;
     cursor:pointer;
     svg{
       margin-bottom:.5em;
+      width:100%;
+      transition:all .2s ease-in-out;
       .oval{
         transition:all .2s ease-in-out;
       }
@@ -800,8 +803,24 @@ $bubble_size2x: $bubble_size * 2;
     &:focus{
       //background-color:red;
       svg {
-
+        transform:rotate(15deg);
         .oval{
+          fill:$white;
+        }
+
+        .cls-3{
+          fill:$mint;
+        }
+
+        .cls-1{
+          fill:$mint;
+        }
+
+        .cls-2{
+          fill:$mint;
+        }
+
+        #Icon .cls-2{
           fill:$white;
         }
       }
@@ -820,6 +839,7 @@ $bubble_size2x: $bubble_size * 2;
       vertical-align: middle;
       @media only screen and ($bp-smaller-than-tablet){
         width:30%;
+        margin:1em 0;
       }
        @media only screen and ($bp-smaller-than-mobile){
         width:49%;
@@ -837,13 +857,17 @@ $bubble_size2x: $bubble_size * 2;
 
 .landscape{
   padding:1em;
-  @media only screen and ($bp-smaller-than-mobile){
+  @media only screen and ($bp-smaller-than-tablet){
     margin-bottom:40px;
   }
   .section{
     display:inline-block;
     vertical-align: middle;
     width:48%;
+    @media only screen and ($bp-smaller-than-mobile){
+      width:100%;
+      margin-top:1em;
+    }
   }
   h2{
     text-transform:uppercase;
@@ -1155,7 +1179,8 @@ main.map-page{
   .phone,
   .facebook,
   .twitter,
-  .website{
+  .website,
+  .instagram{
     font-size:1.6em;
     margin-bottom:10px;
     color:$periwinkle;
@@ -1180,7 +1205,7 @@ main.map-page{
   .mobile{
     display:none;
     @media only screen and ($bp-smaller-than-mobile){
-      display:block;
+      display:inline-block;
     }
   }
   }
@@ -1245,12 +1270,13 @@ main.map-page{
         list-style-type:none; 
         //float:left; 
         display:inline-block; 
-        margin-right:1em;
+        //margin-right:1em;
+        margin:0 1rem 0 0;
       }
     }
 
 .addthis{
-  margin-top:20px;
+ // margin-top:20px;
   .share,
   .addthis_inline_share_toolbox{
     display:inline-block;
@@ -1280,8 +1306,55 @@ main.map-page{
 //Sidr
 
 .sidr{
+  background:$white;
+  padding:20px;
+  ul{
+    li{
+      list-style-type: none;
+      a{
+        color:$dark_gray;
+        text-transform:uppercase;
+        font-size:1.2em;
+        padding-bottom:10px;
+        @include brandon-black;
+        &:hover,
+        &:focus,
+        &:active{
+          text-decoration:underline;
+        }
+        ul.sub-menu{
+          display:none;
+          font-size:100%;
+        }
+        
+      }
+      .open i{
+          font-size:1.2em;
+        }
+    }
+  }
   .close{
     display:block;
+    @include brandon-black;
+    color:$periwinkle;
+    font-size:1.6em;
+    text-transform:uppercase;
+    cursor:pointer;
+    margin:2em 0;
+
+    &:hover,
+    &:active,
+    &:focus{
+      color:$mint;
+    }
+  }
+  .social-nav{
+    margin:2em 0;
+
+    li{
+      display:inline-block;
+      margin-right:1em;
+    }
   }
 }
 

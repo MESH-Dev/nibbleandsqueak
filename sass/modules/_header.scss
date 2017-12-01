@@ -53,6 +53,9 @@ header{
 	.main-navigation{
 		//display:table;
 		width:29%;
+		@media only screen and ($bp-smaller-than-desktop) and ($bp-larger-than-tablet){
+			width:39%;
+		}
 		.wrap{
 			//display:table-cell;
 			vertical-align: middle;
@@ -62,14 +65,21 @@ header{
 			//width:50%;
 			display:none;
 		}
+
+		@media only screen and ($bp-smaller-than-desktop){
+			//width:50%;
+			.social-nav{
+				display:none;
+			}
+		}
 	}
 
 	.logo{
 		width:40%;
 		text-align:center;
 		overflow: hidden;
-		@media only screen and ($bp-smaller-than-tablet){
-			//position:absolute;
+		@media only screen and ($bp-smaller-than-desktop) and ($bp-larger-than-tablet){
+			width:20%;
 		}
 		.site-title{
 			max-width:120px;
@@ -159,7 +169,7 @@ header{
 		}
 
 		&.social-nav{
-			@media only screen and ($bp-smaller-than-tablet){
+			@media only screen and ($bp-smaller-than-phablet){
 				display:none;
 			}
 			li{
@@ -263,6 +273,7 @@ header{
 			border-bottom:2px solid $periwinkle;
 			padding:0;
 			height:30px;
+			border-radius:0;
 			 svg{
 		          height:15px;
 		          width:15px;
@@ -306,6 +317,15 @@ header{
 
 	.close{
 		display:none;
+		height:113px;
+		cursor:pointer;
+
+		&:hover,
+		&:active,
+		&:focus{
+			color:$mint;
+
+		}
 	}
 
 	.mobile-search-trigger,
@@ -325,6 +345,12 @@ header{
 		}
 		@media only screen and ($bp-smaller-than-tablet){
 			display:inline-block;
+		}
+
+		&:hover,
+		&:active,
+		&:focus{
+			color:$mint;
 		}
 	}
 }

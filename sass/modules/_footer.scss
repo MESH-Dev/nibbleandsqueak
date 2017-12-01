@@ -123,8 +123,15 @@ footer{
 				}
 			}
 
+			input,
+			button{
+				float:left;
+			}
+
 			button{
 				width:25px;
+				height:26px;
+				//float:left;
 				//height:26px;
 			}
 			input::-webkit-input-placeholder {
@@ -183,7 +190,7 @@ footer{
 
 	.social{
 		text-align: right;
-		@media only screen and ($bp-smaller-than-mobile){
+		@media only screen and ($bp-smaller-than-desktop){
 			text-align:left;
 		}
 	}

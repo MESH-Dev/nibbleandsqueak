@@ -182,7 +182,7 @@ function update_restaurant_map( $post_id ) {
 
           //Did the location provide Twitter info in their Foursquare data? We need that, too
           if($contact['twitter'] != '' || $contact['twitter'] != null ){
-            update_post_meta($post_id, 'location_facebook_link', 'https://twitter.com/'.$contact['twitter']);
+            update_post_meta($post_id, 'location_twitter', $contact['twitter']);
           }
 
           //Break down hours and add it to the hours_of_operation field
@@ -236,12 +236,35 @@ function update_restaurant_map( $post_id ) {
 
          $term = get_term_by('name', $city, 'city');
 
+         if( !term_exists( $cuisine, 'cuisine' ) ) {
+            // 2) If it doesn't, "!term_exists", let's add it
+            //    ** Note:
+            //       -Here, we can add a term by just using the term name, this is not the case 
+            //        when we want to set the term, if we are using a heirarchical term, which is
+            //        most often the case
+            //       -Note the commented out "array" information, this works like the 'manual' version
+            //        of creating a taxonomy term.  If we wanted to add a description, or override the slug,
+            //        we could do that here.  This is being left on purpose.
+             wp_insert_term(
+                 $cuisine,
+                 'cuisine'
+                 // array(
+                 //   'description' => 'This is an example category created with wp_insert_term.',
+                 //   'slug'        => 'example-category'
+                 //)
+             );
+         }
+
+         $c_term = get_term_by('name', $cuisine, 'cuisine');
+
          // Since we're working with a heirarchical term, we cannot use the character value of the 
          // term, so we're gonna need the ID
          $t_id = $term->term_id;
+         $c_id = $c_term->term_id;
          // Using the post ID, term id ($t_id), taxonomy ('cuisine'), set the term for the post we're saving
          // The last value, 'true', appends the value, which just means to set the value on the post
          $st = wp_set_post_terms($post_id, $t_id, 'city', true);
+         $ct = wp_set_post_terms($post_id, $c_id, 'cuisine', true);
 
          //-------------------------------------------------------------------
           

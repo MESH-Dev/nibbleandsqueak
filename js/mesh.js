@@ -234,6 +234,7 @@ function NearestCity(latitude, longitude) {
 	
 	$select.text(_cityName);
 	$bannerSelect.attr('placeholder','').val(_cityName);
+  $('a#homelink').attr('href', homeLink+_citySlug);
 
 	createCookie('city', _citySlug, '1');
 	createCookie('cityName', _cityName, '1')
@@ -250,7 +251,12 @@ function NearestCity(latitude, longitude) {
 	console.log('Cookie = '+cookieName);
  	createCookie('is_geo_run', '1', '');
 
+  //var $curl = homelink+cookieVal;
+  //console.log($curl);
+
  	$('a#homelink').attr('href', homeLink+cookieVal);
+
+  //console.log( $('a#homelink').attr('href', homeLink+cookieVal))
  	$('input#city-search').attr('value', cookieVal);
  	$('input#city-banner-search').attr('value', cookieVal);
  	$('.amenities li a').each(function(){
@@ -313,6 +319,40 @@ $('.sidr-trigger').sidr({
 
  });//end sidr onOpen function
 
+$('.close').click(
+    function(){
+      $.sidr('close', 'sidr-main');
+       //console.log("Sidr should be closed");
+    });
+
+// Hide subnavs so that we can accordion them later
+    $('.sidr ul.sub-menu').hide();
+
+    //Save the location of the first li and link that has children
+    $topLink = $('.sidr-inner ul.menu > li.menu-item-has-children > a');
+
+    //Add a 'button' to just after the link in any top level li that has children
+    $('<span class="open"> <i class="fa fa-fw fa-chevron-down"></i> </span>').insertAfter($topLink);
+    
+    //Now we get all of the peices together
+
+    //1 Create a counter to act as a toggle, we will be setting this counter to 1, then back to 
+    //  zero with each click
+    $openCnt = 0;
+
+    $('.open').click(function(e){
+      //Increment our counter
+      $openCnt++;
+
+      //Perform an action on our submenus based on the counter value,
+      //setting back to 0 each 'even' numbered click
+      if($openCnt == 1){
+        $(this).next('.sub-menu').slideDown();
+        $(this).html(' <i class="fa fa-fw fa-chevron-up"></i> ');
+      }else{
+        $(this).next('.sub-menu').slideUp();
+        $(this).html(' <i class="fa fa-fw fa-chevron-down"></i> ');
+        $openCnt = 0;
+      }
+   });
 });
-
-
