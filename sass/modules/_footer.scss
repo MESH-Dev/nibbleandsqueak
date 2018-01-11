@@ -4,7 +4,7 @@ footer{
 	//padding:0 15px;
 
 	.footer-interaction{
-		padding: 0 1.5em 2em 1.5em;
+		padding: 2em 1.5em 2em 1.5em;
 
 		@media only screen and ($bp-smaller-than-mobile){
 			text-align:center;
@@ -72,6 +72,7 @@ footer{
 	#eventMenuRight{
 		display:inline-block;
 		margin-right:4em;
+		verical-align:top;
 	}
 
 	.social-nav{

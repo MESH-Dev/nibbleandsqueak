@@ -36,7 +36,7 @@ get_header(); ?>
 						}else{ 
 						get_template_part('partials/city-map');
 					}?>
-				 	            
+				 </div>        
 			</div>
 
 			<!-- <div class="columns-6"> -->

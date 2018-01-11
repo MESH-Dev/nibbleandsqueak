@@ -79,8 +79,8 @@
 					?>
 						<div class="columns-4">
 							<div class="featured-article is_rounded">	
-								<div class="border-wrap is_rounded">
-									<img class="periwinkle" src="<?php echo $ra_bg_URL; ?>" >
+								<div class="border-wrap is_rounded" style="height:400px; background-image:url('<?php echo $ra_bg_URL; ?>');">
+									<!-- <img class="periwinkle" src="<?php echo $ra_bg_URL; ?>" > -->
 									<div class="border" aria-hidden="true"></div>
 								</div>
 								<?php 

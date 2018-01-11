@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
 var vh = $(window).height();
 
 $(window).scroll(function(){
-	 var scroll = $(window).scrollTop();   
+     var scroll = $(window).scrollTop();   
    if(vh >= 600){ 
     if (scroll >= 100) {
         $('header').addClass('fixed');
@@ -22,18 +22,17 @@ $(window).scroll(function(){
         
         //$('.head').css({height:50});
     }else{
-    	$('header').removeClass('fixed');
-    	//$('header').css({'position':'relative'});
-    	//$('.head').animate({height:113},20);
-    	//$('.site-title').animate({width:125},20);
-    	//$('.head').css({height:113});
-    	// $('.site-title').animate({width:125}, 60);
-    	
-    	 //$('.logotext').animate({'opacity':'1', display:'block'},20);
+        $('header').removeClass('fixed');
+        //$('header').css({'position':'relative'});
+        //$('.head').animate({height:113},20);
+        //$('.site-title').animate({width:125},20);
+        //$('.head').css({height:113});
+        // $('.site-title').animate({width:125}, 60);
+        
+         //$('.logotext').animate({'opacity':'1', display:'block'},20);
     }
   }
 });
-
 
 //Autocomplete
 // see https://goodies.pixabay.com/jquery/auto-complete/demo.html for more info 
@@ -168,94 +167,97 @@ var geo = readCookie('is_geo_run');
 
 
 // Get User's Coordinate from their Browser
-window.onload = function() {
-	if(geo != 1){
-  // HTML5/W3C Geolocation
+// window.onload = function() {
+// 	if(geo != 1){
+//   // HTML5/W3C Geolocation
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(UserLocation);
-    $select.text(_cityName);
-	$bannerSelect.attr('placeholder','').val(_cityName);
-  }
-  // Default to Washington, DC
-  else
-    NearestCity(38.8951, -77.0367);
-	//Keeps the value of these fields in the initial state until/unless geolocation has run
-	$('#city').text('Select A City');
-	$bannerSelect.val('Place');
-	}
-}
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(UserLocation);
+//     $select.text(_cityName);
+// 	$bannerSelect.attr('placeholder','').val(_cityName);
+//   }
+//   // Default to Washington, DC
+//   else
+//     NearestCity(38.8951, -77.0367);
+// 	//Keeps the value of these fields in the initial state until/unless geolocation has run
+// 	$('#city').text('Select A City');
+// 	$bannerSelect.val('Place');
+// 	}
+// }
 
 
 // Callback function for asynchronous call to HTML5 geolocation
-function UserLocation(position) {
-  //console.log(position);
-  NearestCity(position.coords.latitude, position.coords.longitude);
-}
+// function UserLocation(position) {
+//   //console.log(position);
+//   NearestCity(position.coords.latitude, position.coords.longitude);
+// }
 
 
 // Convert Degress to Radians
-function Deg2Rad(deg) {
-  return deg * Math.PI / 180;
-}
+// function Deg2Rad(deg) {
+//   return deg * Math.PI / 180;
+// }
 
-function PythagorasEquirectangular(lat1, lon1, lat2, lon2) {
-  lat1 = Deg2Rad(lat1);
-  lat2 = Deg2Rad(lat2);
-  lon1 = Deg2Rad(lon1);
-  lon2 = Deg2Rad(lon2);
-  var R = 6371; // km
-  var x = (lon2 - lon1) * Math.cos((lat1 + lat2) / 2);
-  var y = (lat2 - lat1);
-  var d = Math.sqrt(x * x + y * y) * R;
-  return d;
-}
+// function PythagorasEquirectangular(lat1, lon1, lat2, lon2) {
+//   lat1 = Deg2Rad(lat1);
+//   lat2 = Deg2Rad(lat2);
+//   lon1 = Deg2Rad(lon1);
+//   lon2 = Deg2Rad(lon2);
+//   var R = 6371; // km
+//   var x = (lon2 - lon1) * Math.cos((lat1 + lat2) / 2);
+//   var y = (lat2 - lat1);
+//   var d = Math.sqrt(x * x + y * y) * R;
+//   return d;
+// }
 
 var cities = geo_choices;
 
 var _cityName, _citySlug;
 
-function NearestCity(latitude, longitude) {
-  var temp = 999999;
-  var closest;
-  console.log(cities.length);
-  for (index = 0; index < cities.length; ++index) {
-    var dif = PythagorasEquirectangular(latitude, longitude, cities[index]['lat'][0], cities[index]['long'][0]);
+// function NearestCity(latitude, longitude) {
+//   var temp = 999999;
+//   var closest;
+//   console.log(cities.length);
+//   for (index = 0; index < cities.length; ++index) {
+//     var dif = PythagorasEquirectangular(latitude, longitude, cities[index]['lat'][0], cities[index]['long'][0]);
 
-    if (dif < temp) {
-      closest = index;
-      temp = dif;
-    }
-  }
+//     if (dif < temp) {
+//       closest = index;
+//       temp = dif;
+//     }
+//   }
 
-	//var cityVal = document.getElementById("city").innerHTML = cities[closest]['slug'];
+// 	//var cityVal = document.getElementById("city").innerHTML = cities[closest]['slug'];
 
- 	_citySlug = cities[closest]['slug']; //cityVal
-	_cityName = cities[closest]['name'];
+//  	_citySlug = cities[closest]['slug']; //cityVal
+// 	_cityName = cities[closest]['name'];
 
-	console.log("City Name = "+_citySlug);
+// 	console.log("City Name = "+_citySlug);
 
 	
-	$select.text(_cityName);
-	$bannerSelect.attr('placeholder','').val(_cityName);
-  $('a#homelink').attr('href', homeLink+_citySlug);
+// 	$select.text(_cityName);
+// 	$bannerSelect.attr('placeholder','').val(_cityName);
 
-	createCookie('city', _citySlug, '1');
-	createCookie('cityName', _cityName, '1');
+// 	createCookie('city', _citySlug, '1');
+// 	createCookie('cityName', _cityName, '1')
+
+// 	//$('#city').text(_cityName);
+//  		//$bannerSelect.val(_cityName);
+  	
+//   	//return _citySlug, _cityName; 
  
-}//end nearest city
+// }//end nearest city
 	
-	var cookieVal = readCookie('city');
-	var cookieName = readCookie('cityName');
+	//var cookieVal = readCookie('city');
+	//var cookieName = readCookie('cityName');
+  createCookie('city', 'new-york', '');
+  createCookie('cityName', 'New York', '');
+  var cookieVal = readCookie('city');
+  var cookieName = readCookie('cityName');
 	console.log('Cookie = '+cookieName);
  	createCookie('is_geo_run', '1', '');
 
-  //var $curl = homelink+cookieVal;
-  //console.log($curl);
-
  	$('a#homelink').attr('href', homeLink+cookieVal);
-
-  //console.log( $('a#homelink').attr('href', homeLink+cookieVal))
  	$('input#city-search').attr('value', cookieVal);
  	$('input#city-banner-search').attr('value', cookieVal);
  	$('.amenities li a').each(function(){
@@ -281,6 +283,15 @@ $(function() {
       );
 });
 
+// $(function() {
+//     $('.eq .img').matchHeight(
+//       { byRow: true,
+//     property: 'height',
+//     target: null,
+//     remove: false }
+//       );
+// });
+
 $ms_cnt = 0;
 $('.mobile-search-trigger').click(function(){
 	$ms_cnt++;
@@ -301,7 +312,12 @@ $('.sidr-trigger').sidr({
       source: '.main-navigation',
       renaming: false,
       side: 'right',
-      displace: false     
+      displace: false,      
+       //onOpen: function(){
+
+        //$('.sidr-trigger').animate({right:"20000"},50);
+      //}////end sidr onOpen function
+
  });//end sidr onOpen function
 
 $('.close').click(
@@ -341,3 +357,6 @@ $('.close').click(
       }
    });
 });
+
+
+

@@ -68,7 +68,7 @@ img{
 }
 
 .border{
-  height: 10px;
+  height: 1em;
   position: absolute;
   right:0;
   bottom: 0;
@@ -135,9 +135,9 @@ img{
 }
 
 main.inner-content{
-  margin-top:5em;
+  margin:5em 2em 0 2em;
   @media only screen and ($bp-smaller-than-tablet){
-    margin-top:10em;
+    margin:10em 0 0 0;
   }
 }
 
@@ -231,6 +231,9 @@ main{
       ul{
         margin-bottom:0;
         width:80%;
+        @media only screen and (max-width:1350px)and (min-width:951px){
+          width:79%;
+        }
         @media only screen and (max-width:950px){
           width:75%;
         }
@@ -378,7 +381,7 @@ main{
   }
 }
 
-$bubble_size: 70px;
+$bubble_size: 80px;
 $bubble_size2x: $bubble_size * 2;
 
 .bubble-wrap{
@@ -412,7 +415,7 @@ $bubble_size2x: $bubble_size * 2;
     text-align: center;
     width:75%;
     margin:0 auto;
-    padding-top:1em;
+    padding-top:1.5em;
   }
 }
 
@@ -453,7 +456,7 @@ $bubble_size2x: $bubble_size * 2;
   }
 
   &.featured{
-    padding:1em;
+    //padding:1em;
 
     .post-title,
     .post-subtitle{
@@ -503,10 +506,15 @@ $bubble_size2x: $bubble_size * 2;
     }
     .content{
       position:absolute;
-      bottom:1.5em;
+      bottom:1em;
       width:100%;
-
-    }
+      padding:1em;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+21,000000+21,000000+100&0+0,0.82+74 */
+      background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.23) 21%, rgba(0,0,0,0.82) 74%, rgba(0,0,0,0.82) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.23) 21%,rgba(0,0,0,0.82) 74%,rgba(0,0,0,0.82) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.23) 21%,rgba(0,0,0,0.82) 74%,rgba(0,0,0,0.82) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#d1000000',GradientType=0 ); /* IE6-9 */
+      }
   
 }
 //-------------------------------------------
@@ -514,6 +522,10 @@ $bubble_size2x: $bubble_size * 2;
 // General Text Pages
 
 .the-content{
+  width:80%;
+  @media only screen and ($bp-smaller-than-tablet){
+    width:95%;
+  }
   img{
     border-radius:15px;
   }
@@ -660,13 +672,14 @@ $bubble_size2x: $bubble_size * 2;
   background-size:contain;
   //background-position:15px center;
   background-position:center center;
+  width:100%;
 
   color:$title-black;
   &:hover,
   &:active,
   &:focus{
-    color:$mint;
-    text-decoration:none;
+    //color:$mint;
+    text-decoration:underline;
   }
 
   @media only screen and (max-width:1000px){
@@ -691,11 +704,13 @@ $bubble_size2x: $bubble_size * 2;
 }
 
 .nibble-featured,
-.related-article{
+.related-articles{
   .featured-article{
     .border-wrap{
       margin-bottom:1em;
       height:300px;
+      background-position:center center;
+      bakground-size:cover;
     }
     .post-title{
       font-size:2.4rem;
@@ -704,6 +719,16 @@ $bubble_size2x: $bubble_size * 2;
     }
   }
 }
+
+// .related-articles{
+//   .featured-article{
+//     .border-wrap{
+//       height:400px;
+//       background-position:center center;
+//       bakground-size:cover;
+//     }
+//   }
+// }
 
 // .nibble
 
@@ -783,7 +808,7 @@ $bubble_size2x: $bubble_size * 2;
 
   .amenity-icon{
     //width:30%;
-    width:40%;
+    width:60%;
     margin:0 auto;
     border-radius:50%;
     cursor:pointer;
@@ -796,6 +821,9 @@ $bubble_size2x: $bubble_size * 2;
       }
     }
     
+    .st0{
+      fill:#7495FF;
+    }
     //at center value should be 50% of width
     //clip-path: circle(30% at center);
     &:hover,
@@ -816,11 +844,14 @@ $bubble_size2x: $bubble_size * 2;
           fill:$mint;
         }
 
-        .cls-2{
+        .cls-2,.st2{
           fill:$mint;
         }
 
-        #Icon .cls-2{
+        #Icon .cls-2,
+        #Icon .st3,
+        .st3
+        {
           fill:$white;
         }
       }
@@ -890,26 +921,44 @@ $bubble_size2x: $bubble_size * 2;
 .event-button{
   width:60%;
   margin:0 auto;
-  border:1px solid $periwinkle;
-  border-radius:5px;
-  padding:10px;
-
-  &:active,
-  &:hover,
-  &:focus{
-    border:1px solid $mint;
-    background-color:$mint;
-    a{
-      color:$white;
-      text-decoration:none;
-    }
-  }
+  //border:1px solid $periwinkle;
+  //border-radius:5px;
+  //padding:10px;
   a{
+    border:1px solid $periwinkle;
+    border-radius:5px;
+    padding:10px;
+    //text-align:center;
+    display:inline-block;
+    width:100%;
     color:$periwinkle;
     font-size:1.2em;
     @include brandon-black;
     text-transform:uppercase;
+    &:active,
+    &:hover,
+    &:focus{
+      border:1px solid $mint;
+      background-color:$mint;
+      color:$white;
+    }
   }
+  // &:active,
+  // &:hover,
+  // &:focus{
+  //   border:1px solid $mint;
+  //   background-color:$mint;
+  //   a{
+  //     color:$white;
+  //     text-decoration:none;
+  //   }
+ // }
+  // a{
+  //   color:$periwinkle;
+  //   font-size:1.2em;
+  //   @include brandon-black;
+  //   text-transform:uppercase;
+  // }
 }
 
 .email-signup{
@@ -920,7 +969,7 @@ $bubble_size2x: $bubble_size * 2;
     border-bottom:1px solid $title_black;
     font-size:1.6em;
     @include brandon-black;
-    text-transform:uppercase;
+    text-transform:capitalize;
     padding: 0;
     margin: 0;
     height: 26px;
@@ -934,6 +983,9 @@ $bubble_size2x: $bubble_size * 2;
     height:30px;
     margin-left:-4px;
     border-radius:0;
+    @media only screen and ($bp-smaller-than-tablet){
+      height:29px;
+    }
 
     &:hover,
     &:focus,
@@ -964,31 +1016,31 @@ $bubble_size2x: $bubble_size * 2;
   input::-webkit-input-placeholder {
     @include brandon-black;
       color:$title_black;
-      text-transform:uppercase;
+      text-transform:capitalize;
     }
 
     input::-moz-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:uppercase;
+        text-transform:capitalize;
     }
 
      input:-ms-input-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:uppercase;
+        text-transform:capitalize;
     }
 
      input:-moz-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:uppercase;
+       text-transform:capitalize;
     }
 
      input::webkit-input-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:uppercase;
+        text-transform:capitalize;
     }
 }
 
@@ -1028,6 +1080,26 @@ main.map-page{
     position:relative;
     overflow: hidden;
 
+    .post-title{
+      &:hover,
+      &:active,
+      &:focus{
+          color:$mint;
+          text-decoration:none;
+      }
+      a{
+          color:$title_black;
+          text-decoration:none;
+          &:hover,
+          &:active,
+          &:focus{
+            color:$mint;
+            text-decoration:underline;
+          }
+
+        }
+    }
+
     &.location-active,
     &:hover,
     &:active,
@@ -1038,10 +1110,11 @@ main.map-page{
       .city,
       .post-title{
         color:$mint;
+  
       }
 
       .post-title{
-        text-decoration:underline;
+        //text-decoration:underline;
       }
     }
 

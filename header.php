@@ -227,7 +227,9 @@
 				</nav>
 			</div>
 		</div>
+		<?php if(!is_page_template('templates/template-landing.php')){ ?>
 		<div class="gradient-line"></div>
+		<?php } ?>
 		<?php get_template_part('partials/bubble'); ?>
 	</header>
 	
