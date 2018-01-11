@@ -529,6 +529,14 @@ $bubble_size2x: $bubble_size * 2;
   img{
     border-radius:15px;
   }
+  a{
+    color:$periwinkle;
+    &:hover,
+    &:active,
+    &:focus{
+      text-decoration:underline;
+    }
+  }
 }
 
 .related-articles{

@@ -4,13 +4,6 @@
 get_header(); ?>
 
 <main class="map-page" id="content">
-	<!-- <div class="bubble-wrap row">
-		<a class="cta-bubble"href="<?php echo $cta_link; ?>" <?php echo $cta_link; ?>>
-			<div class="bubble">
-				<?php echo $cta_text; ?>
-			</div>
-		</a>
-	</div> -->
 		<div class="row">
 			<div class="locations">
 				<div class="">
@@ -38,18 +31,7 @@ get_header(); ?>
 					}?>
 				 </div>        
 			</div>
-
-			<!-- <div class="columns-6"> -->
-				<!-- <div id="map"> -->
-
-				<!-- Change this to repeater of custom fields -->
-
-				<?php //get_sidebar(); ?>
-				<!-- </div> -->
-			<!-- </div> -->
-
 		</div>
-	</div>
 	<div id="map"></div>
 </main><!-- End of Content -->
 
