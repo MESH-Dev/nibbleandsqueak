@@ -844,7 +844,8 @@ $bubble_size2x: $bubble_size * 2;
       //background-color:red;
       svg {
         transform:rotate(15deg);
-        .oval{
+        .oval,
+        .Circle_-_Outline .st1{
           fill:$white;
         }
 
@@ -862,6 +863,8 @@ $bubble_size2x: $bubble_size * 2;
 
         #Icon .cls-2,
         #Icon .st3,
+        #Icon .st2a,
+        #Icon .st1,
         .st3
         {
           fill:$white;
