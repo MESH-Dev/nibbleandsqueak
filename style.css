@@ -2332,9 +2332,9 @@ main {
 }
 /* line 847, sass/modules/_modules.scss */
 .amenities .amenity-icon:hover svg .oval,
-.amenities .amenity-icon:hover svg .Circle_-_Outline .st1, .amenities .amenity-icon:active svg .oval,
-.amenities .amenity-icon:active svg .Circle_-_Outline .st1, .amenities .amenity-icon:focus svg .oval,
-.amenities .amenity-icon:focus svg .Circle_-_Outline .st1 {
+.amenities .amenity-icon:hover svg #Circle_-_Outline .st1, .amenities .amenity-icon:active svg .oval,
+.amenities .amenity-icon:active svg #Circle_-_Outline .st1, .amenities .amenity-icon:focus svg .oval,
+.amenities .amenity-icon:focus svg #Circle_-_Outline .st1 {
   fill: #FFFFFF;
 }
 /* line 852, sass/modules/_modules.scss */
