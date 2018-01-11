@@ -2528,14 +2528,13 @@ main {
 
 /* line 1057, sass/modules/_modules.scss */
 main.map-page {
-  min-height: 100vh;
   position: relative;
 }
 
 /* line 1062, sass/modules/_modules.scss */
 .locations {
   height: 100vh;
-  overflow: auto;
+  overflow: scroll;
   background: #FFFFFF;
   position: absolute;
   z-index: 6;

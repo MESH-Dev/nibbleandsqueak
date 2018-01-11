@@ -1055,13 +1055,13 @@ $bubble_size2x: $bubble_size * 2;
 //__ Map Page
 
 main.map-page{
-  min-height:100vh;
+  // min-height:100vh;
   position: relative;
 }
 
 .locations{
   height:100vh;
-  overflow:auto;
+  overflow:scroll;
   background:$white;
   position:absolute;
   z-index:6;
