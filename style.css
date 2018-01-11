@@ -2528,6 +2528,7 @@ main {
 
 /* line 1057, sass/modules/_modules.scss */
 main.map-page {
+  min-height: 100vh;
   position: relative;
 }
 
