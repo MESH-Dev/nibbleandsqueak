@@ -2313,10 +2313,6 @@ main {
 .amenities .amenity-icon svg .oval {
   transition: all .2s ease-in-out;
 }
-/* line 824, sass/modules/_modules.scss */
-.amenities .amenity-icon .st0 {
-  fill: #7495FF;
-}
 /* line 833, sass/modules/_modules.scss */
 .amenities .amenity-icon:hover svg, .amenities .amenity-icon:active svg, .amenities .amenity-icon:focus svg {
   transform: rotate(15deg);
