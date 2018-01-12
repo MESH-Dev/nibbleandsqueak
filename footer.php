@@ -23,9 +23,9 @@
 							#<?php echo $hashtag; ?>
 						</div>
 						<ul class="social-nav">
-							<li><a href="https://twitter.com/nibble_squeak"><i class="fa fa-fw fa-twitter"></i></a></li>
-							<li><a href="https://www.facebook.com/nibbleandsqueak/"><i class="fa fa-fw fa-facebook"></i></a></li>
-							<li><a href="https://www.instagram.com/nibbleandsqueak/"><i class="fa fa-fw fa-instagram"></i></a></li>
+							<li><a href="https://twitter.com/nibble_squeak" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+							<li><a href="https://www.facebook.com/nibbleandsqueak/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+							<li><a href="https://www.instagram.com/nibbleandsqueak/" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
 						</ul>
 					</div>
 				</div>
