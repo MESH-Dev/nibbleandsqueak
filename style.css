@@ -2838,8 +2838,9 @@ main.map-page {
   background-color: #50E3C2;
   color: #FFFFFF;
   text-decoration: none;
+  border: 2px solid #50E3C2;
 }
-/* line 1353, sass/modules/_modules.scss */
+/* line 1354, sass/modules/_modules.scss */
 .loc-button a {
   padding: 10px 20px;
   color: #7495ff;
@@ -2857,11 +2858,11 @@ main.map-page {
   color: #7495ff;
 }
 
-/* line 1370, sass/modules/_modules.scss */
+/* line 1371, sass/modules/_modules.scss */
 .loc-amenities {
   margin: 1em 0;
 }
-/* line 1372, sass/modules/_modules.scss */
+/* line 1373, sass/modules/_modules.scss */
 .loc-amenities li {
   width: 35px;
   list-style-type: none;
@@ -2869,13 +2870,13 @@ main.map-page {
   margin: 0 1rem 0 0;
 }
 
-/* line 1384, sass/modules/_modules.scss */
+/* line 1385, sass/modules/_modules.scss */
 .addthis .share,
 .addthis .addthis_inline_share_toolbox {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 1389, sass/modules/_modules.scss */
+/* line 1390, sass/modules/_modules.scss */
 .addthis .share {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
@@ -2883,7 +2884,7 @@ main.map-page {
   font-size: 1.2em;
 }
 
-/* line 1399, sass/modules/_modules.scss */
+/* line 1400, sass/modules/_modules.scss */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2895,16 +2896,16 @@ main.map-page {
   border: 0;
 }
 
-/* line 1412, sass/modules/_modules.scss */
+/* line 1413, sass/modules/_modules.scss */
 .sidr {
   background: #FFFFFF;
   padding: 20px;
 }
-/* line 1416, sass/modules/_modules.scss */
+/* line 1417, sass/modules/_modules.scss */
 .sidr ul li {
   list-style-type: none;
 }
-/* line 1418, sass/modules/_modules.scss */
+/* line 1419, sass/modules/_modules.scss */
 .sidr ul li a {
   color: #9b9b9b;
   text-transform: uppercase;
@@ -2913,20 +2914,20 @@ main.map-page {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
 }
-/* line 1424, sass/modules/_modules.scss */
+/* line 1425, sass/modules/_modules.scss */
 .sidr ul li a:hover, .sidr ul li a:focus, .sidr ul li a:active {
   text-decoration: underline;
 }
-/* line 1429, sass/modules/_modules.scss */
+/* line 1430, sass/modules/_modules.scss */
 .sidr ul li a ul.sub-menu {
   display: none;
   font-size: 100%;
 }
-/* line 1435, sass/modules/_modules.scss */
+/* line 1436, sass/modules/_modules.scss */
 .sidr ul li .open i {
   font-size: 1.2em;
 }
-/* line 1440, sass/modules/_modules.scss */
+/* line 1441, sass/modules/_modules.scss */
 .sidr .close {
   display: block;
   font-weight: 700;
@@ -2937,87 +2938,87 @@ main.map-page {
   cursor: pointer;
   margin: 2em 0;
 }
-/* line 1449, sass/modules/_modules.scss */
+/* line 1450, sass/modules/_modules.scss */
 .sidr .close:hover, .sidr .close:active, .sidr .close:focus {
   color: #50E3C2;
 }
-/* line 1455, sass/modules/_modules.scss */
+/* line 1456, sass/modules/_modules.scss */
 .sidr .social-nav {
   margin: 2em 0;
 }
-/* line 1458, sass/modules/_modules.scss */
+/* line 1459, sass/modules/_modules.scss */
 .sidr .social-nav li {
   display: inline-block;
   margin-right: 1em;
 }
 
-/* line 1465, sass/modules/_modules.scss */
+/* line 1466, sass/modules/_modules.scss */
 .wp-caption-text {
   font-weight: 400;
   font-family: "brandon-grotesque", sans-serif;
   font-size: 1em !important;
 }
 
-/* line 1472, sass/modules/_modules.scss */
+/* line 1473, sass/modules/_modules.scss */
 .alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1476, sass/modules/_modules.scss */
+/* line 1477, sass/modules/_modules.scss */
 .aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
 
-/* line 1482, sass/modules/_modules.scss */
+/* line 1483, sass/modules/_modules.scss */
 .alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1487, sass/modules/_modules.scss */
+/* line 1488, sass/modules/_modules.scss */
 .alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
 
-/* line 1492, sass/modules/_modules.scss */
+/* line 1493, sass/modules/_modules.scss */
 p img.alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1496, sass/modules/_modules.scss */
+/* line 1497, sass/modules/_modules.scss */
 p img.aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
 
-/* line 1502, sass/modules/_modules.scss */
+/* line 1503, sass/modules/_modules.scss */
 p img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1507, sass/modules/_modules.scss */
+/* line 1508, sass/modules/_modules.scss */
 p img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
 
-/* line 1512, sass/modules/_modules.scss */
+/* line 1513, sass/modules/_modules.scss */
 a img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1517, sass/modules/_modules.scss */
+/* line 1518, sass/modules/_modules.scss */
 a img.alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1521, sass/modules/_modules.scss */
+/* line 1522, sass/modules/_modules.scss */
 a img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
