@@ -1301,15 +1301,15 @@ main.map-page{
 }
 
 .loc-button{
-  border-radius:10px;
-  border:2px solid $periwinkle;
-  width:100%;
-  padding:5px 10px;
-  margin-bottom:10px;
-  text-align:left;
-  @include brandon-black;
-  font-size:1.6em;
-  color:$periwinkle;
+  // border-radius:10px;
+  // border:2px solid $periwinkle;
+  // width:100%;
+  // padding:5px 10px;
+  // margin-bottom:10px;
+  // text-align:left;
+  // @include brandon-black;
+  // font-size:1.6em;
+  // color:$periwinkle;
 
   svg{
     width:14px;
@@ -1331,7 +1331,9 @@ main.map-page{
   &:hover,
   &:active,
   &:focus{
-    background-color:$mint;
+    // background-color:$mint;
+    // color:$white;
+    // text-decoration: none;
 
     svg{
       .icon{
@@ -1342,6 +1344,9 @@ main.map-page{
     a{
       color:$white;
       text-decoration: none;
+      background-color:$mint;
+    color:$white;
+    text-decoration: none;
     }
   }
 
@@ -1349,6 +1354,16 @@ main.map-page{
     padding:10px 20px;
     color:$periwinkle;
     text-transform: uppercase;
+    display:block;
+    border-radius:10px;
+  border:2px solid $periwinkle;
+  width:100%;
+  padding:5px 10px;
+  margin-bottom:10px;
+  text-align:left;
+  @include brandon-black;
+  font-size:1.6em;
+  color:$periwinkle;
   }
 }
 
