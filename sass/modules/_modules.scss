@@ -1448,8 +1448,8 @@ main.map-page{
 }
 
 .wp-caption-text{
-  @include brandon-black;
-  font-size:1em;
+  @include brandon-reg;
+  font-size:1em !important;
 }
 
 //__WordPress Core

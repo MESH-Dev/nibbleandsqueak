@@ -2956,9 +2956,9 @@ main.map-page {
 
 /* line 1450, sass/modules/_modules.scss */
 .wp-caption-text {
-  font-weight: 700;
+  font-weight: 400;
   font-family: "brandon-grotesque", sans-serif;
-  font-size: 1em;
+  font-size: 1em !important;
 }
 
 /* line 1457, sass/modules/_modules.scss */
