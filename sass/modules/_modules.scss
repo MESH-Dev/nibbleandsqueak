@@ -356,31 +356,32 @@ main{
     input::-webkit-input-placeholder {
     @include brandon-black;
       color:$title_black;
-      text-transform:uppercase;
+      //text-transform:uppercase;
     }
 
     input::-moz-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:uppercase;
+        //text-transform:uppercase;
     }
 
      input:-ms-input-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:uppercase;
+        //text-transform:uppercase;
     }
 
      input:-moz-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:uppercase;
+        //text-transform:uppercase;
     }
 
      input::webkit-input-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:uppercase;
+        //text-transform:uppercase;
+        //text-transform:lowercase;
     }
   }
 }
@@ -1330,7 +1331,7 @@ main.map-page{
   &:hover,
   &:active,
   &:focus{
-    background-color:$periwinkle;
+    background-color:$mint;
 
     svg{
       .icon{
@@ -1444,6 +1445,11 @@ main.map-page{
       margin-right:1em;
     }
   }
+}
+
+.wp-caption-text{
+  @include brandon-black;
+  font-size:1em;
 }
 
 //__WordPress Core

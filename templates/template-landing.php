@@ -72,7 +72,7 @@ get_header(); ?>
 									<form method="get" id="banner-searchform" action="<?php bloginfo('url'); ?>/">
 										<div class="form input">
 											<label for="searchHeader" class="sr-only">Search the site</label>
-											<input id="searchHeader" class="hide" type="text" placeholder="Cuisine, restaurant, etc..." value="<?php the_search_query(); ?>" name="s" id="s" />
+											<input id="searchHeader" class="hide" type="text" placeholder="cuisine, restaurant, etc..." value="<?php the_search_query(); ?>" name="s" id="s" />
 											<input id="city-banner-search" type="hidden" name="city" type="text" value="" name="s" id="s" />
 											<button type="submit" class="form submit search-submit" id="searchsubmit" value="" >
 												<span class="sr-only">Submit search</span>
