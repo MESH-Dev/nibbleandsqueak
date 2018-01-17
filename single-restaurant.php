@@ -79,7 +79,7 @@
 				</div>
 			</div>
 
-			<div class="columns-3 offset-by-1">
+			<div class="columns-4">
 				<div class="restaurant-info">
 					<div id="single-map"></div>
 						
@@ -142,7 +142,7 @@
 					</div>
 					<?php if ($open_table != ""){ ?>
 						<div class="loc-button open-table">
-							<a href="<?php echo $open_table; ?>/&amp;ref=17272" target="_blank">
+							<a href="<?php echo $open_table; ?>?ref=17272" target="_blank">
 								<span><?php echo file_get_contents(get_template_directory().'/img/findtable.svg')?></span> 
 								<span>Find a table</span>
 							</a>
