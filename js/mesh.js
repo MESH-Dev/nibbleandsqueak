@@ -10,7 +10,7 @@ var vh = $(window).height();
 
 $(window).scroll(function(){
 	 var scroll = $(window).scrollTop();   
-   if(vh >= 600){ 
+   //if(vh >= 600){ 
     if (scroll >= 100) {
         $('header').addClass('fixed');
         //$('header').hide().addClass('fixed').stop().slideDown();
@@ -31,7 +31,7 @@ $(window).scroll(function(){
     	
     	 //$('.logotext').animate({'opacity':'1', display:'block'},20);
     }
-  }
+  //}
 });
 
 
