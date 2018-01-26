@@ -2,6 +2,29 @@ header{
 	position:relative;
 	width:100%;
 	z-index:100;
+
+	&.fixed{
+				.header-wrap .head, .wrap{
+					height:50px;
+					//display:inline;
+				}
+				.logo{
+					//height:50px;
+				}
+				.logo .site-title{
+					width:65px;
+					//height:50px;
+
+				}
+				.logotext{
+					opacity:0;
+					display:none;
+				}
+				.main-navigation ul li{
+					padding-top:1em;
+				}
+			}
+
 	.header-wrap{
 		background-color:$white;
 		padding:0 15px;
@@ -21,7 +44,9 @@ header{
 			//overflow: hidden;
 			height:113px;
 			position:relative;
-			//transition:all .50s ease-in-out;
+			transition:all .25s ease-in-out;
+
+			
 		}
 	}
 	.logo,
@@ -59,6 +84,8 @@ header{
 		.wrap{
 			//display:table-cell;
 			vertical-align: middle;
+			transition:all .2s ease-in-out;
+			//white-space:nowrap;
 			
 		}
 		@media only screen and ($bp-smaller-than-tablet){
@@ -66,7 +93,7 @@ header{
 			display:none;
 		}
 
-		@media only screen and ($bp-smaller-than-desktop){
+		@media only screen and (max-width:1300px){
 			//width:50%;
 			.social-nav{
 				display:none;
@@ -82,12 +109,13 @@ header{
 			width:20%;
 		}
 		.site-title{
-			max-width:120px;
+			width:120px;
 			display: inline-block;
-			//transition:all .3s ease-in-out;
+			transition:all .4s ease-in-out;
 			margin:0;
 			padding:0;
 			overflow:hidden;
+			//background-color:red;
 			img{
 				display:block;
 				//transition:all .3s ease-in-out;
@@ -98,7 +126,8 @@ header{
 	}
 
 	.logotext{
-		//transition:opacity .6s ease-in-out;
+		transition:all .05s ease-in-out;
+		display:block;
 	}
 
 	.main-navigation{
@@ -113,8 +142,10 @@ header{
 		
 		li{
 			display:inline-block;
+			//display:table-cell;
 			float:left;
-			margin-left:2em;
+			//margin-left:2em;
+			padding-left:2em;
 			margin-bottom:0;
 			position:relative;
 
@@ -173,7 +204,11 @@ header{
 				display:none;
 			}
 			li{
-				margin-left:1em;
+				margin-left:.5em;
+				padding-left:1em;
+				@media only screen and ($bp-smaller-than-desktop){
+					margin-left:.5em;
+				}
 			}
 		}
 	}
@@ -186,9 +221,14 @@ header{
 		//float:left;
 	} 	
 
+	.search-form{
+		padding-top:5px;
+	}
+
 	.city-dropdown{
 		width:30%;
 		list-style-type: none;
+		margin-bottom:0;
 		.city-wrap{
 			width:49%;
 			float:left;
@@ -212,6 +252,11 @@ header{
 		li{
 			position:relative;
 			list-style-type:none;
+			margin-bottom:0;
+
+			&:first-child{
+				text-align:center;
+			}
 			.sub-menu{
 				margin:0;
 				padding:1em;

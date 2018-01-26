@@ -4,16 +4,9 @@
 get_header(); ?>
 
 <main class="map-page" id="content">
-	<!-- <div class="bubble-wrap row">
-		<a class="cta-bubble"href="<?php echo $cta_link; ?>" <?php echo $cta_link; ?>>
-			<div class="bubble">
-				<?php echo $cta_text; ?>
-			</div>
-		</a>
-	</div> -->
 		<div class="row">
 			<div class="locations">
-				<div class="">
+				<!-- <div class=""> -->
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 					<h2><?php the_title(); ?></h2>
@@ -36,20 +29,9 @@ get_header(); ?>
 						}else{ 
 						get_template_part('partials/city-map');
 					}?>
-				 	            
+				 <!-- </div>  -->       
 			</div>
-
-			<!-- <div class="columns-6"> -->
-				<!-- <div id="map"> -->
-
-				<!-- Change this to repeater of custom fields -->
-
-				<?php //get_sidebar(); ?>
-				<!-- </div> -->
-			<!-- </div> -->
-
 		</div>
-	</div>
 	<div id="map"></div>
 </main><!-- End of Content -->
 

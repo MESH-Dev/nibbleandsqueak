@@ -12,5 +12,9 @@
     "grunt-contrib-imagemin": "^0.7.1",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1"
+  },
+  "dependencies": {
+    "compass": "^0.1.1",
+    "ruby": "^0.6.1"
   }
 }

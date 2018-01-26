@@ -31,6 +31,6 @@
 			<li>Changing Tables</li> -->
 		</ul>
 	</div>
-	<div class="listing-image right_rounded" style="background-image:url('<?php echo $post_image_URL; ?>"></div>
+	<div class="listing-image right_rounded" style="background-image:url('<?php echo $post_image_URL; ?>')"></div>
 	<div class="border" aria-hidden="true"></div>
 </div>
