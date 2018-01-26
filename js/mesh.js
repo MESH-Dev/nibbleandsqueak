@@ -117,7 +117,7 @@ var $select = $('#city');
 var $bannerSelect = $('.city-input');
 
 //$bannerSelect.addClass('new');
-createCookie('dropdown', false)
+createCookie('dropdown', false);
 
 $('.city-dropdown .sub-menu a').click(function () {
     _newText = $(this).data('name');

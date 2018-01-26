@@ -87,7 +87,6 @@ get_header(); ?>
 				</div> <!-- end banner -->
 			<div class="container"> <!-- start container -->
 					<div class="amenities row">
-						<?php echo get_term_link('highchairs', 'amenity'); ?>
 						<!-- <div class="row"> -->
 							<ul>
 								<?php if (have_rows('amenities')):
@@ -100,7 +99,7 @@ get_header(); ?>
 										setup_postdata($post_a);
 										$term_id = $post_a->term_id;
 										$amenity_slug = $post_a->slug;
-										var_dump($amenity_slug);
+										//var_dump($amenity_slug);
 										$amenity_icon = get_term_meta($term_id, 'meta-image', true );
 										//var_dump($amenity);
 										// foreach($amenity as $icon)

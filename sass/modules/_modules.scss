@@ -1,9 +1,5 @@
 //__ General
 
-input{
-  border-radius:0;
-}
-
 img{
   max-width:100%;
   height:auto;
@@ -72,7 +68,7 @@ img{
 }
 
 .border{
-  height: 1em;
+  height: 10px;
   position: absolute;
   right:0;
   bottom: 0;
@@ -139,9 +135,9 @@ img{
 }
 
 main.inner-content{
-  margin:5em 2em 0 2em;
+  margin-top:5em;
   @media only screen and ($bp-smaller-than-tablet){
-    margin:10em 0 0 0;
+    margin-top:10em;
   }
 }
 
@@ -235,9 +231,6 @@ main{
       ul{
         margin-bottom:0;
         width:80%;
-        @media only screen and (max-width:1350px)and (min-width:951px){
-          width:79%;
-        }
         @media only screen and (max-width:950px){
           width:75%;
         }
@@ -356,37 +349,36 @@ main{
     input::-webkit-input-placeholder {
     @include brandon-black;
       color:$title_black;
-      //text-transform:uppercase;
+      text-transform:uppercase;
     }
 
     input::-moz-placeholder {
         @include brandon-black;
         color:$title_black;
-        //text-transform:uppercase;
+        text-transform:uppercase;
     }
 
      input:-ms-input-placeholder {
         @include brandon-black;
         color:$title_black;
-        //text-transform:uppercase;
+        text-transform:uppercase;
     }
 
      input:-moz-placeholder {
         @include brandon-black;
         color:$title_black;
-        //text-transform:uppercase;
+        text-transform:uppercase;
     }
 
      input::webkit-input-placeholder {
         @include brandon-black;
         color:$title_black;
-        //text-transform:uppercase;
-        //text-transform:lowercase;
+        text-transform:uppercase;
     }
   }
 }
 
-$bubble_size: 80px;
+$bubble_size: 70px;
 $bubble_size2x: $bubble_size * 2;
 
 .bubble-wrap{
@@ -423,7 +415,7 @@ $bubble_size2x: $bubble_size * 2;
     text-align: center;
     width:75%;
     margin:0 auto;
-    padding-top:1.5em;
+    padding-top:1em;
   }
 }
 
@@ -464,7 +456,7 @@ $bubble_size2x: $bubble_size * 2;
   }
 
   &.featured{
-    //padding:1em;
+    padding:1em;
 
     .post-title,
     .post-subtitle{
@@ -514,15 +506,10 @@ $bubble_size2x: $bubble_size * 2;
     }
     .content{
       position:absolute;
-      bottom:1em;
+      bottom:1.5em;
       width:100%;
-      padding:1em;
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+21,000000+21,000000+100&0+0,0.82+74 */
-      background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.23) 21%, rgba(0,0,0,0.82) 74%, rgba(0,0,0,0.82) 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.23) 21%,rgba(0,0,0,0.82) 74%,rgba(0,0,0,0.82) 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.23) 21%,rgba(0,0,0,0.82) 74%,rgba(0,0,0,0.82) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#d1000000',GradientType=0 ); /* IE6-9 */
-      }
+
+    }
   
 }
 //-------------------------------------------
@@ -530,20 +517,8 @@ $bubble_size2x: $bubble_size * 2;
 // General Text Pages
 
 .the-content{
-  width:80%;
-  @media only screen and ($bp-smaller-than-tablet){
-    width:95%;
-  }
   img{
     border-radius:15px;
-  }
-  a{
-    color:$periwinkle;
-    &:hover,
-    &:active,
-    &:focus{
-      text-decoration:underline;
-    }
   }
 }
 
@@ -688,14 +663,13 @@ $bubble_size2x: $bubble_size * 2;
   background-size:contain;
   //background-position:15px center;
   background-position:center center;
-  width:100%;
 
   color:$title-black;
   &:hover,
   &:active,
   &:focus{
-    //color:$mint;
-    text-decoration:underline;
+    color:$mint;
+    text-decoration:none;
   }
 
   @media only screen and (max-width:1000px){
@@ -720,13 +694,11 @@ $bubble_size2x: $bubble_size * 2;
 }
 
 .nibble-featured,
-.related-articles{
+.related-article{
   .featured-article{
     .border-wrap{
       margin-bottom:1em;
       height:300px;
-      background-position:center center;
-      background-size:cover;
     }
     .post-title{
       font-size:2.4rem;
@@ -735,16 +707,6 @@ $bubble_size2x: $bubble_size * 2;
     }
   }
 }
-
-// .related-articles{
-//   .featured-article{
-//     .border-wrap{
-//       height:400px;
-//       background-position:center center;
-//       bakground-size:cover;
-//     }
-//   }
-// }
 
 // .nibble
 
@@ -837,9 +799,6 @@ $bubble_size2x: $bubble_size * 2;
       }
     }
     
-    // .st0{
-    //   fill:#7495FF;
-    // }
     //at center value should be 50% of width
     //clip-path: circle(30% at center);
     &:hover,
@@ -848,8 +807,7 @@ $bubble_size2x: $bubble_size * 2;
       //background-color:red;
       svg {
         transform:rotate(15deg);
-        .oval,
-        #Circle_-_Outline .st1{
+        .oval{
           fill:$white;
         }
 
@@ -861,16 +819,11 @@ $bubble_size2x: $bubble_size * 2;
           fill:$mint;
         }
 
-        .cls-2,.st2{
+        .cls-2{
           fill:$mint;
         }
 
-        #Icon .cls-2,
-        #Icon .st3,
-        #Icon .st2a,
-        #Icon .st1,
-        .st3
-        {
+        #Icon .cls-2{
           fill:$white;
         }
       }
@@ -940,44 +893,26 @@ $bubble_size2x: $bubble_size * 2;
 .event-button{
   width:60%;
   margin:0 auto;
-  //border:1px solid $periwinkle;
-  //border-radius:5px;
-  //padding:10px;
+  border:1px solid $periwinkle;
+  border-radius:5px;
+  padding:10px;
+
+  &:active,
+  &:hover,
+  &:focus{
+    border:1px solid $mint;
+    background-color:$mint;
+    a{
+      color:$white;
+      text-decoration:none;
+    }
+  }
   a{
-    border:1px solid $periwinkle;
-    border-radius:5px;
-    padding:10px;
-    //text-align:center;
-    display:inline-block;
-    width:100%;
     color:$periwinkle;
     font-size:1.2em;
     @include brandon-black;
     text-transform:uppercase;
-    &:active,
-    &:hover,
-    &:focus{
-      border:1px solid $mint;
-      background-color:$mint;
-      color:$white;
-    }
   }
-  // &:active,
-  // &:hover,
-  // &:focus{
-  //   border:1px solid $mint;
-  //   background-color:$mint;
-  //   a{
-  //     color:$white;
-  //     text-decoration:none;
-  //   }
- // }
-  // a{
-  //   color:$periwinkle;
-  //   font-size:1.2em;
-  //   @include brandon-black;
-  //   text-transform:uppercase;
-  // }
 }
 
 .email-signup{
@@ -988,7 +923,7 @@ $bubble_size2x: $bubble_size * 2;
     border-bottom:1px solid $title_black;
     font-size:1.6em;
     @include brandon-black;
-    text-transform:capitalize;
+    text-transform:uppercase;
     padding: 0;
     margin: 0;
     height: 26px;
@@ -1002,9 +937,6 @@ $bubble_size2x: $bubble_size * 2;
     height:30px;
     margin-left:-4px;
     border-radius:0;
-    @media only screen and ($bp-smaller-than-tablet){
-      height:29px;
-    }
 
     &:hover,
     &:focus,
@@ -1035,31 +967,31 @@ $bubble_size2x: $bubble_size * 2;
   input::-webkit-input-placeholder {
     @include brandon-black;
       color:$title_black;
-      text-transform:capitalize;
+      text-transform:uppercase;
     }
 
     input::-moz-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:capitalize;
+        text-transform:uppercase;
     }
 
      input:-ms-input-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:capitalize;
+        text-transform:uppercase;
     }
 
      input:-moz-placeholder {
         @include brandon-black;
         color:$title_black;
-       text-transform:capitalize;
+        text-transform:uppercase;
     }
 
      input::webkit-input-placeholder {
         @include brandon-black;
         color:$title_black;
-        text-transform:capitalize;
+        text-transform:uppercase;
     }
 }
 
@@ -1072,7 +1004,7 @@ main.map-page{
 
 .locations{
   height:100vh;
-  overflow:scroll;
+  overflow:auto;
   background:$white;
   position:absolute;
   z-index:6;
@@ -1090,7 +1022,6 @@ main.map-page{
   }
   @media only screen and ($bp-smaller-than-tablet){
     width:100%;
-    margin-top:7em;
   }
 
   .map-listing{
@@ -1099,26 +1030,6 @@ main.map-page{
     margin:1.5em auto;
     position:relative;
     overflow: hidden;
-
-    .post-title{
-      &:hover,
-      &:active,
-      &:focus{
-          color:$mint;
-          text-decoration:none;
-      }
-      a{
-          color:$title_black;
-          text-decoration:none;
-          &:hover,
-          &:active,
-          &:focus{
-            color:$mint;
-            text-decoration:underline;
-          }
-
-        }
-    }
 
     &.location-active,
     &:hover,
@@ -1130,11 +1041,10 @@ main.map-page{
       .city,
       .post-title{
         color:$mint;
-  
       }
 
       .post-title{
-        //text-decoration:underline;
+        text-decoration:underline;
       }
     }
 
@@ -1193,15 +1103,15 @@ main.map-page{
 }
 
 #map{
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100vh;
-	//width: 150%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  //width: 150%;
   width:66.66667%;
   margin-left:33.33333%;
-	z-index: 0;
-	transition: width 0.4s ease-in-out;
+  z-index: 0;
+  transition: width 0.4s ease-in-out;
 
    @media only screen and (900px){
      width:50%
@@ -1305,19 +1215,18 @@ main.map-page{
 }
 
 .loc-button{
-  // border-radius:10px;
-  // border:2px solid $periwinkle;
-  // width:100%;
-  // padding:5px 10px;
-  // margin-bottom:10px;
-  // text-align:left;
-  // @include brandon-black;
-  // font-size:1.6em;
-  // color:$periwinkle;
+  border-radius:10px;
+  border:2px solid $periwinkle;
+  width:100%;
+  padding:5px 10px;
+  margin-bottom:10px;
+  text-align:left;
+  @include brandon-black;
+  font-size:1.6em;
+  color:$periwinkle;
 
   svg{
-    width:20px;
-    margin:-5px 10px;
+    width:14px;
   }
 
   .desktop{
@@ -1336,9 +1245,7 @@ main.map-page{
   &:hover,
   &:active,
   &:focus{
-    // background-color:$mint;
-    // color:$white;
-    // text-decoration: none;
+    background-color:$periwinkle;
 
     svg{
       .icon{
@@ -1349,10 +1256,6 @@ main.map-page{
     a{
       color:$white;
       text-decoration: none;
-      background-color:$mint;
-    color:$white;
-    text-decoration: none;
-    border:2px solid $mint;
     }
   }
 
@@ -1360,16 +1263,6 @@ main.map-page{
     padding:10px 20px;
     color:$periwinkle;
     text-transform: uppercase;
-    display:block;
-    border-radius:10px;
-  border:2px solid $periwinkle;
-  width:100%;
-  //padding:7px 20px;
-  margin-bottom:10px;
-  text-align:left;
-  @include brandon-black;
-  font-size:1.6em;
-  color:$periwinkle;
   }
 }
 
@@ -1466,11 +1359,6 @@ main.map-page{
       margin-right:1em;
     }
   }
-}
-
-.wp-caption-text{
-  @include brandon-reg;
-  font-size:1em !important;
 }
 
 //__WordPress Core
