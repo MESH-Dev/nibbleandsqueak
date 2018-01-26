@@ -402,13 +402,25 @@ function search_filter($query){
 //
 add_action('pre_get_posts','search_filter');
 
+$city = $_GET["city"];
+//var_dump($city);
+$dropdown = $_COOKIE["dropdown"];
+//var_dump($dropdown);
+      //var_dump($city);
+
+//Run special query only if a city is chosen
+//if($city != null || $dropdown == 'true'){
 function archive_filter($query){
  if ( !is_admin() && $query->is_main_query() ) {
   //Use is archive for archive page for Amenities
-    if ($query->is_archive && ! $query->is_category ) {
-      $city = $_GET["city"];
+  $city = $_GET["city"];
+  $dropdown = $_COOKIE["dropdown"];
       //var_dump($city);
+      
+    if ($query->is_archive && ! $query->is_category ) {
+      
 
+      //if($city != null || $dropdown == 'true'){
       $city_query = array(
         array(
             'taxonomy' => 'city',
@@ -417,12 +429,15 @@ function archive_filter($query){
         )
     );
        $query->set('tax_query', $city_query);
+     }
     //}
-  }
+  //} //end if city not blank
 }
 }
 //
-add_action('pre_get_posts','archive_filter');
+if($city != null || $dropdown == 'true'){
+  add_action('pre_get_posts','archive_filter');
+}
 
 function get_id_by_slug($page_slug) {
   $page = get_page_by_path($page_slug);

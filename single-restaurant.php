@@ -107,10 +107,12 @@
 							<?php echo $street; ?></br>
 							<?php echo $city_address; ?>, <?php echo $state_address; ?>  <?php echo $zip_code; ?>
 						</div>
+						<?php if($h_oop != ''){ ?>
 						<div class="hours">
 							Open:</br>
 							<?php echo $h_oop; ?>
 						</div>
+						<?php } ?>
 						<?php if ($phone != ''){ ?>
 							<div class="phone">
 								<i class="fa fa-fw fa-mobile-phone"><span class="sr-only">Phone:</span></i>
@@ -119,21 +121,21 @@
 							</div>
 						<?php } ?>
 						
-						<?php if ($facebook != ''){ ?>
-						<div class="facebook">
+						<?php //if ($facebook != ''){ ?>
+						<!-- <div class="facebook">
 							<i class="fa fa-fw fa-facebook"><span class="sr-only">Facebook:</span></i><a href="https://facebook.com/<?php echo $facebook; ?>" target="_blank">On Facebook</a>
-						</div>
-						<?php } ?>
+						</div> -->
+						<?php //} ?>
 						<?php if ($instagram != ""){ ?>
 						<div class="instagram">
 							<i class="fa fa-fw fa-instagram"><span class="sr-only">Instagram:</span></i><a href="https://instagram.com/<?php echo $instagram; ?>" target="_blank"><?php echo $instagram; ?></a>
 						</div>
 						<?php } ?>
-						<?php if ($twitter != ''){ ?>
-							<div class="twitter">
+						<?php //if ($twitter != ''){ ?>
+							<!-- <div class="twitter">
 								<i class="fa fa-fw fa-twitter"><span class="sr-only">Twitter:</span></i><a href="https://twitter.com/<?php echo $twitter; ?>" target="_blank">@<?php echo $twitter; ?></a>
-							</div>
-						<?php } ?>
+							</div> -->
+						<?php //} ?>
 						<?php if ($website != ''){ ?>
 							<div class="website">
 								<i class="fa fa-fw fa-globe"><span class="sr-only">Website:</span></i><a href="<?php echo $website; ?>" target="_blank"><?php echo $domain; ?></a>
