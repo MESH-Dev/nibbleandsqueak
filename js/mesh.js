@@ -99,7 +99,7 @@ for(var i=0;i < ca.length;i++) {
     while (c.charAt(0)==' ') c = c.substring(1,c.length);
     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
 }
-return null;
+ return null;
 }
 
 console.log(readCookie());
@@ -113,13 +113,22 @@ var $select = $('#city');
 var $bannerSelect = $('.city-input');
 
 //$bannerSelect.addClass('new');
-
+createCookie('dropdown', false)
 
 $('.city-dropdown .sub-menu a').click(function () {
     _newText = $(this).data('name');
     _newCookie = $(this).data('slug');
+    createCookie('dropdown', true);
     $select.text( _newText );
     $bannerSelect.val( _newText );
+
+    $('.amenities li a').each(function(){
+    var $slug = $(this).data('slug');
+    
+     $(this).attr('href',$home+'/amenity/'+$slug+'/?city='+_newCookie);
+   
+    });
+
 
     //$(this).addClass($(this).data('select'));
     //eraseCookie('city');
@@ -247,25 +256,30 @@ function NearestCity(latitude, longitude) {
 }//end nearest city
 	
 	var cookieVal = readCookie('city');
+  console.log(cookieVal);
 	var cookieName = readCookie('cityName');
 	console.log('Cookie = '+cookieName);
  	createCookie('is_geo_run', '1', '');
 
   //var $curl = homelink+cookieVal;
   //console.log($curl);
-
- 	$('a#homelink').attr('href', homeLink+cookieVal);
+  if(cookieVal !== null){
+    $('a#homelink').attr('href', homeLink+cookieVal);
+  }
+ 	
 
   //console.log( $('a#homelink').attr('href', homeLink+cookieVal))
  	$('input#city-search').attr('value', cookieVal);
  	$('input#city-banner-search').attr('value', cookieVal);
  	$('.amenities li a').each(function(){
  		var $slug = $(this).data('slug');
- 		$(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
+    if(cookieVal !== null){
+ 		 $(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
+    }
  	})
  	//$('#city').text(cookieName);
  	//$bannerSelect.val(cookieName);
- 	if(cookieName != '' || cookieName != null || cookieName != 'null'){
+ 	if(cookieName !== null){
  		$('#city').text(cookieName);
  		$bannerSelect.val(cookieName);
  	}else{
@@ -332,7 +346,7 @@ $('.close').click(
     $topLink = $('.sidr-inner ul.menu > li.menu-item-has-children > a');
 
     //Add a 'button' to just after the link in any top level li that has children
-    $('<span class="open"> <i class="fa fa-fw fa-chevron-down"></i> </span>').insertAfter($topLink);
+    $('<span class="open"><i class="fa fa-fw fa-chevron-down"></i> </span>').insertAfter($topLink);
     
     //Now we get all of the peices together
 

@@ -142,7 +142,7 @@ main.inner-content{
 }
 
 main{
-  min-height:600px;
+  min-height:700px;
 }
 
 .autocomplete-suggestions{
@@ -384,6 +384,9 @@ $bubble_size2x: $bubble_size * 2;
 .bubble-wrap{
   //Tee hee
   position:relative;
+  // @media only screen and ($bp-smaller-than-mobile){
+  //   display:none;
+  // }
 }
 
 .cta-bubble{
