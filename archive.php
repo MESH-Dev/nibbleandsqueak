@@ -24,7 +24,7 @@
 						<?php //else : ?>
 							<?php //_e( 'Blog Archives' ); ?>
 						<?php //endif; ?>
-						All results for <span><?php echo $amenity_name; ?></span> in <span><?php echo $_COOKIE['cityName'];?></span>
+						All results for <span><?php echo $amenity_name; ?><?php if ($_COOKIE['cityName'] != ''){?></span> in <span><?php echo $_COOKIE['cityName'];?></span><?php }?>
 					</h1>
 
 					<?php while ( have_posts() ) : the_post(); ?>
