@@ -708,6 +708,16 @@ $bubble_size2x: $bubble_size * 2;
   }
 }
 
+.related-articles{
+  .featured-article{
+    .border-wrap{
+      height:300px;
+      background-position:center center;
+      background-size:cover;
+    }
+  }
+}
+
 // .nibble
 
 .reviews{

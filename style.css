@@ -2200,25 +2200,32 @@ main {
   text-transform: uppercase;
 }
 
-/* line 714, sass/modules/_modules.scss */
+/* line 713, sass/modules/_modules.scss */
+.related-articles .featured-article .border-wrap {
+  height: 300px;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* line 724, sass/modules/_modules.scss */
 .reviews .restaurant-review {
   cursor: pointer;
 }
-/* line 718, sass/modules/_modules.scss */
+/* line 728, sass/modules/_modules.scss */
 .reviews .restaurant-review img {
   display: block;
   width: 100%;
 }
-/* line 726, sass/modules/_modules.scss */
+/* line 736, sass/modules/_modules.scss */
 .reviews .restaurant-review:hover .hover, .reviews .restaurant-review:focus .hover, .reviews .restaurant-review:active .hover {
   display: block;
   color: #404040;
 }
-/* line 730, sass/modules/_modules.scss */
+/* line 740, sass/modules/_modules.scss */
 .reviews .restaurant-review:hover .city, .reviews .restaurant-review:focus .city, .reviews .restaurant-review:active .city {
   color: #50E3C2;
 }
-/* line 735, sass/modules/_modules.scss */
+/* line 745, sass/modules/_modules.scss */
 .reviews .restaurant-review .review-hover {
   position: relative;
   overflow: hidden;
@@ -2228,27 +2235,27 @@ main {
   background-size: cover;
   background-position: center center;
 }
-/* line 743, sass/modules/_modules.scss */
+/* line 753, sass/modules/_modules.scss */
 .reviews .restaurant-review .review-hover .wrap {
   display: table;
   width: 100%;
   height: 100%;
   text-align: center;
 }
-/* line 748, sass/modules/_modules.scss */
+/* line 758, sass/modules/_modules.scss */
 .reviews .restaurant-review .review-hover .wrap .content {
   display: table-cell;
   vertical-align: middle;
   height: 100%;
 }
-/* line 753, sass/modules/_modules.scss */
+/* line 763, sass/modules/_modules.scss */
 .reviews .restaurant-review .review-hover .wrap .content span {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   font-size: 1.6em;
   text-transform: uppercase;
 }
-/* line 763, sass/modules/_modules.scss */
+/* line 773, sass/modules/_modules.scss */
 .reviews .restaurant-review .hover {
   display: none;
   position: absolute;
@@ -2258,7 +2265,7 @@ main {
   background-color: rgba(80, 227, 194, 0.6);
   color: #404040;
 }
-/* line 772, sass/modules/_modules.scss */
+/* line 782, sass/modules/_modules.scss */
 .reviews .restaurant-review .post-title {
   font-size: 1.6em;
   font-weight: 700;
@@ -2267,54 +2274,54 @@ main {
   color: #404040;
 }
 
-/* line 781, sass/modules/_modules.scss */
+/* line 791, sass/modules/_modules.scss */
 .amenities {
   width: 95%;
   text-align: center;
   margin: 2em auto;
 }
-/* line 787, sass/modules/_modules.scss */
+/* line 797, sass/modules/_modules.scss */
 .amenities .amenity-icon {
   width: 40%;
   margin: 0 auto;
   border-radius: 50%;
   cursor: pointer;
 }
-/* line 793, sass/modules/_modules.scss */
+/* line 803, sass/modules/_modules.scss */
 .amenities .amenity-icon svg {
   margin-bottom: .5em;
   width: 100%;
   transition: all .2s ease-in-out;
 }
-/* line 797, sass/modules/_modules.scss */
+/* line 807, sass/modules/_modules.scss */
 .amenities .amenity-icon svg .oval {
   transition: all .2s ease-in-out;
 }
-/* line 808, sass/modules/_modules.scss */
+/* line 818, sass/modules/_modules.scss */
 .amenities .amenity-icon:hover svg, .amenities .amenity-icon:active svg, .amenities .amenity-icon:focus svg {
   transform: rotate(15deg);
 }
-/* line 810, sass/modules/_modules.scss */
+/* line 820, sass/modules/_modules.scss */
 .amenities .amenity-icon:hover svg .oval, .amenities .amenity-icon:active svg .oval, .amenities .amenity-icon:focus svg .oval {
   fill: #FFFFFF;
 }
-/* line 814, sass/modules/_modules.scss */
+/* line 824, sass/modules/_modules.scss */
 .amenities .amenity-icon:hover svg .cls-3, .amenities .amenity-icon:active svg .cls-3, .amenities .amenity-icon:focus svg .cls-3 {
   fill: #50E3C2;
 }
-/* line 818, sass/modules/_modules.scss */
+/* line 828, sass/modules/_modules.scss */
 .amenities .amenity-icon:hover svg .cls-1, .amenities .amenity-icon:active svg .cls-1, .amenities .amenity-icon:focus svg .cls-1 {
   fill: #50E3C2;
 }
-/* line 822, sass/modules/_modules.scss */
+/* line 832, sass/modules/_modules.scss */
 .amenities .amenity-icon:hover svg .cls-2, .amenities .amenity-icon:active svg .cls-2, .amenities .amenity-icon:focus svg .cls-2 {
   fill: #50E3C2;
 }
-/* line 826, sass/modules/_modules.scss */
+/* line 836, sass/modules/_modules.scss */
 .amenities .amenity-icon:hover svg #Icon .cls-2, .amenities .amenity-icon:active svg #Icon .cls-2, .amenities .amenity-icon:focus svg #Icon .cls-2 {
   fill: #FFFFFF;
 }
-/* line 833, sass/modules/_modules.scss */
+/* line 843, sass/modules/_modules.scss */
 .amenities ul li {
   display: inline-block;
   list-style-type: none;
@@ -2324,54 +2331,54 @@ main {
   vertical-align: middle;
 }
 @media only screen and (max-width: 750px) {
-  /* line 833, sass/modules/_modules.scss */
+  /* line 843, sass/modules/_modules.scss */
   .amenities ul li {
     width: 30%;
     margin: 1em 0;
   }
 }
 @media only screen and (max-width: 480px) {
-  /* line 833, sass/modules/_modules.scss */
+  /* line 843, sass/modules/_modules.scss */
   .amenities ul li {
     width: 49%;
   }
 }
-/* line 852, sass/modules/_modules.scss */
+/* line 862, sass/modules/_modules.scss */
 .amenities h2 {
   margin-bottom: 0;
 }
 @media only screen and (max-width: 480px) {
-  /* line 852, sass/modules/_modules.scss */
+  /* line 862, sass/modules/_modules.scss */
   .amenities h2 {
     font-size: 1.6em;
     margin-bottom: 1em;
   }
 }
 
-/* line 861, sass/modules/_modules.scss */
+/* line 871, sass/modules/_modules.scss */
 .landscape {
   padding: 1em;
 }
 @media only screen and (max-width: 750px) {
-  /* line 861, sass/modules/_modules.scss */
+  /* line 871, sass/modules/_modules.scss */
   .landscape {
     margin-bottom: 40px;
   }
 }
-/* line 866, sass/modules/_modules.scss */
+/* line 876, sass/modules/_modules.scss */
 .landscape .section {
   display: inline-block;
   vertical-align: middle;
   width: 48%;
 }
 @media only screen and (max-width: 480px) {
-  /* line 866, sass/modules/_modules.scss */
+  /* line 876, sass/modules/_modules.scss */
   .landscape .section {
     width: 100%;
     margin-top: 1em;
   }
 }
-/* line 875, sass/modules/_modules.scss */
+/* line 885, sass/modules/_modules.scss */
 .landscape h2 {
   text-transform: uppercase;
   font-weight: 700;
@@ -2380,7 +2387,7 @@ main {
   margin: 0;
 }
 
-/* line 893, sass/modules/_modules.scss */
+/* line 903, sass/modules/_modules.scss */
 .event-button {
   width: 60%;
   margin: 0 auto;
@@ -2388,17 +2395,17 @@ main {
   border-radius: 5px;
   padding: 10px;
 }
-/* line 900, sass/modules/_modules.scss */
+/* line 910, sass/modules/_modules.scss */
 .event-button:active, .event-button:hover, .event-button:focus {
   border: 1px solid #50E3C2;
   background-color: #50E3C2;
 }
-/* line 905, sass/modules/_modules.scss */
+/* line 915, sass/modules/_modules.scss */
 .event-button:active a, .event-button:hover a, .event-button:focus a {
   color: #FFFFFF;
   text-decoration: none;
 }
-/* line 910, sass/modules/_modules.scss */
+/* line 920, sass/modules/_modules.scss */
 .event-button a {
   color: #7495ff;
   font-size: 1.2em;
@@ -2407,7 +2414,7 @@ main {
   text-transform: uppercase;
 }
 
-/* line 919, sass/modules/_modules.scss */
+/* line 929, sass/modules/_modules.scss */
 .email-signup input {
   border: none;
   background-color: transparent;
@@ -2421,7 +2428,7 @@ main {
   margin: 0;
   height: 26px;
 }
-/* line 931, sass/modules/_modules.scss */
+/* line 941, sass/modules/_modules.scss */
 .email-signup button {
   width: 25px;
   border: none;
@@ -2432,52 +2439,52 @@ main {
   margin-left: -4px;
   border-radius: 0;
 }
-/* line 945, sass/modules/_modules.scss */
+/* line 955, sass/modules/_modules.scss */
 .email-signup button:hover svg .icon, .email-signup button:focus svg .icon, .email-signup button:active svg .icon {
   fill: #50E3C2;
 }
-/* line 949, sass/modules/_modules.scss */
+/* line 959, sass/modules/_modules.scss */
 .email-signup button:hover svg .triangle, .email-signup button:focus svg .triangle, .email-signup button:active svg .triangle {
   stroke: #50E3C2;
 }
-/* line 956, sass/modules/_modules.scss */
+/* line 966, sass/modules/_modules.scss */
 .email-signup button svg {
   width: 15px;
 }
-/* line 961, sass/modules/_modules.scss */
+/* line 971, sass/modules/_modules.scss */
 .email-signup input,
 .email-signup button {
   display: inline-block;
 }
-/* line 967, sass/modules/_modules.scss */
+/* line 977, sass/modules/_modules.scss */
 .email-signup input::-webkit-input-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #404040;
   text-transform: uppercase;
 }
-/* line 973, sass/modules/_modules.scss */
+/* line 983, sass/modules/_modules.scss */
 .email-signup input::-moz-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #404040;
   text-transform: uppercase;
 }
-/* line 979, sass/modules/_modules.scss */
+/* line 989, sass/modules/_modules.scss */
 .email-signup input:-ms-input-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #404040;
   text-transform: uppercase;
 }
-/* line 985, sass/modules/_modules.scss */
+/* line 995, sass/modules/_modules.scss */
 .email-signup input:-moz-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #404040;
   text-transform: uppercase;
 }
-/* line 991, sass/modules/_modules.scss */
+/* line 1001, sass/modules/_modules.scss */
 .email-signup input::webkit-input-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
@@ -2485,13 +2492,13 @@ main {
   text-transform: uppercase;
 }
 
-/* line 1000, sass/modules/_modules.scss */
+/* line 1010, sass/modules/_modules.scss */
 main.map-page {
   min-height: 100vh;
   position: relative;
 }
 
-/* line 1005, sass/modules/_modules.scss */
+/* line 1015, sass/modules/_modules.scss */
 .locations {
   height: 100vh;
   overflow: auto;
@@ -2502,13 +2509,13 @@ main.map-page {
   width: 33.33333%;
 }
 @media only screen and (max-width: 900px) {
-  /* line 1005, sass/modules/_modules.scss */
+  /* line 1015, sass/modules/_modules.scss */
   .locations {
     width: 50%;
   }
 }
 @media only screen and (max-width: 750px) {
-  /* line 1005, sass/modules/_modules.scss */
+  /* line 1015, sass/modules/_modules.scss */
   .locations {
     padding: 40px 15px 40px 15px;
     overflow: visible;
@@ -2517,38 +2524,38 @@ main.map-page {
   }
 }
 @media only screen and (max-width: 750px) {
-  /* line 1005, sass/modules/_modules.scss */
+  /* line 1015, sass/modules/_modules.scss */
   .locations {
     width: 100%;
   }
 }
-/* line 1027, sass/modules/_modules.scss */
+/* line 1037, sass/modules/_modules.scss */
 .locations .map-listing {
   height: 200px;
   margin: 1.5em auto;
   position: relative;
   overflow: hidden;
 }
-/* line 1034, sass/modules/_modules.scss */
+/* line 1044, sass/modules/_modules.scss */
 .locations .map-listing:hover, .locations .map-listing:active, .locations .map-listing:focus {
   color: #50E3C2;
   text-decoration: none;
 }
-/* line 1040, sass/modules/_modules.scss */
+/* line 1050, sass/modules/_modules.scss */
 .locations .map-listing a {
   color: #404040;
   text-decoration: none;
 }
-/* line 1043, sass/modules/_modules.scss */
+/* line 1053, sass/modules/_modules.scss */
 .locations .map-listing a:hover, .locations .map-listing a:active, .locations .map-listing a:focus {
   color: #50E3C2;
   text-decoration: underline;
 }
-/* line 1057, sass/modules/_modules.scss */
+/* line 1067, sass/modules/_modules.scss */
 .locations .map-listing.location-active .border, .locations .map-listing:hover .border, .locations .map-listing:active .border, .locations .map-listing:focus .border {
   background-color: #50E3C2;
 }
-/* line 1060, sass/modules/_modules.scss */
+/* line 1070, sass/modules/_modules.scss */
 .locations .map-listing.location-active .city,
 .locations .map-listing.location-active .post-title, .locations .map-listing:hover .city,
 .locations .map-listing:hover .post-title, .locations .map-listing:active .city,
@@ -2556,24 +2563,24 @@ main.map-page {
 .locations .map-listing:focus .post-title {
   color: #50E3C2;
 }
-/* line 1065, sass/modules/_modules.scss */
+/* line 1075, sass/modules/_modules.scss */
 .locations .map-listing.location-active .post-title, .locations .map-listing:hover .post-title, .locations .map-listing:active .post-title, .locations .map-listing:focus .post-title {
   text-decoration: underline;
 }
-/* line 1070, sass/modules/_modules.scss */
+/* line 1080, sass/modules/_modules.scss */
 .locations .map-listing .map-listing-content,
 .locations .map-listing .listing-image {
   display: inline-block;
   float: left;
 }
-/* line 1076, sass/modules/_modules.scss */
+/* line 1086, sass/modules/_modules.scss */
 .locations .map-listing .post-title {
   font-size: 1.6em;
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #404040;
 }
-/* line 1082, sass/modules/_modules.scss */
+/* line 1092, sass/modules/_modules.scss */
 .locations .map-listing .map-listing-content {
   padding: 15px 10px;
   width: 60%;
@@ -2582,7 +2589,7 @@ main.map-page {
   display: inline-block;
   float: left;
 }
-/* line 1091, sass/modules/_modules.scss */
+/* line 1101, sass/modules/_modules.scss */
 .locations .map-listing .listing-image {
   height: 100%;
   display: inline-block;
@@ -2593,7 +2600,7 @@ main.map-page {
   background-size: cover;
   background-position: center center;
 }
-/* line 1103, sass/modules/_modules.scss */
+/* line 1113, sass/modules/_modules.scss */
 .locations .map-listing .loc-tags {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
@@ -2601,11 +2608,11 @@ main.map-page {
   text-transform: uppercase;
   color: #9b9b9b;
 }
-/* line 1110, sass/modules/_modules.scss */
+/* line 1120, sass/modules/_modules.scss */
 .locations .map-listing .loc-amenities {
   margin: 1em 0;
 }
-/* line 1112, sass/modules/_modules.scss */
+/* line 1122, sass/modules/_modules.scss */
 .locations .map-listing .loc-amenities li {
   width: 35px;
   list-style-type: none;
@@ -2613,7 +2620,7 @@ main.map-page {
   margin-right: 1em;
 }
 
-/* line 1124, sass/modules/_modules.scss */
+/* line 1134, sass/modules/_modules.scss */
 #map {
   position: absolute;
   left: 0;
@@ -2625,13 +2632,13 @@ main.map-page {
   transition: width 0.4s ease-in-out;
 }
 @media only screen and (900px) {
-  /* line 1124, sass/modules/_modules.scss */
+  /* line 1134, sass/modules/_modules.scss */
   #map {
     width: 50%;
   }
 }
 
-/* line 1145, sass/modules/_modules.scss */
+/* line 1155, sass/modules/_modules.scss */
 .gm-style .gm-style-iw {
   width: 350px !important;
   font-weight: 700;
@@ -2644,38 +2651,38 @@ main.map-page {
   padding: 1em;
   font-size: initial;
 }
-/* line 1156, sass/modules/_modules.scss */
+/* line 1166, sass/modules/_modules.scss */
 .gm-style .gm-style-iw .list-title {
   margin: 0;
 }
-/* line 1158, sass/modules/_modules.scss */
+/* line 1168, sass/modules/_modules.scss */
 .gm-style .gm-style-iw .list-title a {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #404040;
 }
-/* line 1161, sass/modules/_modules.scss */
+/* line 1171, sass/modules/_modules.scss */
 .gm-style .gm-style-iw .list-title a:hover, .gm-style .gm-style-iw .list-title a:active, .gm-style .gm-style-iw .list-title a:focus {
   color: #50E3C2;
   text-decoration: underline;
 }
-/* line 1170, sass/modules/_modules.scss */
+/* line 1180, sass/modules/_modules.scss */
 .gm-style .gm-style-iw .cta-link {
   font-size: .875em;
 }
 
-/* line 1176, sass/modules/_modules.scss */
+/* line 1186, sass/modules/_modules.scss */
 #iw-container {
   margin-bottom: 10px;
 }
 
-/* line 1185, sass/modules/_modules.scss */
+/* line 1195, sass/modules/_modules.scss */
 #single-map {
   height: 200px;
   border-radius: 10px 10px 0 0;
 }
 
-/* line 1190, sass/modules/_modules.scss */
+/* line 1200, sass/modules/_modules.scss */
 .restaurant-data {
   background-color: #f5f5f5;
   font-weight: 700;
@@ -2683,12 +2690,12 @@ main.map-page {
   margin-bottom: 10px;
   padding: 20px 10px;
 }
-/* line 1196, sass/modules/_modules.scss */
+/* line 1206, sass/modules/_modules.scss */
 .restaurant-data .loc-address {
   font-size: 1.8em;
   margin-bottom: 20px;
 }
-/* line 1200, sass/modules/_modules.scss */
+/* line 1210, sass/modules/_modules.scss */
 .restaurant-data .hours,
 .restaurant-data .phone,
 .restaurant-data .facebook,
@@ -2700,7 +2707,7 @@ main.map-page {
   color: #7495ff;
   text-transform: uppercase;
 }
-/* line 1211, sass/modules/_modules.scss */
+/* line 1221, sass/modules/_modules.scss */
 .restaurant-data .hours a,
 .restaurant-data .phone a,
 .restaurant-data .facebook a,
@@ -2709,7 +2716,7 @@ main.map-page {
 .restaurant-data .instagram a {
   color: #7495ff;
 }
-/* line 1213, sass/modules/_modules.scss */
+/* line 1223, sass/modules/_modules.scss */
 .restaurant-data .hours a:hover, .restaurant-data .hours a:active, .restaurant-data .hours a:focus,
 .restaurant-data .phone a:hover,
 .restaurant-data .phone a:active,
@@ -2730,7 +2737,7 @@ main.map-page {
   text-decoration: underline;
 }
 @media only screen and (max-width: 480px) {
-  /* line 1221, sass/modules/_modules.scss */
+  /* line 1231, sass/modules/_modules.scss */
   .restaurant-data .hours .desktop,
   .restaurant-data .phone .desktop,
   .restaurant-data .facebook .desktop,
@@ -2740,7 +2747,7 @@ main.map-page {
     display: none;
   }
 }
-/* line 1227, sass/modules/_modules.scss */
+/* line 1237, sass/modules/_modules.scss */
 .restaurant-data .hours .mobile,
 .restaurant-data .phone .mobile,
 .restaurant-data .facebook .mobile,
@@ -2750,7 +2757,7 @@ main.map-page {
   display: none;
 }
 @media only screen and (max-width: 480px) {
-  /* line 1227, sass/modules/_modules.scss */
+  /* line 1237, sass/modules/_modules.scss */
   .restaurant-data .hours .mobile,
   .restaurant-data .phone .mobile,
   .restaurant-data .facebook .mobile,
@@ -2761,7 +2768,7 @@ main.map-page {
   }
 }
 
-/* line 1236, sass/modules/_modules.scss */
+/* line 1246, sass/modules/_modules.scss */
 .loc-button {
   border-radius: 10px;
   border: 2px solid #7495ff;
@@ -2774,51 +2781,51 @@ main.map-page {
   font-size: 1.6em;
   color: #7495ff;
 }
-/* line 1247, sass/modules/_modules.scss */
+/* line 1257, sass/modules/_modules.scss */
 .loc-button svg {
   width: 14px;
 }
 @media only screen and (max-width: 480px) {
-  /* line 1251, sass/modules/_modules.scss */
+  /* line 1261, sass/modules/_modules.scss */
   .loc-button .desktop {
     display: none;
   }
 }
-/* line 1257, sass/modules/_modules.scss */
+/* line 1267, sass/modules/_modules.scss */
 .loc-button .mobile {
   display: none;
 }
 @media only screen and (max-width: 480px) {
-  /* line 1257, sass/modules/_modules.scss */
+  /* line 1267, sass/modules/_modules.scss */
   .loc-button .mobile {
     display: block;
   }
 }
-/* line 1264, sass/modules/_modules.scss */
+/* line 1274, sass/modules/_modules.scss */
 .loc-button:hover, .loc-button:active, .loc-button:focus {
   background-color: #7495ff;
 }
-/* line 1270, sass/modules/_modules.scss */
+/* line 1280, sass/modules/_modules.scss */
 .loc-button:hover svg .icon, .loc-button:active svg .icon, .loc-button:focus svg .icon {
   fill: #FFFFFF;
 }
-/* line 1275, sass/modules/_modules.scss */
+/* line 1285, sass/modules/_modules.scss */
 .loc-button:hover a, .loc-button:active a, .loc-button:focus a {
   color: #FFFFFF;
   text-decoration: none;
 }
-/* line 1281, sass/modules/_modules.scss */
+/* line 1291, sass/modules/_modules.scss */
 .loc-button a {
   padding: 10px 20px;
   color: #7495ff;
   text-transform: uppercase;
 }
 
-/* line 1288, sass/modules/_modules.scss */
+/* line 1298, sass/modules/_modules.scss */
 .loc-amenities {
   margin: 1em 0;
 }
-/* line 1290, sass/modules/_modules.scss */
+/* line 1300, sass/modules/_modules.scss */
 .loc-amenities li {
   width: 35px;
   list-style-type: none;
@@ -2826,13 +2833,13 @@ main.map-page {
   margin: 0 1rem 0 0;
 }
 
-/* line 1302, sass/modules/_modules.scss */
+/* line 1312, sass/modules/_modules.scss */
 .addthis .share,
 .addthis .addthis_inline_share_toolbox {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 1307, sass/modules/_modules.scss */
+/* line 1317, sass/modules/_modules.scss */
 .addthis .share {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
@@ -2840,7 +2847,7 @@ main.map-page {
   font-size: 1.2em;
 }
 
-/* line 1317, sass/modules/_modules.scss */
+/* line 1327, sass/modules/_modules.scss */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2852,16 +2859,16 @@ main.map-page {
   border: 0;
 }
 
-/* line 1330, sass/modules/_modules.scss */
+/* line 1340, sass/modules/_modules.scss */
 .sidr {
   background: #FFFFFF;
   padding: 20px;
 }
-/* line 1334, sass/modules/_modules.scss */
+/* line 1344, sass/modules/_modules.scss */
 .sidr ul li {
   list-style-type: none;
 }
-/* line 1336, sass/modules/_modules.scss */
+/* line 1346, sass/modules/_modules.scss */
 .sidr ul li a {
   color: #9b9b9b;
   text-transform: uppercase;
@@ -2870,20 +2877,20 @@ main.map-page {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
 }
-/* line 1342, sass/modules/_modules.scss */
+/* line 1352, sass/modules/_modules.scss */
 .sidr ul li a:hover, .sidr ul li a:focus, .sidr ul li a:active {
   text-decoration: underline;
 }
-/* line 1347, sass/modules/_modules.scss */
+/* line 1357, sass/modules/_modules.scss */
 .sidr ul li a ul.sub-menu {
   display: none;
   font-size: 100%;
 }
-/* line 1353, sass/modules/_modules.scss */
+/* line 1363, sass/modules/_modules.scss */
 .sidr ul li .open i {
   font-size: 1.2em;
 }
-/* line 1358, sass/modules/_modules.scss */
+/* line 1368, sass/modules/_modules.scss */
 .sidr .close {
   display: block;
   font-weight: 700;
@@ -2894,80 +2901,80 @@ main.map-page {
   cursor: pointer;
   margin: 2em 0;
 }
-/* line 1367, sass/modules/_modules.scss */
+/* line 1377, sass/modules/_modules.scss */
 .sidr .close:hover, .sidr .close:active, .sidr .close:focus {
   color: #50E3C2;
 }
-/* line 1373, sass/modules/_modules.scss */
+/* line 1383, sass/modules/_modules.scss */
 .sidr .social-nav {
   margin: 2em 0;
 }
-/* line 1376, sass/modules/_modules.scss */
+/* line 1386, sass/modules/_modules.scss */
 .sidr .social-nav li {
   display: inline-block;
   margin-right: 1em;
 }
 
-/* line 1385, sass/modules/_modules.scss */
+/* line 1395, sass/modules/_modules.scss */
 .alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1389, sass/modules/_modules.scss */
+/* line 1399, sass/modules/_modules.scss */
 .aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
 
-/* line 1395, sass/modules/_modules.scss */
+/* line 1405, sass/modules/_modules.scss */
 .alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1400, sass/modules/_modules.scss */
+/* line 1410, sass/modules/_modules.scss */
 .alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
 
-/* line 1405, sass/modules/_modules.scss */
+/* line 1415, sass/modules/_modules.scss */
 p img.alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1409, sass/modules/_modules.scss */
+/* line 1419, sass/modules/_modules.scss */
 p img.aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
 
-/* line 1415, sass/modules/_modules.scss */
+/* line 1425, sass/modules/_modules.scss */
 p img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1420, sass/modules/_modules.scss */
+/* line 1430, sass/modules/_modules.scss */
 p img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
 
-/* line 1425, sass/modules/_modules.scss */
+/* line 1435, sass/modules/_modules.scss */
 a img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1430, sass/modules/_modules.scss */
+/* line 1440, sass/modules/_modules.scss */
 a img.alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1434, sass/modules/_modules.scss */
+/* line 1444, sass/modules/_modules.scss */
 a img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
