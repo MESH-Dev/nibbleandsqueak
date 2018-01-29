@@ -2000,25 +2000,25 @@ main {
 }
 
 /* line 519, sass/modules/_modules.scss */
-.inner-content .text {
+.inner-content.text {
   width: 80%;
 }
 @media only screen and (max-width: 750px) {
   /* line 519, sass/modules/_modules.scss */
-  .inner-content .text {
+  .inner-content.text {
     width: 95%;
   }
 }
 /* line 524, sass/modules/_modules.scss */
-.inner-content .text img {
+.inner-content.text img {
   border-radius: 15px;
 }
 /* line 527, sass/modules/_modules.scss */
-.inner-content .text a {
+.inner-content.text a {
   color: #7495ff;
 }
 /* line 529, sass/modules/_modules.scss */
-.inner-content .text a:hover, .inner-content .text a:active, .inner-content .text a:focus {
+.inner-content.text a:hover, .inner-content.text a:active, .inner-content.text a:focus {
   text-decoration: underline;
 }
 

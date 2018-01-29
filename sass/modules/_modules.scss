@@ -516,7 +516,7 @@ $bubble_size2x: $bubble_size * 2;
 
 // General Text Pages
 
-.inner-content .text{
+.inner-content.text{
   width:80%;
   @media only screen and ($bp-smaller-than-tablet){
     width:95%;
