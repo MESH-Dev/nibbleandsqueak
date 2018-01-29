@@ -1031,6 +1031,25 @@ main.map-page{
     position:relative;
     overflow: hidden;
 
+      &:hover,
+      &:active,
+      &:focus{
+          color:$mint;
+          text-decoration:none;
+      }
+      a{
+          color:$title_black;
+          text-decoration:none;
+          &:hover,
+          &:active,
+          &:focus{
+            color:$mint;
+            text-decoration:underline;
+          }
+
+        }
+    //}
+
     &.location-active,
     &:hover,
     &:active,

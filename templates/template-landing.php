@@ -35,7 +35,9 @@ get_header(); ?>
 												<?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?>
 											</span>
 										<ul class="sub-menu">
+
 										<div class="city-wrap">
+											<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" data-name="All Cities" data-slug="none">All Cities</a></li>
 										<?php 
 											//$cities = get_the_terms('city'); 
 											//var_dump($cities);
@@ -53,6 +55,7 @@ get_header(); ?>
 													?>
 												</div><div class="city-wrap">
 												<?php }
+
 												//Give 'no city' a value of "all cities"
 												?>
 

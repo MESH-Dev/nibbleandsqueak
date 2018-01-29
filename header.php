@@ -37,7 +37,7 @@
 
 
 	<?php 
-	$bugherd="true";
+	$bugherd="false";
 	if($bugherd = 'true'){
 	?>
 
@@ -54,6 +54,16 @@
 	<?php } ?> 
 
 	<?php wp_head(); ?>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113158507-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-113158507-1');
+	</script>
 
 </head>
 <script>
@@ -147,6 +157,7 @@
 							<li ><span id="city">Select A City</span><span class="arrow"><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?></span>
 								<ul class="sub-menu">
 									<div class="city-wrap">
+										<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" data-name="All Cities" data-slug="none">All Cities</a></li>
 									<?php 
 										//$cities = get_the_terms('city'); 
 										//var_dump($cities);
