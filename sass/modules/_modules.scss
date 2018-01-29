@@ -516,9 +516,21 @@ $bubble_size2x: $bubble_size * 2;
 
 // General Text Pages
 
-.the-content{
+.inner-content .text{
+  width:80%;
+  @media only screen and ($bp-smaller-than-tablet){
+    width:95%;
+  }
   img{
     border-radius:15px;
+  }
+  a{
+    color:$periwinkle;
+    &:hover,
+    &:active,
+    &:focus{
+      text-decoration:underline;
+    }
   }
 }
 
