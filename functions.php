@@ -435,9 +435,9 @@ function archive_filter($query){
 }
 }
 //
-//if($city != null || $dropdown == 'true'){
+if($city != null || $city != ''){
   add_action('pre_get_posts','archive_filter');
-//}
+}
 
 function get_id_by_slug($page_slug) {
   $page = get_page_by_path($page_slug);
