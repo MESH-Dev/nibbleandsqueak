@@ -113,7 +113,7 @@ get_header(); ?>
 										//Trying to get property of non-object
 										?>
 										<li class="eq block">
-											<a data-slug="<?php echo $amenity_slug; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $amenity_slug; ?><?php if(!is_front_page()){ echo '/?'.$city_term->slug; }?>">
+											<a data-slug="<?php echo $amenity_slug; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $amenity_slug; ?><?php if(!is_front_page()){ echo '/?city='.$city_term->slug; }?>">
 												<div class="amenity-icon" data-svg="<?php echo $amenity_icon; ?>">
 													<?php 
 													//$icon_dir = get_bloginfo('template_directory').'/img/icons/highchairs.svg';
