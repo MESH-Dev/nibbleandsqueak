@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php 
+/* Template Name: Journal Archive Template*/
+get_header(); ?>
 
 <main id="content" class="inner-content archive_php">
 	<?php ///$slug = $_GET['amenity'];  echo $slug; 

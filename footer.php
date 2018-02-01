@@ -121,7 +121,7 @@
 			
 			<div class="tagline row">
 				<div class="columns-6">
-					<p class="info">Nibble &amp; Squeak.  Brooklyn NY, 11211 <a href="mailto:info@nibbleandsqueak.com">info@nibbleandsqueak.com</a></p>
+					<p class="info">Nibble + Squeak.  Brooklyn NY, 11211 <a href="mailto:info@nibbleandsqueak.com">info@nibbleandsqueak.com</a></p>
 				</div>
 				<div class="columns-6">
 					<p class="signature">Site Design by <a href="http://meshfresh.com" target="_blank">MESH</a></p>

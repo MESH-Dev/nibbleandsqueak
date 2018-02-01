@@ -177,7 +177,7 @@
 											?>
 
 
-											<li><a href="#" data-name="<?php echo $city->name; ?>" data-slug="<?php echo $city->slug; ?>"><?php echo $city->name; ?></a></li>
+											<li><a href="<?php echo esc_url( home_url( '/' ) ); ?><?php echo $city->slug; ?>" data-name="<?php echo $city->name; ?>" data-slug="<?php echo $city->slug; ?>"><?php echo $city->name; ?></a></li>
 										<?php } 
 											if($city_cnt - $c_cnt == 0){
 										?>

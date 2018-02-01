@@ -92,7 +92,11 @@ get_header(); ?>
 					<div class="amenities row">
 						<!-- <div class="row"> -->
 							<ul>
-								<?php if (have_rows('amenities')):
+								<?php 
+									$city_tax = get_field('city_tax');
+									$city_term = get_term_by('id', $city_tax, 'city');
+									//var_dump($city);
+									if (have_rows('amenities')):
 								//var_dump(get_field('amenities'));
 										while(have_rows('amenities')):the_row();
 										//var_dump(get_field('amenities'));
@@ -109,7 +113,7 @@ get_header(); ?>
 										//Trying to get property of non-object
 										?>
 										<li class="eq block">
-											<a data-slug="<?php echo $amenity_slug; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $amenity_slug; ?>">
+											<a data-slug="<?php echo $amenity_slug; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>amenity/<?php echo $amenity_slug; ?><?php if(!is_front_page()){ echo '/?'.$city_term->slug; }?>">
 												<div class="amenity-icon" data-svg="<?php echo $amenity_icon; ?>">
 													<?php 
 													//$icon_dir = get_bloginfo('template_directory').'/img/icons/highchairs.svg';

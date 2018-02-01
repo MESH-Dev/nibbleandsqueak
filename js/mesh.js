@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
 var vh = $(window).height();
 
 $(window).scroll(function(){
-	 var scroll = $(window).scrollTop();   
+   var scroll = $(window).scrollTop();   
    //if(vh >= 600){ 
     if (scroll >= 100) {
         $('header').addClass('fixed');
@@ -22,18 +22,31 @@ $(window).scroll(function(){
         
         //$('.head').css({height:50});
     }else{
-    	$('header').removeClass('fixed');
-    	//$('header').css({'position':'relative'});
-    	//$('.head').animate({height:113},20);
-    	//$('.site-title').animate({width:125},20);
-    	//$('.head').css({height:113});
-    	// $('.site-title').animate({width:125}, 60);
-    	
-    	 //$('.logotext').animate({'opacity':'1', display:'block'},20);
+      $('header').removeClass('fixed');
+      //$('header').css({'position':'relative'});
+      //$('.head').animate({height:113},20);
+      //$('.site-title').animate({width:125},20);
+      //$('.head').css({height:113});
+      // $('.site-title').animate({width:125}, 60);
+      
+       //$('.logotext').animate({'opacity':'1', display:'block'},20);
     }
   //}
 });
 
+var $f_cnt=0;
+
+$('.funnel').click(function(){
+  $f_cnt++;
+
+  if ($f_cnt==1 ){
+  $(this).find('.sub-menu').css({'left':'0'});
+    
+  }else{
+    $(this).find('.sub-menu').css({'left':'-99999'});
+    $f_cnt=0;
+  }
+});
 
 //Autocomplete
 // see https://goodies.pixabay.com/jquery/auto-complete/demo.html for more info 
@@ -56,10 +69,10 @@ $('input[name="s"]').autoComplete({
 //  run the function on load and on window scroll
 
 function getOffset(){
-	$('.locations .map-listing').each(function(){
-		var TT = $(this).offset().top;
-		$(this).attr('data-offset', TT);
-	});
+  $('.locations .map-listing').each(function(){
+    var TT = $(this).offset().top;
+    $(this).attr('data-offset', TT);
+  });
 }
 getOffset();
 $(window).scroll(getOffset)
@@ -70,11 +83,11 @@ var _hasLocations = $('locations');
 
 //Find 
 function findOffset(){
-	if(_hasLocations.length > 0){
-	var _top = $('.locations .map-listing#'+marker.name).offset().top;
+  if(_hasLocations.length > 0){
+  var _top = $('.locations .map-listing#'+marker.name).offset().top;
         //console.log(_top);
         //jQuery('.locations .map-listing').addClass('this-is-a-marker'+_top);
-	}
+  }
 }
 
 $(window).resize(findOffset);
@@ -124,21 +137,21 @@ $('.city-dropdown .sub-menu a').click(function () {
     _newCookie = $(this).data('slug');
     createCookie('dropdown', true);
     $select.text( _newText );
-    $bannerSelect.val( _newText );
+    //$bannerSelect.val( _newText );
 
-    if(_newText == "All Cities"){
-      console.log("All Cities Chosen")
-      eraseCookie('city');
-      eraseCookie('cityName');
-    }
+    // if(_newText == "All Cities"){
+    //   console.log("All Cities Chosen")
+    //   eraseCookie('city');
+    //   eraseCookie('cityName');
+    // }
 
-    $('.amenities li a').each(function(){
-    var $slug = $(this).data('slug');
-     if(_newText != "All Cities"){
-      $(this).attr('href',$home+'/amenity/'+$slug+'/?city='+_newCookie);
-      }
+    // $('.amenities li a').each(function(){
+    // var $slug = $(this).data('slug');
+    //  if(_newText != "All Cities"){
+    //   $(this).attr('href',$home+'/amenity/'+$slug+'/?city='+_newCookie);
+    //   }
    
-    });
+    // });
 
 
     //$(this).addClass($(this).data('select'));
@@ -150,34 +163,41 @@ $('.city-dropdown .sub-menu a').click(function () {
     createCookie('cityName', _newText, '1' );
     var cookieVal = readCookie('city');
     var cookieName = readCookie('cityName');
+    var gateVal = readCookie('citygate');
     console.log('Cookie = '+cookieVal);
-    $('a#homelink').attr('href', homeLink+cookieVal);
+    console.log('Cookie Name ='+cookieName);
+    //$('a#homelink').attr('href', homeLink+cookieVal);
     $('input#city-search').attr('value', cookieVal);
-    $('input#city-banner-search').attr('value', cookieVal);
+    $('input#city-banner-search').attr('value', gateVal);
     $('#city').text(cookieName);
-    $bannerSelect.val(cookieName);
+    //$bannerSelect.val(cookieName);
 });
 
 $('.citysearch .sub-menu a').click(function () {
     _newText = $(this).data('name');
     _newCookie = $(this).data('slug');
-    $select.text( _newText );
-    $bannerSelect.val( _newText );
+    _gateCookie = $(this).data('slug');
+    _gateText = $(this).data('name');
+    //$select.text( _newText );
+    $bannerSelect.val( _gateText );
     //$(this).addClass($(this).data('select'));
     //eraseCookie('city');
     
-    eraseCookie('city');
-    createCookie('city', _newCookie, '1' );
-    eraseCookie('cityName');
-    createCookie('cityName', _newText, '1' );
-    var cookieVal = readCookie('city');
-    var cookieName = readCookie('cityName');
-    console.log('Cookie = '+cookieVal);
-    $('a#homelink').attr('href', homeLink+cookieVal);
-    $('input#city-search').attr('value', cookieVal);
-    $('input#city-banner-search').attr('value', cookieVal);
-    $('#city').text(cookieName);
-    $bannerSelect.val(cookieName);
+    eraseCookie('citygate');
+    createCookie('citygate', _gateCookie, '1' );
+    eraseCookie('cityGateName');
+    createCookie('cityGateName', _gateText, '1' );
+      //var cookieVal = readCookie('city');
+    //var cookieName = readCookie('cityName');
+    var gateVal = readCookie('citygate');
+   //var cookieVal = readCookie('city');
+    //var cookieName = readCookie('cityName');
+    //console.log('Cookie = '+cookieVal);
+    //$('a#homelink').attr('href', homeLink+cookieVal);
+    //$('input#city-search').attr('value', cookieVal);
+    $('input#city-banner-search').attr('value', gateVal);
+    //$('#city').text(cookieName);
+    //$bannerSelect.val(cookieName);
 });
 
 var geo = readCookie('is_geo_run');
@@ -185,21 +205,21 @@ var geo = readCookie('is_geo_run');
 
 // Get User's Coordinate from their Browser
 window.onload = function() {
-	if(geo != 1){
+  if(geo != 1){
   // HTML5/W3C Geolocation
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(UserLocation);
     $select.text(_cityName);
-	$bannerSelect.attr('placeholder','').val(_cityName);
+  //$bannerSelect.attr('placeholder','').val(_cityName);
   }
   // Default to Washington, DC
   else
     NearestCity(38.8951, -77.0367);
-	//Keeps the value of these fields in the initial state until/unless geolocation has run
-	$('#city').text('Select A City');
-	$bannerSelect.val('Place');
-	}
+  //Keeps the value of these fields in the initial state until/unless geolocation has run
+  $('#city').text('Select A City');
+  $bannerSelect.val('Place');
+  }
 }
 
 
@@ -241,58 +261,66 @@ function NearestCity(latitude, longitude) {
     if (dif < temp) {
       closest = index;
       temp = dif;
+      //console.log('dif < temp');
+    }else{
+      //console.log('dif > temp');
+      closest = index;
+      temp = dif;
     }
   }
 
-	//var cityVal = document.getElementById("city").innerHTML = cities[closest]['slug'];
+  //var cityVal = document.getElementById("city").innerHTML = cities[closest]['slug'];
 
- 	_citySlug = cities[closest]['slug']; //cityVal
-	_cityName = cities[closest]['name'];
+  _citySlug = cities[closest]['slug']; //cityVal
+  console.log(_citySlug);
+  _cityName = cities[closest]['name'];
+  console.log(_cityName);
 
-	console.log("City Name = "+_citySlug);
+  console.log("City Name = "+_citySlug);
 
-	
-	$select.text(_cityName);
-	$bannerSelect.attr('placeholder','').val(_cityName);
-  $('a#homelink').attr('href', homeLink+_citySlug);
+  
+  $select.text(_cityName);
+  //$bannerSelect.attr('placeholder','').val(_cityName);
+  //$('a#homelink').attr('href', homeLink+_citySlug);
 
-	createCookie('city', _citySlug, '1');
-	createCookie('cityName', _cityName, '1');
+  createCookie('city', _citySlug, '1');
+  createCookie('cityName', _cityName, '1');
  
 }//end nearest city
-	
-	var cookieVal = readCookie('city');
+  
+  var cookieVal = readCookie('city');
   //console.log(cookieVal);
-	var cookieName = readCookie('cityName');
-	//console.log('Cookie = '+cookieName);
- 	createCookie('is_geo_run', '1', '');
+  var cookieName = readCookie('cityName');
+  var gateVal = readCookie('citygate');
+  //console.log('Cookie = '+cookieName);
+  createCookie('is_geo_run', '1', '');
 
   //var $curl = homelink+cookieVal;
   //console.log($curl);
-  if(cookieVal !== null && cookieVal != 'none'){
-    $('a#homelink').attr('href', homeLink+cookieVal);
-  }
- 	
+  // if(cookieVal !== null && cookieVal != 'none'){
+  //   $('a#homelink').attr('href', homeLink+cookieVal);
+  // }
+  
   //console.log(cookieVal);
 
   //console.log( $('a#homelink').attr('href', homeLink+cookieVal))
- 	$('input#city-search').attr('value', cookieVal);
- 	$('input#city-banner-search').attr('value', cookieVal);
- 	$('.amenities li a').each(function(){
- 		var $slug = $(this).data('slug');
-    if(cookieVal != 'none' && cookieVal !== null){ //cookieVal !== null || 
- 		 $(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
-    }
- 	})
- 	//$('#city').text(cookieName);
- 	//$bannerSelect.val(cookieName);
- 	if(cookieName !== null && cookieVal != 'none'){
- 		$('#city').text(cookieName);
- 		$bannerSelect.val(cookieName);
- 	}else{
- 		$('#city').text('Select A City');
- 		$bannerSelect.val('Place');
- 	}
+  $('input#city-search').attr('value', cookieVal);
+  $('input#city-banner-search').attr('value', gateVal);
+  $('.amenities li a').each(function(){
+    var $slug = $(this).data('slug');
+    // if(cookieVal != 'none' && cookieVal !== null){ //cookieVal !== null || 
+     // $(this).attr('href',$home+'/amenity/'+$slug+'/?city='+cookieVal);
+    // }
+  })
+  //$('#city').text(cookieName);
+  //$bannerSelect.val(cookieName);
+  if(cookieName !== null && cookieVal != 'none'){
+    $('#city').text(cookieName);
+    //$bannerSelect.val(cookieName);
+  }else{
+    $('#city').text('Select A City');
+    $bannerSelect.val('Place');
+  }
 
 $(function() {
     $('.eq.block').matchHeight(
@@ -305,15 +333,15 @@ $(function() {
 
 $ms_cnt = 0;
 $('.mobile-search-trigger').click(function(){
-	$ms_cnt++;
-	//console.log($ms_cnt);
-	if($ms_cnt == 1){
-		$('.funnel').slideDown('slow');
-		//console.log($ms_cnt);
-	}else{
-		$('.funnel').slideUp('slow');
-		$ms_cnt = 0;
-	}
+  $ms_cnt++;
+  //console.log($ms_cnt);
+  if($ms_cnt == 1){
+    $('.funnel').slideDown('slow');
+    //console.log($ms_cnt);
+  }else{
+    $('.funnel').slideUp('slow');
+    $ms_cnt = 0;
+  }
 });
 //}
 

@@ -3,6 +3,17 @@ header{
 	width:100%;
 	z-index:100;
 
+	.site-title{
+		&:hover,
+		&:active,
+		&:focus{
+			
+				opacity:.7;
+		
+				
+		}
+	}
+
 	&.fixed{
 				.header-wrap .head, .wrap{
 					height:50px;
@@ -71,6 +82,21 @@ header{
 			top:100%;
 			padding:15px;
 			border-top:2px solid $periwinkle;
+
+			&:active{
+				.city-dropdown{
+					width:100%;
+
+					li:first-child{
+						width:100%;
+					}
+
+					.sub-menu{
+						left:0;
+					}
+				}
+			}
+			
 		}
 	}
 
@@ -229,6 +255,10 @@ header{
 		width:30%;
 		list-style-type: none;
 		margin-bottom:0;
+		@media only screen and ($bp-smaller-than-tablet){
+			width:95%;
+			margin:0 auto;
+		}
 		.city-wrap{
 			width:49%;
 			float:left;
@@ -256,6 +286,9 @@ header{
 
 			&:first-child{
 				text-align:center;
+				@media only screen and ($bp-smaller-than-tablet){
+					text-align:left;
+				}
 			}
 			.sub-menu{
 				margin:0;

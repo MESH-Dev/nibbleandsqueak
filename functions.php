@@ -9,11 +9,11 @@ include('functions/clean.php');
 //Custon wp-admin logo
 function my_custom_login_logo() {
   echo '<style type="text/css">
-		        h1 a {
-		          background-size: 227px 85px !important;
-		          margin-bottom: 20px !important;
-		          background-image:url('.get_bloginfo('template_directory').'/img/logo.png) !important; }
-		    </style>';
+            h1 a {
+              background-size: 227px 85px !important;
+              margin-bottom: 20px !important;
+              background-image:url('.get_bloginfo('template_directory').'/img/logo.png) !important; }
+        </style>';
 }
 
 //Add ajax functionality to pages, all not just in admin
@@ -114,20 +114,20 @@ function update_restaurant_map( $post_id ) {
           //   update_post_meta($post->ID, 'longitude' , $coordinates[1]);
           // }
 
-          	// This should really be it's own function...keep plugging on that
+            // This should really be it's own function...keep plugging on that
 
-   //        	$tok = 'PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
-			// //var_dump($tok);
-			// $_date = date("Ymd");
-			// // var_dump($_date);
-			// $r_url = 'https://api.foursquare.com/v2/venues/'.$r_id.'?v='.$_date.'&oauth_token='.$tok;
-			// //$r_url = 'https://api.foursquare.com/v2/venues/4be442ac7e2a76b0aaab1c9b?v=20131016&oauth_token=PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
-			// $r_response = file_get_contents($r_url);
-			// $r_json = json_decode($r_response,true);
-			//var_dump($r_response);
-			// var_dump($r_url);
+   //         $tok = 'PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
+      // //var_dump($tok);
+      // $_date = date("Ymd");
+      // // var_dump($_date);
+      // $r_url = 'https://api.foursquare.com/v2/venues/'.$r_id.'?v='.$_date.'&oauth_token='.$tok;
+      // //$r_url = 'https://api.foursquare.com/v2/venues/4be442ac7e2a76b0aaab1c9b?v=20131016&oauth_token=PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
+      // $r_response = file_get_contents($r_url);
+      // $r_json = json_decode($r_response,true);
+      //var_dump($r_response);
+      // var_dump($r_url);
 
-			//---------------------------------------------
+      //---------------------------------------------
 
           //Call in our function to obtain Foursquare API result 
           //& save to $data variable to parse
@@ -319,7 +319,7 @@ function update_restaurant_map( $post_id ) {
         
 
         // JSON-encode the response
-       	//var_dump($arr);
+        //var_dump($arr);
         // $json = json_encode($arr, JSON_PRETTY_PRINT);
 
         // //The file location for the json file we're creating
@@ -338,19 +338,19 @@ function update_restaurant_map( $post_id ) {
 add_action('save_post', 'update_restaurant_map', 10, 3);
 
 function get4S_data($r_id){
-	$tok = 'PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
+  $tok = 'PSZK5500FKOOKPRKAWEU4UCPLQK5AOMMKNDZOI14KBUS2V5Z';
   //New token 11/21/17
   //Replace if necessary
   //$tok = 'WYKV5T3KXZV3FWOKLESJLBJBPOJAKXRUMJNVJF3MOQ02L0OJ';
-	//var_dump($tok);
-	$_date = date("Ymd");
+  //var_dump($tok);
+  $_date = date("Ymd");
 
-	$r_url = 'https://api.foursquare.com/v2/venues/'.$r_id.'?v='.$_date.'&oauth_token='.$tok;
-	//var_dump($r_url);
-	$r_response = file_get_contents($r_url);
-	$r_json = json_decode($r_response,true); 
-	//var_dump($r_response);
-	return $r_json;
+  $r_url = 'https://api.foursquare.com/v2/venues/'.$r_id.'?v='.$_date.'&oauth_token='.$tok;
+  //var_dump($r_url);
+  $r_response = file_get_contents($r_url);
+  $r_json = json_decode($r_response,true); 
+  //var_dump($r_response);
+  return $r_json;
 }
 
 //add_action('edit_post', 'get4S_data', 10, 3);
@@ -435,9 +435,9 @@ function archive_filter($query){
 }
 }
 //
-if($city != null || $dropdown == 'true'){
+//if($city != null || $dropdown == 'true'){
   add_action('pre_get_posts','archive_filter');
-}
+//}
 
 function get_id_by_slug($page_slug) {
   $page = get_page_by_path($page_slug);
