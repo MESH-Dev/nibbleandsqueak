@@ -30,7 +30,7 @@ get_header(); ?>
 						<?php //else : ?>
 							<?php //_e( 'Blog Archives' ); ?>
 						<?php //endif; ?>
-						All results for <span><?php echo $amenity_name; ?><?php if ($_COOKIE['cityName'] != ''){?></span> in <span><?php echo $_GET['city'];?><?php }?></span>
+						All results for <span><?php echo $amenity_name; ?><?php if ($_COOKIE['cityName'] != ''){?></span> in <span><?php var_dump($_GET["city"]); ?><?php }?></span>
 					</h1>
 
 					<?php while ( have_posts() ) : the_post(); ?>
