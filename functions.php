@@ -388,6 +388,7 @@ function search_filter($query){
       $city = $_GET["city"];
     
       $city_query = array(
+       'posts_per_page' => -1,
         array(
             'taxonomy' => 'city',
             'field'    => 'slug',
@@ -422,6 +423,7 @@ function archive_filter($query){
 
       //if($city != null || $dropdown == 'true'){
       $city_query = array(
+        'posts_per_page' => -1,
         array(
             'taxonomy' => 'city',
             'field'    => 'slug',
