@@ -15,7 +15,11 @@ get_header(); ?>
  
 			<div class="row"><!-- class="columns-9" -->
 
-				<?php if ( have_posts() ) : ?>
+				<?php 
+					global $query_string;
+					query_posts( $query_string . '&posts_per_page=-1' );
+
+				if ( have_posts() ) : ?>
 					<h1 class="search-title">
 						<?php //if ( is_day() ) : ?>
 							<?php //printf( __( 'Daily Archives: <span>%s</span>' ), get_the_date() ); ?>
@@ -26,7 +30,7 @@ get_header(); ?>
 						<?php //else : ?>
 							<?php //_e( 'Blog Archives' ); ?>
 						<?php //endif; ?>
-						All results for <span><?php echo $amenity_name; ?><?php if ($_COOKIE['cityName'] != ''){?></span> in <span><?php echo $_COOKIE['cityName'];?><?php }?></span>
+						All results for <span><?php echo $amenity_name; ?><?php if ($_COOKIE['cityName'] != ''){?></span> in <span><?php echo $_GET['city'];?><?php }?></span>
 					</h1>
 
 					<?php while ( have_posts() ) : the_post(); ?>
