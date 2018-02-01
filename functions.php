@@ -395,7 +395,7 @@ function search_filter($query){
             'terms'    => $city,
         )
     );
-       $query->set('tax_query', $city_query, 'posts_per_page', -1);
+       $query->set('posts_per_page', -1,'tax_query', $city_query);
     //}
   }
 }
@@ -430,7 +430,7 @@ function archive_filter($query){
             'terms'    => $city,
         )
     );
-       $query->set('tax_query', $city_query, 'posts_per_page', -1);
+       $query->set('posts_per_page', -1,'tax_query', $city_query);
      }
     //}
   //} //end if city not blank
