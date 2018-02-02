@@ -189,7 +189,7 @@ $('.citysearch .sub-menu a').click(function () {
     createCookie('cityGateName', _gateText, '1' );
       //var cookieVal = readCookie('city');
     //var cookieName = readCookie('cityName');
-    var gateVal = readCookie('citygate');
+    var gateVal = readCookie('cityGateName');
    //var cookieVal = readCookie('city');
     //var cookieName = readCookie('cityName');
     //console.log('Cookie = '+cookieVal);
