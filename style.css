@@ -873,12 +873,18 @@ header nav {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 72, sass/modules/_header.scss */
+@media only screen and (min-width: 750px) {
+  /* line 72, sass/modules/_header.scss */
+  header .funnel {
+    display: inline-block !important;
+  }
+}
+/* line 78, sass/modules/_header.scss */
 header .funnel {
   color: #7495ff;
 }
 @media only screen and (max-width: 750px) {
-  /* line 72, sass/modules/_header.scss */
+  /* line 78, sass/modules/_header.scss */
   header .funnel {
     position: absolute;
     z-index: 200;
@@ -889,64 +895,64 @@ header .funnel {
     padding: 15px;
     border-top: 2px solid #7495ff;
   }
-  /* line 87, sass/modules/_header.scss */
+  /* line 93, sass/modules/_header.scss */
   header .funnel:active .city-dropdown {
     width: 100%;
   }
-  /* line 90, sass/modules/_header.scss */
+  /* line 96, sass/modules/_header.scss */
   header .funnel:active .city-dropdown li:first-child {
     width: 100%;
   }
-  /* line 94, sass/modules/_header.scss */
+  /* line 100, sass/modules/_header.scss */
   header .funnel:active .city-dropdown .sub-menu {
     left: 0;
   }
 }
-/* line 103, sass/modules/_header.scss */
+/* line 109, sass/modules/_header.scss */
 header .funnel,
 header .main-navigation {
   width: 29%;
 }
 @media only screen and (max-width: 1060px) and (min-width: 750px) {
-  /* line 103, sass/modules/_header.scss */
+  /* line 109, sass/modules/_header.scss */
   header .funnel,
   header .main-navigation {
     width: 39%;
   }
 }
-/* line 110, sass/modules/_header.scss */
+/* line 116, sass/modules/_header.scss */
 header .funnel .wrap,
 header .main-navigation .wrap {
   vertical-align: middle;
   transition: all .2s ease-in-out;
 }
 @media only screen and (max-width: 750px) {
-  /* line 103, sass/modules/_header.scss */
+  /* line 109, sass/modules/_header.scss */
   header .funnel,
   header .main-navigation {
     display: none;
   }
 }
 @media only screen and (max-width: 1300px) {
-  /* line 124, sass/modules/_header.scss */
+  /* line 130, sass/modules/_header.scss */
   header .funnel .social-nav,
   header .main-navigation .social-nav {
     display: none;
   }
 }
-/* line 130, sass/modules/_header.scss */
+/* line 136, sass/modules/_header.scss */
 header .logo {
   width: 40%;
   text-align: center;
   overflow: hidden;
 }
 @media only screen and (max-width: 1060px) and (min-width: 750px) {
-  /* line 130, sass/modules/_header.scss */
+  /* line 136, sass/modules/_header.scss */
   header .logo {
     width: 20%;
   }
 }
-/* line 137, sass/modules/_header.scss */
+/* line 143, sass/modules/_header.scss */
 header .logo .site-title {
   width: 120px;
   display: inline-block;
@@ -955,25 +961,25 @@ header .logo .site-title {
   padding: 0;
   overflow: hidden;
 }
-/* line 145, sass/modules/_header.scss */
+/* line 151, sass/modules/_header.scss */
 header .logo .site-title img {
   display: block;
 }
-/* line 154, sass/modules/_header.scss */
+/* line 160, sass/modules/_header.scss */
 header .logotext {
   transition: all .05s ease-in-out;
   display: block;
 }
-/* line 159, sass/modules/_header.scss */
+/* line 165, sass/modules/_header.scss */
 header .main-navigation {
   text-align: right;
 }
-/* line 165, sass/modules/_header.scss */
+/* line 171, sass/modules/_header.scss */
 header .main-navigation ul {
   display: inline-block;
   margin: 0;
 }
-/* line 169, sass/modules/_header.scss */
+/* line 175, sass/modules/_header.scss */
 header .main-navigation ul li {
   display: inline-block;
   float: left;
@@ -981,11 +987,11 @@ header .main-navigation ul li {
   margin-bottom: 0;
   position: relative;
 }
-/* line 181, sass/modules/_header.scss */
+/* line 187, sass/modules/_header.scss */
 header .main-navigation ul li:hover .sub-menu, header .main-navigation ul li:active .sub-menu, header .main-navigation ul li:focus .sub-menu {
   left: 0;
 }
-/* line 186, sass/modules/_header.scss */
+/* line 192, sass/modules/_header.scss */
 header .main-navigation ul li a {
   color: #9b9b9b;
   text-transform: uppercase;
@@ -994,11 +1000,11 @@ header .main-navigation ul li a {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
 }
-/* line 192, sass/modules/_header.scss */
+/* line 198, sass/modules/_header.scss */
 header .main-navigation ul li a:hover, header .main-navigation ul li a:focus, header .main-navigation ul li a:active {
   text-decoration: underline;
 }
-/* line 199, sass/modules/_header.scss */
+/* line 205, sass/modules/_header.scss */
 header .main-navigation ul li .sub-menu {
   margin: 0;
   padding: 1em;
@@ -1010,69 +1016,68 @@ header .main-navigation ul li .sub-menu {
   left: -99999px;
   border: 2px solid #7495ff;
 }
-/* line 211, sass/modules/_header.scss */
+/* line 217, sass/modules/_header.scss */
 header .main-navigation ul li .sub-menu li {
   font-size: 1.2em;
   text-transform: uppercase;
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
 }
-/* line 215, sass/modules/_header.scss */
+/* line 221, sass/modules/_header.scss */
 header .main-navigation ul li .sub-menu li a {
   color: #7495ff;
 }
-/* line 217, sass/modules/_header.scss */
+/* line 223, sass/modules/_header.scss */
 header .main-navigation ul li .sub-menu li a:hover, header .main-navigation ul li .sub-menu li a:active, header .main-navigation ul li .sub-menu li a:focus {
   color: #50E3C2;
   text-decoration: underline;
 }
 @media only screen and (max-width: 550px) {
-  /* line 228, sass/modules/_header.scss */
+  /* line 234, sass/modules/_header.scss */
   header .main-navigation ul.social-nav {
     display: none;
   }
 }
-/* line 232, sass/modules/_header.scss */
+/* line 238, sass/modules/_header.scss */
 header .main-navigation ul.social-nav li {
   margin-left: .5em;
   padding-left: 1em;
 }
 @media only screen and (max-width: 1060px) {
-  /* line 232, sass/modules/_header.scss */
+  /* line 238, sass/modules/_header.scss */
   header .main-navigation ul.social-nav li {
     margin-left: .5em;
   }
 }
-/* line 243, sass/modules/_header.scss */
+/* line 249, sass/modules/_header.scss */
 header .city-dropdown,
 header .search-form {
   display: inline-block;
   vertical-align: top;
 }
-/* line 250, sass/modules/_header.scss */
+/* line 256, sass/modules/_header.scss */
 header .search-form {
   padding-top: 5px;
 }
-/* line 254, sass/modules/_header.scss */
+/* line 260, sass/modules/_header.scss */
 header .city-dropdown {
   width: 30%;
   list-style-type: none;
   margin-bottom: 0;
 }
 @media only screen and (max-width: 750px) {
-  /* line 254, sass/modules/_header.scss */
+  /* line 260, sass/modules/_header.scss */
   header .city-dropdown {
-    width: 95%;
     margin: 0 auto;
   }
 }
-/* line 262, sass/modules/_header.scss */
+/* line 268, sass/modules/_header.scss */
 header .city-dropdown .city-wrap {
   width: 49%;
   float: left;
   display: inline-block;
 }
-/* line 267, sass/modules/_header.scss */
+/* line 273, sass/modules/_header.scss */
 header .city-dropdown span {
   display: inline-block;
   padding: 10px 0;
@@ -1082,29 +1087,29 @@ header .city-dropdown span {
   font-family: "brandon-grotesque", sans-serif;
   text-transform: uppercase;
 }
-/* line 275, sass/modules/_header.scss */
+/* line 281, sass/modules/_header.scss */
 header .city-dropdown span.arrow svg {
   transform: rotate(90deg);
   width: 12px;
   height: 12px;
 }
-/* line 282, sass/modules/_header.scss */
+/* line 288, sass/modules/_header.scss */
 header .city-dropdown li {
   position: relative;
   list-style-type: none;
   margin-bottom: 0;
 }
-/* line 287, sass/modules/_header.scss */
+/* line 293, sass/modules/_header.scss */
 header .city-dropdown li:first-child {
   text-align: center;
 }
 @media only screen and (max-width: 750px) {
-  /* line 287, sass/modules/_header.scss */
+  /* line 293, sass/modules/_header.scss */
   header .city-dropdown li:first-child {
     text-align: left;
   }
 }
-/* line 293, sass/modules/_header.scss */
+/* line 299, sass/modules/_header.scss */
 header .city-dropdown li .sub-menu {
   margin: 0;
   padding: 1em;
@@ -1115,7 +1120,7 @@ header .city-dropdown li .sub-menu {
   left: -99999px;
   border: 2px solid #7495ff;
 }
-/* line 304, sass/modules/_header.scss */
+/* line 310, sass/modules/_header.scss */
 header .city-dropdown li .sub-menu li {
   font-size: 1.2em;
   text-transform: uppercase;
@@ -1123,25 +1128,25 @@ header .city-dropdown li .sub-menu li {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
 }
-/* line 309, sass/modules/_header.scss */
+/* line 315, sass/modules/_header.scss */
 header .city-dropdown li .sub-menu li a {
   color: #7495ff;
 }
-/* line 311, sass/modules/_header.scss */
+/* line 317, sass/modules/_header.scss */
 header .city-dropdown li .sub-menu li a:hover, header .city-dropdown li .sub-menu li a:active, header .city-dropdown li .sub-menu li a:focus {
   color: #50E3C2;
   text-decoration: underline;
 }
-/* line 324, sass/modules/_header.scss */
+/* line 330, sass/modules/_header.scss */
 header .city-dropdown li:hover .sub-menu, header .city-dropdown li:active .sub-menu, header .city-dropdown li:focus .sub-menu {
   left: 0;
 }
-/* line 332, sass/modules/_header.scss */
+/* line 338, sass/modules/_header.scss */
 header .search-form {
   width: 65%;
   text-transform: uppercase;
 }
-/* line 337, sass/modules/_header.scss */
+/* line 343, sass/modules/_header.scss */
 header .search-form input {
   width: 70%;
   border: none;
@@ -1152,7 +1157,7 @@ header .search-form input {
   line-height: normal;
   font-size: 1.2em;
 }
-/* line 347, sass/modules/_header.scss */
+/* line 353, sass/modules/_header.scss */
 header .search-form button {
   width: 15%;
   border: none;
@@ -1162,63 +1167,63 @@ header .search-form button {
   height: 30px;
   border-radius: 0;
 }
-/* line 355, sass/modules/_header.scss */
+/* line 361, sass/modules/_header.scss */
 header .search-form button svg {
   height: 15px;
   width: 15px;
 }
-/* line 360, sass/modules/_header.scss */
+/* line 366, sass/modules/_header.scss */
 header .search-form input,
 header .search-form button {
   display: inline-block;
   float: left;
 }
-/* line 365, sass/modules/_header.scss */
+/* line 371, sass/modules/_header.scss */
 header .search-form input::-webkit-input-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #7495ff;
   text-transform: uppercase;
 }
-/* line 371, sass/modules/_header.scss */
+/* line 377, sass/modules/_header.scss */
 header .search-form input::-moz-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #7495ff;
   text-transform: uppercase;
 }
-/* line 377, sass/modules/_header.scss */
+/* line 383, sass/modules/_header.scss */
 header .search-form input:-ms-input-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #7495ff;
   text-transform: uppercase;
 }
-/* line 383, sass/modules/_header.scss */
+/* line 389, sass/modules/_header.scss */
 header .search-form input:-moz-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #7495ff;
   text-transform: uppercase;
 }
-/* line 389, sass/modules/_header.scss */
+/* line 395, sass/modules/_header.scss */
 header .search-form input::webkit-input-placeholder {
   font-weight: 700;
   font-family: "brandon-grotesque", sans-serif;
   color: #7495ff;
   text-transform: uppercase;
 }
-/* line 396, sass/modules/_header.scss */
+/* line 402, sass/modules/_header.scss */
 header .close {
   display: none;
   height: 113px;
   cursor: pointer;
 }
-/* line 401, sass/modules/_header.scss */
+/* line 407, sass/modules/_header.scss */
 header .close:hover, header .close:active, header .close:focus {
   color: #50E3C2;
 }
-/* line 409, sass/modules/_header.scss */
+/* line 415, sass/modules/_header.scss */
 header .mobile-search-trigger,
 header .sidr-trigger {
   font-weight: 700;
@@ -1233,20 +1238,20 @@ header .sidr-trigger {
   vertical-align: middle;
 }
 @media only screen and (min-width: 750px) {
-  /* line 409, sass/modules/_header.scss */
+  /* line 415, sass/modules/_header.scss */
   header .mobile-search-trigger,
   header .sidr-trigger {
     display: none;
   }
 }
 @media only screen and (max-width: 750px) {
-  /* line 409, sass/modules/_header.scss */
+  /* line 415, sass/modules/_header.scss */
   header .mobile-search-trigger,
   header .sidr-trigger {
     display: inline-block;
   }
 }
-/* line 428, sass/modules/_header.scss */
+/* line 434, sass/modules/_header.scss */
 header .mobile-search-trigger:hover, header .mobile-search-trigger:active, header .mobile-search-trigger:focus,
 header .sidr-trigger:hover,
 header .sidr-trigger:active,

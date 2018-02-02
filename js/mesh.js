@@ -35,7 +35,9 @@ $(window).scroll(function(){
 });
 
 var $f_cnt=0;
+var wW = $(window).width();
 
+if(wW <= 500){
 $('.funnel').click(function(){
   $f_cnt++;
 
@@ -43,11 +45,12 @@ $('.funnel').click(function(){
   $(this).find('.sub-menu').css({'left':'0'});
     
   }else{
-    $(this).find('.sub-menu').css({'left':'-99999'});
+    $(this).find('.sub-menu').css({'left':'-99999px'});
     $f_cnt=0;
   }
+  console.log($f_cnt);
 });
-
+}
 //Autocomplete
 // see https://goodies.pixabay.com/jquery/auto-complete/demo.html for more info 
 
@@ -170,7 +173,7 @@ $('.city-dropdown .sub-menu a').click(function () {
     $('input#city-search').attr('value', cookieVal);
     $('input#city-banner-search').attr('value', gateVal);
     $('#city').text(cookieName);
-    //$bannerSelect.val(cookieName);
+    $bannerSelect.val(cookieName);
 });
 
 $('.citysearch .sub-menu a').click(function () {
@@ -179,7 +182,7 @@ $('.citysearch .sub-menu a').click(function () {
     _gateCookie = $(this).data('slug');
     _gateText = $(this).data('name');
     //$select.text( _newText );
-    $bannerSelect.val( _gateText );
+    $bannerSelect.val( _newText);
     //$(this).addClass($(this).data('select'));
     //eraseCookie('city');
     
@@ -190,6 +193,7 @@ $('.citysearch .sub-menu a').click(function () {
       //var cookieVal = readCookie('city');
     //var cookieName = readCookie('cityName');
     var gateVal = readCookie('citygate');
+    var gateName = readCookie('cityGateName');
    //var cookieVal = readCookie('city');
     //var cookieName = readCookie('cityName');
     //console.log('Cookie = '+cookieVal);
@@ -211,7 +215,7 @@ window.onload = function() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(UserLocation);
     $select.text(_cityName);
-  //$bannerSelect.attr('placeholder','').val(_cityName);
+  $bannerSelect.val(_cityName);
   }
   // Default to Washington, DC
   else
@@ -292,6 +296,7 @@ function NearestCity(latitude, longitude) {
   //console.log(cookieVal);
   var cookieName = readCookie('cityName');
   var gateVal = readCookie('citygate');
+  var gateName = readCookie('cityGateName');
   //console.log('Cookie = '+cookieName);
   createCookie('is_geo_run', '1', '');
 
@@ -316,7 +321,7 @@ function NearestCity(latitude, longitude) {
   //$bannerSelect.val(cookieName);
   if(cookieName !== null && cookieVal != 'none'){
     $('#city').text(cookieName);
-    //$bannerSelect.val(cookieName);
+    $bannerSelect.val(gateName);
   }else{
     $('#city').text('Select A City');
     $bannerSelect.val('Place');

@@ -70,6 +70,12 @@ header{
 	}
 
 	.funnel{
+		@media only screen and ($bp-larger-than-tablet){
+			display:inline-block !important;
+		}
+	} 
+
+	.funnel{
 		color:$periwinkle;
 		@media only screen and ($bp-smaller-than-tablet){
 			// position:absolute;
@@ -256,7 +262,7 @@ header{
 		list-style-type: none;
 		margin-bottom:0;
 		@media only screen and ($bp-smaller-than-tablet){
-			width:95%;
+			//width:95%;
 			margin:0 auto;
 		}
 		.city-wrap{

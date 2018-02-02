@@ -60,7 +60,7 @@ get_header(); ?>
 												?>
 
 
-												<li><a href="#" data-name="<?php echo $city->name; ?>" data-slug="<?php echo $city->slug; ?>"><?php echo $city->name; ?></a></li>
+												<li><a href="" data-name="<?php echo $city->name; ?>" data-slug="<?php echo $city->slug; ?>"><?php echo $city->name; ?></a></li>
 											<?php } 
 												if($city_cnt - $c_cnt2 == 0){
 											?>
