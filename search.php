@@ -6,14 +6,14 @@
 	<div class="container">
 		<div class="row">
 			
-				<?php if ( have_posts() ) : ?>
+				<?php if ( have_posts() ) : $city = $_GET['city'];?>
 					<h1 class="search-title"> 
-						All results for <span><?php echo get_search_query(); ?></span> in <span><?php echo $_COOKIE['cityName'];?></span>
+						All results for <span><?php echo $amenity_name; ?><?php if ($city != ''){?></span> in <span><?php echo str_replace('-', ' ',$city); ?><?php }?></span>
 					</h1>
 					 <?php
 					//$the_query = new WP_Query( $args ); 
 					if (have_posts());
-					while (have_posts() ) : the_post(); ?>
+					while (have_posts() ) : the_post();  ?>
 						<?php 
 							$city_name = get_terms('city', $post->ID); 
 							
