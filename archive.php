@@ -19,7 +19,7 @@ get_header(); ?>
 					global $query_string;
 					query_posts( $query_string . '&posts_per_page=-1' );
 
-				if ( have_posts() ) : ?>
+				if ( have_posts() ) :  $city = $_GET['city']; ?>
 					<h1 class="search-title">
 						<?php //if ( is_day() ) : ?>
 							<?php //printf( __( 'Daily Archives: <span>%s</span>' ), get_the_date() ); ?>
