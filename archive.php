@@ -30,7 +30,7 @@ get_header(); ?>
 						<?php //else : ?>
 							<?php //_e( 'Blog Archives' ); ?>
 						<?php //endif; ?>
-						All results for <span><?php echo $amenity_name; ?><?php if ($city != ''){?></span> in <span><?php echo str_replace($city, ' ', '-'); ?><?php }?></span>
+						All results for <span><?php echo $amenity_name; ?><?php if ($city != ''){?></span> in <span><?php echo str_replace('-', ' ',$city); ?><?php }?></span>
 					</h1>
 
 					<?php while ( have_posts() ) : the_post(); ?>
