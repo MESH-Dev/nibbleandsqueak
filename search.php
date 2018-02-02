@@ -8,7 +8,7 @@
 			
 				<?php if ( have_posts() ) : $city = $_GET['city'];?>
 					<h1 class="search-title"> 
-						All results for <span><?php echo $amenity_name; ?><?php if ($city != ''){?></span> in <span><?php echo str_replace('-', ' ',$city); ?><?php }?></span>
+						All results for <span><?php echo get_search_query(); ?><?php if ($city != ''){?></span> in <span><?php echo str_replace('-', ' ',$city); ?><?php }?></span>
 					</h1>
 					 <?php
 					//$the_query = new WP_Query( $args ); 
