@@ -202,14 +202,12 @@ function update_restaurant_map( $post_id ) {
             update_post_meta($post_id, 'hours_of_operation', $output);
           }
 
-          //__--__!!  We only need this if we find that we CAN get neighborhood
-          //          from the Foursquare API.  If not, remove or comment this out
-          //          prior to production
+          //Client has requested that this be removed____________________
 
           // Use this to add a term as a taxonomy value based on the API return 
           // 1) Check to see if the term currently exists
 
-          if( !term_exists( $city, 'city' ) ) {
+         // if( !term_exists( $city, 'city' ) ) {
             // 2) If it doesn't, "!term_exists", let's add it
             //    ** Note:
             //       -Here, we can add a term by just using the term name, this is not the case 
@@ -218,16 +216,14 @@ function update_restaurant_map( $post_id ) {
             //       -Note the commented out "array" information, this works like the 'manual' version
             //        of creating a taxonomy term.  If we wanted to add a description, or override the slug,
             //        we could do that here.  This is being left on purpose.
-             wp_insert_term(
-                 $city,
-                 'city'
-                 // array(
-                 //   'description' => 'This is an example category created with wp_insert_term.',
-                 //   'slug'        => 'example-category'
-                 //)
-             );
-         }
+            // wp_insert_term(
+               //  $city,
+                // 'city'
+            // );
+        // }
          
+         //--------------------------------------------------------------------------------
+
          //Since we're going to try to set this on the post being updated, we 
          //need to tease out some information from the term.
 

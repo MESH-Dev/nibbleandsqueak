@@ -136,6 +136,7 @@ var $bannerSelect = $('.city-input');
 createCookie('dropdown', false);
 
 $('.city-dropdown .sub-menu a').click(function () {
+
     _newText = $(this).data('name');
     _newCookie = $(this).data('slug');
     createCookie('dropdown', true);
@@ -176,7 +177,8 @@ $('.city-dropdown .sub-menu a').click(function () {
     $bannerSelect.val(cookieName);
 });
 
-$('.citysearch .sub-menu a').click(function () {
+$('.citysearch .sub-menu a').click(function (e) {
+  e.preventDefault();
     _newText = $(this).data('name');
     _newCookie = $(this).data('slug');
     _gateCookie = $(this).data('slug');
