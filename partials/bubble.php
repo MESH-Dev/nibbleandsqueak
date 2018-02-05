@@ -9,17 +9,22 @@
 	//$cta_text = get_field('cta_text', $l_id);
 	//$cta_link = get_field('cta_link', $l_id);
 	
-	$cb_external = get_field('cb_external', $l_id);
+	//$cb_external = get_field('cb_external', $l_id);
+
+	$cta_text = get_field('cta_text');
+	$cta_link = get_field('cta_link');
+	
+	$cb_external = get_field('cb_external');
 
 	$home_id = get_option('page_on_front');
 
-	if(!is_front_page()){
-		$cta_link = get_field('cta_link', $l_id);
-		$cta_text = get_field('cta_text', $l_id);
-	}else{
-		$cta_link = get_field('cta_link', $home_id);
-		$cta_text = get_field('cta_text', $home_id);
-	}
+	// if(!is_front_page()){
+	// 	$cta_link = get_field('cta_link', $l_id);
+	// 	$cta_text = get_field('cta_text', $l_id);
+	// }else{
+	// 	$cta_link = get_field('cta_link', $home_id);
+	// 	$cta_text = get_field('cta_text', $home_id);
+	// }
 	$bubble_target = '';
 	if($cb_external == true){
 		$bubble_target='target="_blank"';
