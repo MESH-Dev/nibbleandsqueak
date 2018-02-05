@@ -22,6 +22,7 @@
     scaledSize: new google.maps.Size(40, 40), // scaled size
     origin: new google.maps.Point(0,0), // origin
     anchor: new google.maps.Point(0, 0) // anchor
+    zIndex: 999999
   };
 
   var infoWindow = new google.maps.InfoWindow(), marker, i;
