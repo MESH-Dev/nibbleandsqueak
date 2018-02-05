@@ -32,8 +32,19 @@
 	================================================== -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
-	<script src="https://use.typekit.net/pse0jnn.js"></script>
-	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+	<!-- <script src="https://use.typekit.net/ptx0dcp.js"></script>
+	// <script>try{Typekit.load({ async: true });}catch(e){}</script>-->
+
+	<script>
+  (function(d) {
+    var config = {
+      kitId: 'ptx0dcp',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
 
 
 	<?php 
@@ -153,7 +164,7 @@
 				<div class="mobile-search-trigger">Search</div>
 				<div class="funnel">
 					<div class="wrap">
-						<ul class="city-dropdown">
+						<ul class="city-dropdown <?php if(!is_page_template('templates/template-landing.php')){ echo 'no_landing';} ?>">
 							<li ><span id="city">Select A City</span><span class="arrow"><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?></span>
 								<ul class="sub-menu">
 									<div class="city-wrap">
@@ -177,7 +188,11 @@
 											?>
 
 
-											<li><a href="<?php echo esc_url( home_url( '/' ) ); ?><?php echo $city->slug; ?>" data-name="<?php echo $city->name; ?>" data-slug="<?php echo $city->slug; ?>"><?php echo $city->name; ?></a></li>
+											<li>
+												<a href="<?php  if ( is_page_template('templates/template-landing.php')){ echo esc_url( home_url( '/' )).$city->slug; } ?>" <?php if(!is_page_template()){echo 'class="linked"';} ?> data-name="<?php echo $city->name; ?>" data-slug="<?php echo $city->slug; ?>">
+													<?php echo $city->name; ?>
+												</a>
+											</li>
 										<?php } 
 											if($city_cnt - $c_cnt == 0){
 										?>

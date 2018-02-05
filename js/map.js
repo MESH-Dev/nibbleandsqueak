@@ -1,9 +1,17 @@
   var iconUrl = '/img/mapmarker.svg';
   var activeUrl = '/img/activeMapmarker.svg';
+  var hoverUrl = '/img/mapmarker-hover.svg';
   var gmarkers = [];
 
   var icon = {
     url: $dir+iconUrl, // url
+    scaledSize: new google.maps.Size(30, 30), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+  };
+
+   var hoverIcon = {
+    url: $dir+hoverUrl, // url
     scaledSize: new google.maps.Size(30, 30), // scaled size
     origin: new google.maps.Point(0,0), // origin
     anchor: new google.maps.Point(0, 0) // anchor
@@ -344,6 +352,8 @@
         bounds.extend(marker.getPosition());
 
         //markers.push(marker);
+
+        
          
  
         //CLICK LISTENER TO SET AND SHOW INFOWINDOW, PAN TO ICON, AND SCROLL TO LEFT LOCATION
@@ -382,6 +392,18 @@
             }
         })(marker, infoWindowContent, infoWindow));
 
+         google.maps.event.addListener(marker,'mouseover',function(){
+          //jQuery(this).find('svg').addClass('hovered');
+          //console.log(jQuery(this).find('svg').attr('src'));
+          this.setIcon(hoverIcon);
+        });
+
+        google.maps.event.addListener(marker,'mouseout',function(){
+          //jQuery(this).find('circle').css({color:'white'});
+          //jQuery(this).find('svg').removeClass('hovered');
+          //console.log('not-hovered');
+          this.setIcon(icon);
+        });
 
         /*
          * The google.maps.event.addListener() event waits for
@@ -475,7 +497,7 @@ console.log(windowW);
 jQuery('.map-listing').click(function(e){
   var windowW = jQuery(window).width();
   if (windowW >= 500){
-    e.preventDefault();
+    //e.preventDefault();
   }
   map.panTo(marker.getPosition());
   var marker_slug = jQuery(this).attr('id');

@@ -129,13 +129,13 @@ createCookie(name,"",-1);
 }
 
 var homeLink = $('a#homelink').attr('href');
-var $select = $('#city');
+var $select = $('.no_landing #city');
 var $bannerSelect = $('.city-input');
 
 //$bannerSelect.addClass('new');
 createCookie('dropdown', false);
 
-$('.city-dropdown .sub-menu a').click(function () {
+$('.city-dropdown.no_landing .sub-menu a.linked').click(function (e) {
 
     _newText = $(this).data('name');
     _newCookie = $(this).data('slug');
@@ -156,7 +156,13 @@ $('.city-dropdown .sub-menu a').click(function () {
     //   }
    
     // });
+    //$('a.linked')
 
+
+    //if($(this).hasClass('linked')){
+      e.preventDefault();
+      //$select.text( cookieName );
+    //}
 
     //$(this).addClass($(this).data('select'));
     //eraseCookie('city');
@@ -167,14 +173,14 @@ $('.city-dropdown .sub-menu a').click(function () {
     createCookie('cityName', _newText, '1' );
     var cookieVal = readCookie('city');
     var cookieName = readCookie('cityName');
-    var gateVal = readCookie('citygate');
+    //var gateVal = readCookie('citygate');
     console.log('Cookie = '+cookieVal);
     console.log('Cookie Name ='+cookieName);
     //$('a#homelink').attr('href', homeLink+cookieVal);
     $('input#city-search').attr('value', cookieVal);
-    $('input#city-banner-search').attr('value', gateVal);
+    $('input#city-banner-search').attr('value', cookieVal);
     $('#city').text(cookieName);
-    $bannerSelect.val(cookieName);
+    //$bannerSelect.val(cookieName);
 });
 
 $('.citysearch .sub-menu a').click(function (e) {
@@ -188,20 +194,24 @@ $('.citysearch .sub-menu a').click(function (e) {
     //$(this).addClass($(this).data('select'));
     //eraseCookie('city');
     
-    eraseCookie('citygate');
-    createCookie('citygate', _gateCookie, '1' );
-    eraseCookie('cityGateName');
-    createCookie('cityGateName', _gateText, '1' );
+    // eraseCookie('citygate');
+    // createCookie('citygate', _gateCookie, '1' );
+    // eraseCookie('cityGateName');
+    // createCookie('cityGateName', _gateText, '1' );
+    eraseCookie('city');
+    createCookie('city', _newCookie, '1' );
+    eraseCookie('cityName');
+    createCookie('cityName', _newText, '1' );
       //var cookieVal = readCookie('city');
     //var cookieName = readCookie('cityName');
-    var gateVal = readCookie('citygate');
-    var gateName = readCookie('cityGateName');
-   //var cookieVal = readCookie('city');
-    //var cookieName = readCookie('cityName');
+   //var gateVal = readCookie('citygate');
+    //var gateName = readCookie('cityGateName');
+   var cookieVal = readCookie('city');
+    var cookieName = readCookie('cityName');
     //console.log('Cookie = '+cookieVal);
     //$('a#homelink').attr('href', homeLink+cookieVal);
     //$('input#city-search').attr('value', cookieVal);
-    $('input#city-banner-search').attr('value', gateVal);
+    $('input#city-banner-search').attr('value', cookieVal);
     //$('#city').text(cookieName);
     //$bannerSelect.val(cookieName);
 });
@@ -216,8 +226,8 @@ window.onload = function() {
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(UserLocation);
-    $select.text(_cityName);
-  $bannerSelect.val(_cityName);
+    //$select.text(_cityName);
+    $bannerSelect.val(_cityName);
   }
   // Default to Washington, DC
   else
@@ -285,7 +295,8 @@ function NearestCity(latitude, longitude) {
   console.log("City Name = "+_citySlug);
 
   
-  $select.text(_cityName);
+  //$select.text(_cityName);
+  $bannerSelect.val(_cityName);
   //$bannerSelect.attr('placeholder','').val(_cityName);
   //$('a#homelink').attr('href', homeLink+_citySlug);
 
@@ -312,7 +323,7 @@ function NearestCity(latitude, longitude) {
 
   //console.log( $('a#homelink').attr('href', homeLink+cookieVal))
   $('input#city-search').attr('value', cookieVal);
-  $('input#city-banner-search').attr('value', gateVal);
+  $('input#city-banner-search').attr('value', cookieVal);
   $('.amenities li a').each(function(){
     var $slug = $(this).data('slug');
     // if(cookieVal != 'none' && cookieVal !== null){ //cookieVal !== null || 
@@ -320,10 +331,11 @@ function NearestCity(latitude, longitude) {
     // }
   })
   //$('#city').text(cookieName);
+  $select.text(cookieName);
   //$bannerSelect.val(cookieName);
   if(cookieName !== null && cookieVal != 'none'){
-    $('#city').text(cookieName);
-    $bannerSelect.val(gateName);
+    //$('#city').text(cookieName);
+    $bannerSelect.val(cookieName);
   }else{
     $('#city').text('Select A City');
     $bannerSelect.val('Place');
