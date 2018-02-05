@@ -344,7 +344,7 @@
             map: map,
             id: i,
             name: slug,
-
+            optimized:false,
             //Create the custom icon
             icon:icon,
         });
