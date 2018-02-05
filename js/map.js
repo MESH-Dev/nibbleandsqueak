@@ -346,7 +346,7 @@
             id: i,
             name: slug,
             optimized:false,
-            zIndex: i,
+            zIndex: 999999+i,
             //Create the custom icon
             icon:icon,
         });
