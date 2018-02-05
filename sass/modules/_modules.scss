@@ -230,7 +230,7 @@ main{
     .citysearch{
       span.arrow{
         border-bottom:2px solid $title_black;
-        margin-left:-4px;
+        margin-left:-5px;
         svg{
           transform:rotate(90deg);
           width:12px;
@@ -1201,6 +1201,16 @@ main.map-page{
     height:600px;
     margin:0;
     top:-600px;
+  }
+
+  svg{
+    &:hover,
+    &:focus,
+    &:active{
+      .cl-1{
+        fill:$mint;
+      }
+    }
   }
 
 }
