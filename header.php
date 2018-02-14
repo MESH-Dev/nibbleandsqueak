@@ -166,7 +166,7 @@
 					<div class="close the_search">Close</div>
 					<div class="wrap">
 						<ul class="city-dropdown <?php if(!is_page_template('templates/template-landing.php')){ echo 'no_landing';}else{ echo 'landing'; } ?>">
-							<li ><span id="city">Select A City</span><span class="arrow"><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?></span>
+							<li ><span id="city" <?php if(!is_front_page()){ echo 'class="inner"'; }?> >Select A City</span><span class="arrow"><?php echo file_get_contents(get_template_directory().'/img/arrow.svg')?></span>
 								<ul class="sub-menu">
 									<div class="city-wrap">
 										<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" data-name="All Cities" data-slug="none">All Cities</a></li>

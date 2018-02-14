@@ -153,7 +153,7 @@ $('.city-dropdown.landing .sub-menu a').click(function (){
     //$('a#homelink').attr('href', homeLink+cookieVal);
     $('input#city-search').attr('value', cookieVal);
     $('input#city-banner-search').attr('value', cookieVal);
-    $('#city').text(cookieName);
+    $('#city.inner').text(cookieName);
 });
 
 $('.city-dropdown.no_landing .sub-menu a.linked').click(function (e) {
@@ -200,7 +200,7 @@ $('.city-dropdown.no_landing .sub-menu a.linked').click(function (e) {
     //$('a#homelink').attr('href', homeLink+cookieVal);
     $('input#city-search').attr('value', cookieVal);
     $('input#city-banner-search').attr('value', cookieVal);
-    $('#city').text(cookieName);
+    $('#city.inner').text(cookieName);
     //$bannerSelect.val(cookieName);
 });
 
@@ -254,7 +254,7 @@ window.onload = function() {
   else
     NearestCity(38.8951, -77.0367);
   //Keeps the value of these fields in the initial state until/unless geolocation has run
-  $('#city').text('Select A City');
+  $('#city.innner').text('Select A City');
   $bannerSelect.val('Place');
   }
 }
@@ -357,11 +357,11 @@ console.log(dif);
   $trigger = $('.mobile-search-trigger');
   //$bannerSelect.val(cookieName);
   if(cookieName !== null && cookieVal != 'none'){
-    $('#city').text(cookieName);
+    $('#city.inner').text(cookieName);
     $bannerSelect.val(cookieName);
     //$trigger.text(cookieName);
   }else{
-    $('#city').text('Select A City');
+    $('#city.inner').text('Select A City');
     $bannerSelect.val('Place');
     //$trigger.text('Select A City');
   }
@@ -468,11 +468,11 @@ $('.mobile-search-trigger').sidr({
         });
 
         if(cookieName !== null && cookieVal != 'none'){
-            $('#city').text(cookieName);
+            $('#city.inner').text(cookieName);
             $bannerSelect.val(cookieName);
             //$trigger.text(cookieName);
           }else{
-            $('#city').text('Select A City');
+            $('#city.inner').text('Select A City');
             $bannerSelect.val('Place');
             //$trigger.text('Select A City');
           }
@@ -491,7 +491,7 @@ $('.close.the_search').click(
       $.sidr('close', 'sidr-search');
       $sidr_clk = 0;
       $('.sub-menu').slideUp('fast');
-      console.log('Close '+$sidr_clk);
+      //console.log('Close '+$sidr_clk);
        //console.log("Sidr should be closed");
     });
 
