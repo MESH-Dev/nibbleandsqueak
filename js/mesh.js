@@ -34,23 +34,23 @@ $(window).scroll(function(){
   //}
 });
 
-var $f_cnt=0;
-var wW = $(window).width();
-console.log(wW);
-if(wW <= 800){
-$('.funnel').click(function(){
-  $f_cnt++;
+// var $f_cnt=0;
+// var wW = $(window).width();
+// console.log(wW);
+// if(wW <= 800){
+// $('.funnel').click(function(){
+//   $f_cnt++;
 
-  if ($f_cnt==1 ){
-  $(this).find('.sub-menu').css({'left':'0'});
+//   if ($f_cnt==1 ){
+//   $(this).find('.sub-menu').css({'left':'0'});
   
-  }else{
-    $(this).find('.sub-menu').css({'left':'-99999px'});
-    $f_cnt=0;
-  }
-  //console.log($f_cnt);
-});
-}
+//   }else{
+//     $(this).find('.sub-menu').css({'left':'-99999px'});
+//     $f_cnt=0;
+//   }
+//   console.log($f_cnt);
+// });
+// }
 //Autocomplete
 // see https://goodies.pixabay.com/jquery/auto-complete/demo.html for more info 
 
@@ -354,13 +354,16 @@ console.log(dif);
   })
   //$('#city').text(cookieName);
   $select.text(cookieName);
+  $trigger = $('.mobile-search-trigger');
   //$bannerSelect.val(cookieName);
   if(cookieName !== null && cookieVal != 'none'){
     $('#city').text(cookieName);
     $bannerSelect.val(cookieName);
+    //$trigger.text(cookieName);
   }else{
     $('#city').text('Select A City');
     $bannerSelect.val('Place');
+    //$trigger.text('Select A City');
   }
 
 $(function() {
@@ -372,22 +375,22 @@ $(function() {
       );
 });
 
-$ms_cnt = 0;
-$('.mobile-search-trigger').click(function(){
-  $ms_cnt++;
-  var hHeight = $('header').height();
-  //console.log($ms_cnt);
-  if($ms_cnt == 1){
-    $('.funnel').slideDown('slow');
+// $ms_cnt = 0;
+// $('.mobile-search-trigger').click(function(){
+//   $ms_cnt++;
+//   var hHeight = $('header').height();
+//   //console.log($ms_cnt);
+//   if($ms_cnt == 1){
+//     $('.funnel').slideDown('slow');
 
-    $('header').animate({'margin-bottom':60}, 'slow');
-    //console.log($ms_cnt);
-  }else{
-    $('.funnel').slideUp('slow');
-    $('header').animate({'margin-bottom':0}, 'slow');
-    $ms_cnt = 0;
-  }
-});
+//     $('header').animate({'margin-bottom':60}, 'slow');
+//     //console.log($ms_cnt);
+//   }else{
+//     $('.funnel').slideUp('slow');
+//     $('header').animate({'margin-bottom':0}, 'slow');
+//     $ms_cnt = 0;
+//   }
+// });
 //}
 
 //Sidr
@@ -399,17 +402,104 @@ $('.sidr-trigger').sidr({
       displace: false     
  });//end sidr onOpen function
 
-// $('.mobile-search-trigger').sidr({
-//       name: 'sidr-search',
-//       source: '.funnel',
-//       renaming: false,
-//       side: 'left',
-//       displace: false     
-//  });//end sidr onOpen function
+$('.mobile-search-trigger').sidr({
+      name: 'sidr-search',
+      source: '.funnel',
+      renaming: false,
+      side: 'left',
+      displace: false,
+      onOpen: function(){
+
+        var cookieVal = readCookie('city');
+        var cookieName = readCookie('cityName');
+
+        $('.city-dropdown .sub-menu').hide();
+
+        $clk=0;
+        $('.city-dropdown span.arrow').click(function(){
+          $clk++
+          if($clk == 1){
+            $('.sub-menu').slideDown('fast');
+          }else{
+            $('.sub-menu').slideUp('fast');
+            $clk=0;
+          }
+        });
+
+        $('.city-dropdown .sub-menu a').click(function (){
+
+              $('.sub-menu').slideUp('fast');
+              _newText = $(this).data('name');
+              _newCookie = $(this).data('slug');
+              createCookie('dropdown', true);
+              $select.text( _newText );
+
+              eraseCookie('city');
+              createCookie('city', _newCookie, '1' );
+              eraseCookie('cityName');
+              createCookie('cityName', _newText, '1' );
+              var cookieVal = readCookie('city');
+              var cookieName = readCookie('cityName');
+              //var gateVal = readCookie('citygate');
+              console.log('Cookie = '+cookieVal);
+              console.log('Cookie Name ='+cookieName);
+              //$('a#homelink').attr('href', homeLink+cookieVal);
+              $('input#city-search').attr('value', cookieVal);
+              $('input#city-banner-search').attr('value', cookieVal);
+              $('#city').text(cookieName);
+        });
+
+        $('.city-dropdown.no_landing .sub-menu a.linked').click(function (e) {
+        //     $city = $(this).data('slug');
+        //     $(this).attr('href',$home+$city);
+        // });
+
+            _newText = $(this).data('name');
+            _newCookie = $(this).data('slug');
+            createCookie('dropdown', true);
+            $('.sidr.left #city').text( _newText );
+
+            e.preventDefault();
+            
+            eraseCookie('city');
+            createCookie('city', _newCookie, '1' );
+            eraseCookie('cityName');
+            createCookie('cityName', _newText, '1' );
+            var cookieVal = readCookie('city');
+            var cookieName = readCookie('cityName');
+            //var gateVal = readCookie('citygate');
+            console.log('Cookie = '+cookieVal);
+            console.log('Cookie Name ='+cookieName);
+            //$('a#homelink').attr('href', homeLink+cookieVal);
+            $('input#city-search').attr('value', cookieVal);
+            $('input#city-banner-search').attr('value', cookieVal);
+            //$('#city').text(cookieName);
+        });
+
+        
+
+        if(cookieName !== null && cookieVal != 'none'){
+            $('#city').text(cookieName);
+            $bannerSelect.val(cookieName);
+            //$trigger.text(cookieName);
+          }else{
+            $('#city').text('Select A City');
+            $bannerSelect.val('Place');
+            //$trigger.text('Select A City');
+          }
+        
+      }////end sidr onOpen function     
+ });//end sidr onOpen function
 
 $('.close').click(
     function(){
       $.sidr('close', 'sidr-main');
+       //console.log("Sidr should be closed");
+    });
+
+$('.close.the_search').click(
+    function(){
+      $.sidr('close', 'sidr-search');
        //console.log("Sidr should be closed");
     });
 

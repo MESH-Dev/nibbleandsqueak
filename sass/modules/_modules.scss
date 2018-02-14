@@ -1486,6 +1486,70 @@ main.map-page{
       margin-right:1em;
     }
   }
+
+    .search-form{
+    width:65%;
+    //font-size:1.2em;
+    text-transform:uppercase;
+
+    input{
+      width:70%;
+      border:none;
+      box-shadow:none;
+      border-bottom:2px solid $periwinkle;
+      padding:0 10px;
+      height:30px;
+      line-height:normal;
+      font-size:1.2em;
+    }
+    button{
+      width:15%;
+      border:none;
+      box-shadow:none;
+      border-bottom:2px solid $periwinkle;
+      padding:0;
+      height:30px;
+      border-radius:0;
+       svg{
+              height:15px;
+              width:15px;
+            }
+    }
+    input,
+    button{
+      display:inline-block;
+      float:left;
+    }
+    input::-webkit-input-placeholder {
+    @include brandon-black;
+      color:$periwinkle;
+      text-transform:uppercase;
+    }
+
+    input::-moz-placeholder {
+        @include brandon-black;
+        color:$periwinkle;
+        text-transform:uppercase;
+    }
+
+     input:-ms-input-placeholder {
+        @include brandon-black;
+        color:$periwinkle;
+        text-transform:uppercase;
+    }
+
+     input:-moz-placeholder {
+        @include brandon-black;
+        color:$periwinkle;
+        text-transform:uppercase;
+    }
+
+     input::webkit-input-placeholder {
+        @include brandon-black;
+        color:$periwinkle;
+        text-transform:uppercase;
+    }
+  }
 }
 
 .sidr.left{
@@ -1504,6 +1568,9 @@ main.map-page{
           height:12px;
         }
       }
+    }
+    .search-form{
+      //display:none;
     }
   }
 

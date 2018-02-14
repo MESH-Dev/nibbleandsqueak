@@ -793,7 +793,6 @@ td:last-child {
 header {
   position: relative;
   width: 100%;
-  z-index: 9999999999;
 }
 /* line 7, sass/modules/_header.scss */
 header .site-title:hover, header .site-title:active, header .site-title:focus {
@@ -3013,8 +3012,80 @@ main.map-page {
   display: inline-block;
   margin-right: 1em;
 }
+/* line 1490, sass/modules/_modules.scss */
+.sidr .search-form {
+  width: 65%;
+  text-transform: uppercase;
+}
+/* line 1495, sass/modules/_modules.scss */
+.sidr .search-form input {
+  width: 70%;
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid #7495ff;
+  padding: 0 10px;
+  height: 30px;
+  line-height: normal;
+  font-size: 1.2em;
+}
+/* line 1505, sass/modules/_modules.scss */
+.sidr .search-form button {
+  width: 15%;
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid #7495ff;
+  padding: 0;
+  height: 30px;
+  border-radius: 0;
+}
+/* line 1513, sass/modules/_modules.scss */
+.sidr .search-form button svg {
+  height: 15px;
+  width: 15px;
+}
+/* line 1518, sass/modules/_modules.scss */
+.sidr .search-form input,
+.sidr .search-form button {
+  display: inline-block;
+  float: left;
+}
+/* line 1523, sass/modules/_modules.scss */
+.sidr .search-form input::-webkit-input-placeholder {
+  font-weight: 700;
+  font-family: "brandon-grotesque", sans-serif;
+  color: #7495ff;
+  text-transform: uppercase;
+}
+/* line 1529, sass/modules/_modules.scss */
+.sidr .search-form input::-moz-placeholder {
+  font-weight: 700;
+  font-family: "brandon-grotesque", sans-serif;
+  color: #7495ff;
+  text-transform: uppercase;
+}
+/* line 1535, sass/modules/_modules.scss */
+.sidr .search-form input:-ms-input-placeholder {
+  font-weight: 700;
+  font-family: "brandon-grotesque", sans-serif;
+  color: #7495ff;
+  text-transform: uppercase;
+}
+/* line 1541, sass/modules/_modules.scss */
+.sidr .search-form input:-moz-placeholder {
+  font-weight: 700;
+  font-family: "brandon-grotesque", sans-serif;
+  color: #7495ff;
+  text-transform: uppercase;
+}
+/* line 1547, sass/modules/_modules.scss */
+.sidr .search-form input::webkit-input-placeholder {
+  font-weight: 700;
+  font-family: "brandon-grotesque", sans-serif;
+  color: #7495ff;
+  text-transform: uppercase;
+}
 
-/* line 1492, sass/modules/_modules.scss */
+/* line 1556, sass/modules/_modules.scss */
 .sidr.left span {
   display: inline-block;
   padding: 10px 0;
@@ -3025,80 +3096,80 @@ main.map-page {
   text-transform: uppercase;
   cursor: pointer;
 }
-/* line 1501, sass/modules/_modules.scss */
+/* line 1565, sass/modules/_modules.scss */
 .sidr.left span.arrow svg {
   transform: rotate(90deg);
   width: 12px;
   height: 12px;
 }
 
-/* line 1510, sass/modules/_modules.scss */
+/* line 1577, sass/modules/_modules.scss */
 .wp-caption-text {
   font-weight: 400;
   font-family: "brandon-grotesque", sans-serif;
   font-size: 1em !important;
 }
 
-/* line 1517, sass/modules/_modules.scss */
+/* line 1584, sass/modules/_modules.scss */
 .alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1521, sass/modules/_modules.scss */
+/* line 1588, sass/modules/_modules.scss */
 .aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
 
-/* line 1527, sass/modules/_modules.scss */
+/* line 1594, sass/modules/_modules.scss */
 .alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1532, sass/modules/_modules.scss */
+/* line 1599, sass/modules/_modules.scss */
 .alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
 
-/* line 1537, sass/modules/_modules.scss */
+/* line 1604, sass/modules/_modules.scss */
 p img.alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1541, sass/modules/_modules.scss */
+/* line 1608, sass/modules/_modules.scss */
 p img.aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
 
-/* line 1547, sass/modules/_modules.scss */
+/* line 1614, sass/modules/_modules.scss */
 p img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1552, sass/modules/_modules.scss */
+/* line 1619, sass/modules/_modules.scss */
 p img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
 
-/* line 1557, sass/modules/_modules.scss */
+/* line 1624, sass/modules/_modules.scss */
 a img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
 
-/* line 1562, sass/modules/_modules.scss */
+/* line 1629, sass/modules/_modules.scss */
 a img.alignnone {
   margin: 5px 20px 20px 0;
 }
 
-/* line 1566, sass/modules/_modules.scss */
+/* line 1633, sass/modules/_modules.scss */
 a img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
