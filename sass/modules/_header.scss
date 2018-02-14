@@ -1,7 +1,7 @@
 header{
 	position:relative;
 	width:100%;
-	z-index:100;
+	z-index:9999999999;
 
 	.site-title{
 		&:hover,
@@ -447,4 +447,7 @@ header{
 			color:$mint;
 		}
 	}
+
+
+	
 }

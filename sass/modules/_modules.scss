@@ -1488,6 +1488,25 @@ main.map-page{
   }
 }
 
+.sidr.left{
+    span{
+      display:inline-block;
+      padding:10px 0;
+      padding-right:5px;
+      font-size:1.2em;
+      @include brandon-black;
+      text-transform:uppercase;
+      cursor:pointer;
+      &.arrow{
+        svg{
+          transform:rotate(90deg);
+          width:12px;
+          height:12px;
+        }
+      }
+    }
+  }
+
 .wp-caption-text{   
     @include brandon-reg;   
     font-size:1em !important;   

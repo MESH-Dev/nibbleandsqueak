@@ -48,7 +48,7 @@ $('.funnel').click(function(){
     $(this).find('.sub-menu').css({'left':'-99999px'});
     $f_cnt=0;
   }
-  console.log($f_cnt);
+  //console.log($f_cnt);
 });
 }
 //Autocomplete
@@ -399,6 +399,14 @@ $('.sidr-trigger').sidr({
       displace: false     
  });//end sidr onOpen function
 
+// $('.mobile-search-trigger').sidr({
+//       name: 'sidr-search',
+//       source: '.funnel',
+//       renaming: false,
+//       side: 'left',
+//       displace: false     
+//  });//end sidr onOpen function
+
 $('.close').click(
     function(){
       $.sidr('close', 'sidr-main');
@@ -406,7 +414,7 @@ $('.close').click(
     });
 
 // Hide subnavs so that we can accordion them later
-    $('.sidr ul.sub-menu').hide();
+    $('.sidr.right ul.sub-menu').hide();
 
     //Save the location of the first li and link that has children
     $topLink = $('.sidr-inner ul.menu > li.menu-item-has-children > a');
