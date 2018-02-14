@@ -161,7 +161,7 @@
 	<header>
 		<div class="header-wrap"><!-- container -->
 			<div class="row head">
-				<div class="mobile-search-trigger">Search</div>
+				<div class="mobile-search-trigger"><?php if (is_page_template('templates/template-landing.php')){ echo 'Select A City'; }else{ echo 'Search'; } ?></div>
 				<div class="funnel">
 					<div class="close the_search">Close</div>
 					<div class="wrap">

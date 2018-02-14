@@ -140,6 +140,10 @@ header{
 		@media only screen and ($bp-smaller-than-desktop) and ($bp-larger-than-tablet){
 			width:20%;
 		}
+
+		@media only screen and ($bp-smaller-than-tablet){
+			width:30%;
+		}
 		.site-title{
 			width:120px;
 			display: inline-block;
@@ -422,6 +426,14 @@ header{
 		}
 	}
 
+	.mobile-search-trigger{
+		width:36%;
+	}
+
+	.sidr-trigger{
+		width:29%;
+	}
+
 	.mobile-search-trigger,
 	.sidr-trigger{
 		@include brandon-black;
@@ -432,7 +444,7 @@ header{
 		text-align:center;
 
 		display:inline-block;
-		width:29%;
+		//width:29%;
 		vertical-align: middle;
 		@media only screen and ($bp-larger-than-tablet){
 			display:none;

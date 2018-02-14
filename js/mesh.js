@@ -402,6 +402,8 @@ $('.sidr-trigger').sidr({
       displace: false     
  });//end sidr onOpen function
 
+
+
 $('.mobile-search-trigger').sidr({
       name: 'sidr-search',
       source: '.funnel',
@@ -413,18 +415,7 @@ $('.mobile-search-trigger').sidr({
         var cookieVal = readCookie('city');
         var cookieName = readCookie('cityName');
 
-        $('.city-dropdown .sub-menu').hide();
-
-        $clk=0;
-        $('.city-dropdown span.arrow').click(function(){
-          $clk++
-          if($clk == 1){
-            $('.sub-menu').slideDown('fast');
-          }else{
-            $('.sub-menu').slideUp('fast');
-            $clk=0;
-          }
-        });
+        
 
         $('.city-dropdown .sub-menu a').click(function (){
 
@@ -476,8 +467,6 @@ $('.mobile-search-trigger').sidr({
             //$('#city').text(cookieName);
         });
 
-        
-
         if(cookieName !== null && cookieVal != 'none'){
             $('#city').text(cookieName);
             $bannerSelect.val(cookieName);
@@ -500,6 +489,9 @@ $('.close').click(
 $('.close.the_search').click(
     function(){
       $.sidr('close', 'sidr-search');
+      $sidr_clk = 0;
+      $('.sub-menu').slideUp('fast');
+      console.log('Close '+$sidr_clk);
        //console.log("Sidr should be closed");
     });
 
@@ -533,4 +525,21 @@ $('.close.the_search').click(
         $openCnt = 0;
       }
    });
+
+    
+    //Internal w/Search functionality on mobile nav
+    $('.sidr .city-dropdown.no_landing .sub-menu').hide();
+
+    //If we're on a page with the search, hide the cities until we click the arrow
+    $sidr_clk=0;  
+    $('.city-dropdown.no_landing span.arrow').click(function(){
+      $sidr_clk++;
+      console.log($sidr_clk);
+      if($sidr_clk == 1){
+        $('.sub-menu').slideDown('fast');
+      }else{
+        $('.sub-menu').slideUp('fast');
+        $sidr_clk=0;
+      }
+    });
 });
