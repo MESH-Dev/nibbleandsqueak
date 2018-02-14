@@ -77,6 +77,7 @@
 								// foreach($nibble_featured as $featured_post){
 								// var_dump($featured_post);
 					?>
+					<a href="<?php echo the_permalink($ra_id); ?>">
 						<div class="columns-4">
 							<div class="featured-article is_rounded">	
 								<div class="border-wrap is_rounded" style="background-image:url('<?php echo $ra_bg_URL; ?>');">
@@ -92,6 +93,7 @@
 								<!-- <h3 class="post-subtitle"><?php echo $nf_subtitle; ?></h3> -->
 							</div>
 						</div>
+					</a>
 
 					
 				<?php  wp_reset_postdata(); endwhile;?>

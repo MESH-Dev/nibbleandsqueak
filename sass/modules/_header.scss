@@ -8,7 +8,7 @@ header{
 		&:active,
 		&:focus{
 			
-				opacity:.7;
+				opacity:.5;
 		
 				
 		}
@@ -269,6 +269,15 @@ header{
 			width:49%;
 			float:left;
 			display:inline-block;
+			@media only screen and ($bp-smaller-than-tablet){
+				// width:100%;
+				// float:none;
+				// display:block;
+
+				li{
+					padding:10px 0;
+				}
+			}
 		}
 		span{
 			display:inline-block;
@@ -277,6 +286,7 @@ header{
 			font-size:1.2em;
 			@include brandon-black;
 			text-transform:uppercase;
+			cursor:pointer;
 			&.arrow{
 				svg{
 					transform:rotate(90deg);

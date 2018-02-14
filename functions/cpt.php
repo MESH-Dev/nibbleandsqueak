@@ -380,11 +380,13 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
             ?> 
             <div class="form-field latitude-term-wrap"> 
             	<label for="city-term-latitude"><?php _e( 'Latitude', 'city' ); ?></label> 
-                <input type="text" name="city_term_latitude" id="city-term-latitude" value="" class="latitude-term-field" />
+                <input type="number" name="city_term_latitude" id="city-term-latitude" value="" class="latitude-term-field" />
+                <p style="font-size:.75em; font-weight:bold; ">Use only numeric values here, latitudes and longitudes are best found using Google or another service. <br> **Note: Negative values are important</p>
             </div>
              <div class="form-field longitude-term-wrap"> 
                 <label for="city-term-longitude"><?php _e( 'Longitude', 'city' ); ?></label> 
-                <input type="text" name="city_term_longitude" id="city-term-longitude" value="" class="longitude-term-field" /> 
+                <input type="number" name="city_term_longitude" id="city-term-longitude" value="" class="longitude-term-field" /> 
+                 <p style="font-size:.75em; font-weight:bold; ">Use only numeric values here, latitudes and longitudes are best found using Google or another service. <br> **Note: Negative values are important</p>
             </div>  
                 <?php }
 
@@ -402,14 +404,16 @@ add_action( 'amenity_add_form_fields', 'amenity_new_term_field' );
                     <th scope="row"><label for="city-term-latitude"><?php _e( 'Latitude', 'city' ); ?></label></th>
                     <td>
                         <?php wp_nonce_field( basename( __FILE__ ), 'latitude_term_nonce' ); ?>
-                        <input type="text" name="city_term_latitude" id="city-term-latitude" value="<?php echo esc_attr( $latitude ); ?>" class="latitude-field" />
+                        <input type="number" name="city_term_latitude" id="city-term-latitude" value="<?php echo esc_attr( $latitude ); ?>" class="latitude-field" />
+                    	 <p style="font-size:.75em; font-weight:bold; ">Use only numeric values here, latitudes and longitudes are best found using Google or another service. <br> **Note: Negative values are important</p>
                     </td>
                 </tr>
                 <tr class="form-field city-term-wrap">
                     <th scope="row"><label for="city-term-longitude"><?php _e( 'Longitude', 'city' ); ?></label></th>
                     <td>
                         <?php wp_nonce_field( basename( __FILE__ ), 'longitude_term_nonce' ); ?>
-                        <input type="text" name="city_term_longitude" id="city-term-longitude" value="<?php echo esc_attr( $longitude ); ?>" class="longitude-field" />
+                        <input type="number" name="city_term_longitude" id="city-term-longitude" value="<?php echo esc_attr( $longitude ); ?>" class="longitude-field" />
+                    	 <p style="font-size:.75em; font-weight:bold; ">Use only numeric values here, latitudes and longitudes are best found using Google or another service. <br> **Note: Negative values are important</p>
                     </td>
                 </tr>
                 <?php }
