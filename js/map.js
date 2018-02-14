@@ -394,18 +394,18 @@
             }
         })(marker, infoWindowContent, infoWindow));
 
-         google.maps.event.addListener(marker,'mouseover',function(){
-          //jQuery(this).find('svg').addClass('hovered');
-          //console.log(jQuery(this).find('svg').attr('src'));
-          this.setIcon(hoverIcon);
-        });
+        //  google.maps.event.addListener(marker,'mouseover',function(){
+        //   //jQuery(this).find('svg').addClass('hovered');
+        //   //console.log(jQuery(this).find('svg').attr('src'));
+        //   this.setIcon(hoverIcon);
+        // });
 
-        google.maps.event.addListener(marker,'mouseout',function(){
-          //jQuery(this).find('circle').css({color:'white'});
-          //jQuery(this).find('svg').removeClass('hovered');
-          //console.log('not-hovered');
-          this.setIcon(icon);
-        });
+        // google.maps.event.addListener(marker,'mouseout',function(){
+        //   //jQuery(this).find('circle').css({color:'white'});
+        //   //jQuery(this).find('svg').removeClass('hovered');
+        //   //console.log('not-hovered');
+        //   this.setIcon(icon);
+        // });
 
         /*
          * The google.maps.event.addListener() event waits for
